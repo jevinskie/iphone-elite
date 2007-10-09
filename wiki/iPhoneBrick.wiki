@@ -1,5 +1,7 @@
+#summary Want to know why your phones got bricked?
 #labels iphone,brick
-Want to know why your phones got bricked?
+
+==Want to know why your phones got bricked?==
 
 AnySIM and iUnlock were patched to make a routine exit with  0 (successful) to unlock the phone.  Only problem was that that routine is NOT only called by NCK but rather by about six routines total.  The other five didn't expect 00 to be there and were therefore spammed across your BB during upgrade.  In short, wrong bytes were patched and now you're all bricked.  No, it wasn't Apple's fault.  Rather than figure out how to fix this themselves, the iPhone Dev Team would rather work on jailbreaking the new 1.1.1 and keep accepting your donations.  We want this fixed -- we want them to take responsibility for their bunk code.
 
