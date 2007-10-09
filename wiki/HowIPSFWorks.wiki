@@ -1,0 +1,64 @@
+#summary How IPSF works.
+
+=How IPSF works=
+This was deleted from The iPhone Dev Wiki as spam
+A very incomplete approach, feel free to contribute details if you know any, can contain wrong assumptions
+or conclusions!
+
+==The following things were observed by Zibri and/or others:==
+- IPSF does not change or patch things in baseband firmware, only temporary to put their patch in the
+nvram
+- some parts of IPSF software are not necessary steps to their unlock, maybe just obfuscation and distraction
+for reversers
+- when you run their app, a chunk of nvram is read and uploaded to IPSF server
+- the chunk is sent back modified where the LOCK is saved
+- then a custom baseband bootloader is flashed
+- the chunk is written to nvram by custom baseband bootloader
+- then they overwrite baseband with the untouched firmware again, original baseband in phone again
+- that's it
+
+So IPSF does a completely different approach as anySIM or iUnlock.c or geohot, they did not "steal" the
+devteams work.
+
+It looks like IPSF has found a way to create official unlock-codes for iphone, we do not know how, and that
+they embed the result in nvram as if you would use a normal AT+CLCK unlock on the phone.
+
+How do they know this? Some think, they might got their hands on Apples official (internal, not even
+available to ATT) unlock-code creator tool and embedded it in their server. That would also explain their
+big effort to hide themselfs behind resellers and that they could release that tool so quickly.
+
+{{{
+<ebika> gopi: ipsf may gen real codes, or it may write the results as if real codes were gen'd
+<Zibri> ebika: the second thing you said is correct.
+<Zibri> i know everything about ipsf. i disassenbled it completely.. dumped all transfer data  and BEST OF ALL d
+<Lurker\> Zibri: but you can't know what happens on the server, if they use a tool there or how they generate th
+<Zibri> the real "ipsf" is the server: the server authenticates the data and sends them back to ipsf ... then ip
+<Lurker\> Zibri: if you find time, update the wiki with your findings, would surly help a lot of people
+<Zibri> those data are the "proof" of the unlock. i mean. grey's patch is flawed because it writes a flag (unloc
+<Zibri> so the nvram corrupts. and then .. bye bye imei :)
+<Zibri> lurker: no time. no joy in doing it.
+<Zibri> if you want cut & paste my words to the wiki :)
+ 
+<w___> what they do is inject intermediate values into the hash
+<w___> directly into ram
+<w___> if they could generate real unlock codes they would sell them directly
+<w___> *send me your imei, here's your unlock code
+<w___> anyway.. its clever
+<w___> but it still requires access to the bb
+<w___> it DOES patch/overwrite the baseband
+<w___> it just puts it back to how it was when its doen
+<w___> *done
+<w___> alang: u send them your imei and pay, they add the imei to their server (allowing u to access), u run the
+<w___> the next part will answer both questions...
+<w___> the sw u run on the iphone installs a fake bb
+<w___> or pathces it
+<w___> it then probably grabs your imei and sends it over to the server
+<w___> it generates intermediate values
+<w___> it sends a fack nck code
+<w___> grabs the ram half way, send that to the server
+<w___> it replies with a colission
+<w___> it puts that back into nvram
+<w___> your nck gets verified as good
+<w___> it unlocks the simlock (rewrites the simlock area)
+<w___> it then puts your bb back to how it was
+}}}
