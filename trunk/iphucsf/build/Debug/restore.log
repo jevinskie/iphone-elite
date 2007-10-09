@@ -1,0 +1,3 @@
+2007-10-09 15:46:22.000 iphuc[29590:d03]: device disconnected (isDFU = 0)
+2007-10-09 15:46:22.000 iphuc[29590:d03]: _AMRecoveryModeDeviceFinalize: 0x502170
+2007-10-09 15:46:22.000 iphuc[29590:d03]: device connected (isDFU = 1)
