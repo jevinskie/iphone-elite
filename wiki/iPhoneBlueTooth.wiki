@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Interesting funds when inspecting iPhone Bluetooth.
 #labels Featured,Phase-QA,Phase-Design
 
 = iPhone BlueTooth =
