@@ -1,4 +1,5 @@
 #summary Run Safari without activation. Works on 1.1.1 phones too!
+#labels Safari
 
 = Launching Safari on unactivated iPhone =
 ^Info from: Gricko666 & pilot1^
@@ -16,3 +17,5 @@
 ==Enjoy your Safari==
 
 (yes, we can load any Safari exploit with this method on unactivated iPhone)
+
+Originally found here: [http://www.hackint0sh.org/forum/showthread.php?t=10378&page=2]
