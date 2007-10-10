@@ -1,6 +1,6 @@
 #summary Run Safari without activation. Works on 1.1.1 phones too!
 
-= Lunching Safari on unactivated iPhone =
+= Launching Safari on unactivated iPhone =
 ^Info from: Gricko666 & pilot1^
 
 
