@@ -1,0 +1,18 @@
+#summary Run Safari without activation. Works on 1.1.1 phones too!
+
+= Lunching Safari on unactivated iPhone =
+^Info from: Gricko666 & pilot1^
+
+
+  # enter ` *#307# ` press call, now use the back button on the top of your screen to remove ` *#307# `, now enter ` 0 ` , press call, press answer, press hold, press decline. And you get to the contact list. And thereafter every time you push the homebutton you just slide the "emergency call" slide, then enter ` 0 `, press call, press hold, press decline 
+  # Push contacts, end call and you get called again, this time hit decline and you access one of menus with favorites, you can edit contacts, do a test ride on keyboard, take photos etc.
+  # Now edit a new contact and type in a web-address 
+  # When you tap the address safari opens but only displays an error saying that it cannot access the website, it also looks like safari freezes up. 
+  # Now press the home button, and for a split second the iPhone shows a screen where you can select wi-fi networks. Now you have to be really quick and select a network before the phone freezes. 
+  # Next you get Back to the "emergency call page" and every on screen button has frozen so the only thing you can do is turn off the phone. 
+  # Turn the iPhone off then on again 
+  # Now you can go back to the contact list by Dialing 0, push call, then answer, then contacts, then hit that web address you typed in. 
+
+==Enjoy your Safari==
+
+(yes, we can load any Safari exploit with this method on unactivated iPhone)
