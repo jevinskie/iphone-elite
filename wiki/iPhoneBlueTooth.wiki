@@ -1,4 +1,4 @@
-#summary Interesting funds when inspecting iPhone Bluetooth.
+#summary Interesting finds when inspecting iPhone Bluetooth.
 #labels Featured,Phase-QA,Phase-Design
 
 = iPhone BlueTooth =
