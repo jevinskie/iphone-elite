@@ -31,7 +31,7 @@ located under /usr/local/standalone/firmware.
 8. Get the Secpack of baseband firmware 4.0 (some people have that, I have no idea
 how they got it but its needed). I can't give that one out unfortunately. name it "secpack".
 
-9. Download ieraser2 from http://www.fink.org/ieraser2/ or from Geohot's blog.
+9. Download ieraser2 from http://www.fink.org/ieraser/ or from Geohot's blog.
 
 10. Install all the tools on to the phone (i use the location /usr/local/bin)needed to get ssh access to the 1.0.2 firmware phone and upload ieraser2, the secpack, the firmware 3.14's FLS and EEP file and anySIM 1.0.2.
 
