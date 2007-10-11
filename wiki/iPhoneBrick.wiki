@@ -3,7 +3,7 @@
 
 ==Want to know why your phones got bricked?==
 
-AnySIM and iUnlock were patched to make a routine exit with  0 (successful) to unlock the phone.  Only problem was that that routine is NOT only called by NCK but rather by about six routines total because the baseband code is very well optimized.  An analogy was made in IRC that it was basically like patching memcpy.  The other five didn't expect 00 to be there and were therefore spammed across your BB during upgrade.
+AnySIM and iUnlock were patched to make a routine exit with  0 (successful) to unlock the phone.  Only problem was that that routine is not only called by NCK but rather by about six routines total because the baseband code is very well optimized.  An analogy was made in IRC that it was basically like patching memcpy.  The other five didn't expect 00 to be there and were therefore spammed across your BB during upgrade.
 
 We see here the disassembly of the baseband where the patch was made:
 
