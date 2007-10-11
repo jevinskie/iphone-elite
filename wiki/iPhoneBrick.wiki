@@ -3,6 +3,20 @@
 
 ==Want to know why your phones got bricked?==
 
-AnySIM and iUnlock were patched to make a routine exit with  0 (successful) to unlock the phone.  Only problem was that that routine is NOT only called by NCK but rather by about six routines total.  The other five didn't expect 00 to be there and were therefore spammed across your BB during upgrade.  In short, the wrong bytes were patched and now you're all bricked.  No, it wasn't Apple's fault.  Rather than figure out how to fix this themselves, the iPhone Dev Team would rather work on jailbreaking the new 1.1.1 and keep accepting your donations.  We want this fixed -- we want them to take responsibility for their bunk code.
+AnySIM and iUnlock were patched to make a routine exit with  0 (successful) to unlock the phone.  Only problem was that that routine is NOT only called by NCK but rather by about six routines total because the baseband code is very well optimized.  An analogy was made in IRC that it was basically like patching memcpy.  The other five didn't expect 00 to be there and were therefore spammed across your BB during upgrade.
 
-Unfortunately if you want something done you've got to do it yourself.  That's why we're here.  We've got the 1.1.1 jailbreak and are actively trying to reverse the Dev Team's damage.
+We see here the disassembly of the baseband where the patch was made:
+
+Zibri: ROM:A0237B38                 MOV     R0, R6
+Zibri: ROM:A0237B3C                 BL      IMPORTANT_ROUTINE
+Zibri: ROM:A0237B40                 CMP     R0, #0
+Zibri: ROM:A0237B44                 BNE     exit            ; NOP
+Zibri: ROM:A0237B48                 ADR     R0, a00000000   ; "00000000"
+Zibri: ROM:A0237B4C                 LDMIA   R0, {R0,R1}
+Zibri: ROM:A0237B50                 STR     R0, [R5,#0x28]
+Zibri: ROM:A0237B54                 STR     R1, [R5,#0x2C]
+Zibri: ROM:A0237B58                 B       loc_A0237B98
+
+IMPORTANT_ROUTINE is what would be memcpy in the analogy.  The patch was made to cause IMPORTANT_ROUTINE exit 0 (successful) by putting 'MOV R0, #0' at the end.  The coder wanted that routine to go to the "00000000".  Possibly attempts were made to NOP at the comment above but it was unsuccessful.  Possibly other routines were NOPed, but no luck.  So the person put 0 inside the routine and bam! it unlocked.  But as was stated above, this is the wrong routine.  So again, imagine you'd patched memcpy to behave this way.
+
+Now that the secpak for 1.1.1 has been recovered, it is possible to repair the damage caused.  Zibri is hopeful that he has found a better place to patch but that it requires extensive testing.  If you have 1.0.2 and a 3.14.08 baseband, locked and activated (no matter if legit or not) and are willing to test please contact us in IRC (link on the frontpage.)
