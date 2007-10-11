@@ -32,4 +32,4 @@ IMPORTANT_ROUTINE is what would be memcpy in the analogy.  The patch was made to
 
 Now that the secpak for 1.1.1 has been recovered, it may be possible to repair the damage caused.  iPhoneSIMFree claims to be able to reverse anySIM's damage and unlock a 1.1.1 phone that was "bricked" by the update.  It is yet unclear whether they're actually rebuilding the NVRAM or merely patching out the integrity checks.  However, Zibri is hopeful that he has found a better place to patch but that it requires extensive testing.   Meanwhile, our reverse-engineering of IPSF's method continues to offer helpful insight into how this should be done properly.
 
-If you have 1.0.2 and a 3.14.08 baseband, locked and activated (no matter if legit or not) and are willing to test please contact us in IRC (link on the frontpage.)
+If you have 1.0.2 and a 3.14.08 baseband, locked and activated (no matter if legit or not) and are willing to test (and are not completely clueless) please contact us in IRC (link on the frontpage.)
