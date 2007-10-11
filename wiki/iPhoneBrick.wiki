@@ -7,8 +7,8 @@ AnySIM and iUnlock were patched to make a routine exit with  0 (successful) to u
 
 We see here the disassembly of the baseband where the patch was made:
 
-`Zibri: ROM:A0237B38                 MOV     R0, R6
-Zibri: ROM:A0237B3C                 BL      IMPORTANT_ROUTINE
+*`Zibri: ROM:A0237B38                 MOV     R0, R6`*
+`*Zibri: ROM:A0237B3C                 BL      IMPORTANT_ROUTINE`*
 Zibri: ROM:A0237B40                 CMP     R0, #0
 Zibri: ROM:A0237B44                 BNE     exit            ; NOP
 Zibri: ROM:A0237B48                 ADR     R0, a00000000   ; "00000000"
