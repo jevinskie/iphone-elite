@@ -1,0 +1,64 @@
+How to Downgrade screwed up baseband 4.0 (after anySIM and 1.1.1 firmware upgrade).
+
+= UNBRICKING 1.1.1 UPGRADE =
+
+Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.1.1 on a anySIM unlocked iPhone.
+
+= HOW TO =
+
+0. Download firmware 1.0.2 from apple:
+http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-3823.20070821.vormd/iPhone1,1_1.0.2_1C28_Restore.ipsw
+
+1. rename it to iPhone1,1_1.0.2_1C28_Restore.zip and unpack.
+
+2. extract the ramdisk file from it by typing  
+  dd if=694-5259-38.dmg of=ramdisk.dmg bs=512 skip=4
+
+3. mount the ramdisk by doubleclicking it (on mac). On windows use some HFS tools to peek inside it or get the files from someone who extracted it already.
+
+4. Put your phone into DFU mode and do option-restore in iTunes. This will reflash everything to 1.0.2. You will get an error at the end because it couldnt reflash the baseband. You will end up with a yellow triangle.
+
+5. Quit iTunes, launch iNdependence and quit it again, relaunch iTunes. Press the power button on the phone for 3-4 seconds. After like 10 seconds you end up on the activation screen.
+
+6. Complete the Downgrade by Jailbreaking / Activating, Installing SSh on to the phone etc.
+There are tons of wiki's about that so I won't repeat. (probably also true for step 4,5)
+
+7. Extract the baseband firmware and EEPROM files of 3.14 from the ramdisk of
+firmware 1.0.2. The files are named  ICE03.14.08_G.eep and ICE03.14.08_G.fls and are
+located under /usr/local/standalone/firmware.
+
+8. Get the Secpack of baseband firmware 4.0 (some people have that, I have no idea
+how they got it but its needed). I can't give that one out unfortunately. name it "secpack".
+
+9. Download ieraser2 from http://www.fink.org/ieraser2/ or from Geohot's blog.
+
+10. Install all the tools on to the phone (i use the location /usr/local/bin)needed to get ssh access to the 1.0.2 firmware phone and upload ieraser2, the secpack, the firmware 3.14's FLS and EEP file and anySIM 1.0.2.
+
+11. ssh to the phone. Stop CommCenter by typing: 
+     
+      launchctl remove com.apple.CommCenter
+
+12. run bbupdater -v. it will tell you you run version 4.01 of the baseband.
+    (bbupdater is a tool by apple which is also on the ramdisk)
+
+13. run ieraser2. This will WIPE your baseband, given a file "secpack" is in the same
+directory and this is a version 4 secpack.
+
+14. run " bbupdater -v " again. it will not find any firmware now.
+15. run " bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls "
+16. run " bbupdater -v " it will tell you you run version 3.14
+At this point in time you will still have a IMEI number starting with 004999... and
+its not of use yet. So still bricked but at least downgraded to version 3.14.
+
+17. run anySIM Version 1.0.2 (note that older versions might not be good here as
+1.0.2 has a lot of fixes for this kind of stuff).
+
+Now you have a unlocked 3.14 baseband with IMEI being your original one!
+Congratulations you now fully recovered from your update 1.1.1 and are back to 1.0.2.
+
+If you want to return to virgin state again you can stop the commcenter again and
+repeat " bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls " again to reflash the
+"locked" version of the baseband.
+
+
+A tool automating all this is in the workings....
