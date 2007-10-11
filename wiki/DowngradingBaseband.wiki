@@ -1,5 +1,5 @@
 #summary How to Downgrade screwed up baseband 4.0 (after anySIM and 1.1.1 firmware upgrade).
-#labels Featured
+#labels Featured,Baseband,Downgrade,iEraser
 
 = UNBRICKING 1.1.1 UPGRADE =
 
@@ -64,5 +64,4 @@ repeat " bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls " again to reflash 
 
 A tool automating all this is in the workings....
 
-==*Digg This Article!*==
 [http://digg.com/apple/How_to_Downgrade_your_iPhone_s_Baseband http://digg.com/img/badges/180x35-digg-button.gif]
