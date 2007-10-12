@@ -1,7 +1,7 @@
 #summary Frequently Asked Questions
 
 
-||*I used anySIM or iUnlock on firmware 1.0.2 and then upgraded to 1.1.1 when it came out.  Now my iPhone's phone function does not work.  What should I do?* ||
+|| *I used anySIM or iUnlock on firmware 1.0.2 and then upgraded to 1.1.1 when it came out.  Now my iPhone's phone function does not work.  What should I do?* ||
 
 You can do any of the following:
 
