@@ -108,6 +108,9 @@ launchctl load com.apple.CommCenter
 
 ===Enjoy!===
 
+==This procedure will *not* fix the corrupt NVRAM caused by upgrading to 1.1.1 after anySIM on 1.0.2.  The damage is far too great and reflashing the BB will not fix it.  This process allows users with non-operational basebands to restore to a 1.0.2 OS firmware and 1.0.2 BB (3.14).==
+===If you upgrade the 1.1.1 *after* performing these steps you will brick again===
+
 
 *If you don't want to pay for iPhoneSIMFree to have a less ...bad... unlock solution then stay tuned as we are actively working on our own safe unlock for both 1.0.2 and 1.1.1!*
 
