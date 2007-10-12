@@ -15,6 +15,6 @@
 
 Not at this time.  We are actively investigating to what extent those applications corrupted the NVRAM and whether it is fixable.  However, iPhoneSIMFree's latest unlock solution claims to be able to fix the NVRAM corruption and unlock a bricked 1.1.1 phone.  We currently do not know if they are actually rebuilding the NVRAM or merely patching out the integrity checks.
 
-|| *Can I downgrade the 4.0 baseband (1.1.1) to the 3.14.08 (1.0.2) baseband but keep the 1.1.1 OS firmware so I can use my unlocked phone in 1.1.1?* ||
+|| *Can I downgrade the 4.0 (1.1.1) baseband to the 3.14.08 (1.0.2) baseband but keep the 1.1.1 OS firmware so I can use my unlocked phone in 1.1.1?* ||
 
 This is currently being investigated.  A few people have tried it but they report general instability problems regarding anything that has to do with the phone functionality.  It is likely that the 1.1.1 version of _lockdownd_ doesn't play well with the older baseband version.  It is currently not recommended, but stay tuned as we investigate further.
