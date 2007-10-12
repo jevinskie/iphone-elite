@@ -13,7 +13,7 @@ http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-3823.2
 1. rename it to iPhone1,1_1.0.2_1C28_Restore.zip and unpack.
 
 2. extract the ramdisk file from it by typing  
-  dd if=694-5259-38.dmg of=ramdisk.dmg bs=512 skip=4
+  dd if=009-7698-4.dmg of=ramdisk.dmg bs=512 skip=4 conv=sync
 
 3. mount the ramdisk by doubleclicking it (on mac). On windows use some HFS tools to peek inside it or get the files from someone who extracted it already.
 
