@@ -1,5 +1,4 @@
 #summary How to redirect syslogd output to a file.
-#labels Featured
 
 = How to redirect syslogd output to a file. =
 
