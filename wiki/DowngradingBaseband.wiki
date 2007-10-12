@@ -15,6 +15,7 @@ Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.
 {{{
 dd if=009-7698-4.dmg of=ramdisk.dmg bs=512 skip=4 conv=sync
 }}}
+(or remove the first 2048 bytes by using a hex editor)
 
 *3.* Mount the ramdisk by double-clicking it (on Mac). On Windows use some HFS tools to peek inside it or get the files from someone who extracted it already.
 
