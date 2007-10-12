@@ -7,8 +7,8 @@
 *.* /var/log/syslog 
 }}}
 
-2. add the following lines to */System/Library/LaunchDaemons/com.apple.syslogd.plist*
-right after *<string>/usr/sbin/syslogd</string>*:
+2. add the following lines to `/System/Library/LaunchDaemons/com.apple.syslogd.plist`
+right after `<string>/usr/sbin/syslogd</string>`:
 {{{
 <string>-bsd_out</string>
 <string>1</string>
