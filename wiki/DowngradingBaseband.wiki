@@ -37,7 +37,7 @@ how they got it but its needed). I can't give that one out unfortunately. Name i
 
 *11.* SSH to the phone. Stop CommCenter by typing: 
 {{{
-launchctl remove com.apple.CommCenter
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 }}}
 
 *12.* Now run:
@@ -86,7 +86,7 @@ Now you have an unlocked 3.14 baseband with IMEI being your original one!
 == *Do you want to return to factory-locked state?* ==
 Simply do:
 {{{
-launchctl remove com.apple.CommCenter
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 }}}
 To stop commCenter
 
