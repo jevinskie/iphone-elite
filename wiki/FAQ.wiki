@@ -13,7 +13,7 @@
 
 || *Is it possible to completely remove any sign that anySIM or iUnlock ever touched my phone?* ||
 
-Not at this time.  We are actively investigating to what extent those applications corrupted the NVRAM and whether it is fixable.  iPhoneSIMFree's latest unlock solution claims to be able to fix the NVRAM corruption and unlock a bricked 1.1.1 phone.  We currently do not know if they are actually rebuilding the NVRAM or merely patching out the integrity checks.
+Not at this time.  We are actively investigating to what extent those applications corrupted the NVRAM and whether it is fixable.  However, iPhoneSIMFree's latest unlock solution claims to be able to fix the NVRAM corruption and unlock a bricked 1.1.1 phone.  We currently do not know if they are actually rebuilding the NVRAM or merely patching out the integrity checks.
 
 || *Can I downgrade the 4.0 baseband (1.1.1) to the 3.14.08 (1.0.2) baseband but keep the 1.1.1 OS firmware so I can use my unlocked phone in 1.1.1?* ||
 
