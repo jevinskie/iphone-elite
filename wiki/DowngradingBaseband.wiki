@@ -74,14 +74,26 @@ its not of use yet. So still bricked but at least downgraded to version 3.14.
 1.0.2 has a lot of fixes for this kind of stuff).
 
 Now you have an unlocked 3.14 baseband with IMEI being your original one!
-Congratulations you now fully recovered from your update 1.1.1 and are back to 1.0.2.
 
-If you want to return to virgin state again you can stop the commcenter again and
-repeat " bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls " again to reflash the
-"locked" version of the baseband.
+*Congratulations you now fully recovered from your update 1.1.1 and are back to 1.0.2.*
+You can stop here if you want to remain unlocked with iPhone firmware 1.0.2 with working phone.
 
+== *Do you want to completely virginize and remove all traces of anySIM?* ==
+Simply do:
+{{{
+launchctl remove com.apple.CommCenter
+}}}
+To stop commCenter
 
-A tool automating all this is in the workings....
+then do:
+{{{
+bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls
+}}}
+This will reflash the "locked" version of the baseband removing any sign that anySIM ever touched your phone. Enjoy!
+
+*If you don't want to pay for iPhoneSIMFree to have a less ...bad... unlock solution then stay tuned as we are actively working on our own safe unlock for both 1.0.2 and 1.1.1!*
+
+_A tool automating all this is in the workings...._
 
 *Discuss this here*: http://rdgaccess.com/iphone-elite/viewtopic.php?t=27
 
