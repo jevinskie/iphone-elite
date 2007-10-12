@@ -94,7 +94,15 @@ then do:
 {{{
 bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls
 }}}
-This will reflash the "locked" version of the baseband removing any sign that anySIM ever touched your phone. Enjoy!
+This will reflash the "locked" version of the baseband removing any sign that anySIM ever touched your phone.
+
+Now restart commCenter:
+{{{
+launchctl load com.apple.CommCenter
+}}}
+
+===Enjoy!===
+
 
 *If you don't want to pay for iPhoneSIMFree to have a less ...bad... unlock solution then stay tuned as we are actively working on our own safe unlock for both 1.0.2 and 1.1.1!*
 
