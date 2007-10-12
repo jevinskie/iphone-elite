@@ -58,7 +58,7 @@ This time it will not find any baseband firmware
 *15.* Now do:
 {{{
 bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls
-}}
+}}}
 This will flash the 3.14.08 baseband firmware back to the iPhone.
 
 *16.* Now check to make sure it worked:
@@ -70,7 +70,7 @@ It should tell you the version is 3.14
 At this point in time you will still have a IMEI number starting with 004999... and
 its not of use yet. So still bricked but at least downgraded to version 3.14.
 
-17. run anySIM Version 1.0.2 (note that older versions might not be good here as
+*17.* run anySIM Version 1.0.2 (note that older versions might not be good here as
 1.0.2 has a lot of fixes for this kind of stuff).
 
 Now you have a unlocked 3.14 baseband with IMEI being your original one!
