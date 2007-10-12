@@ -84,3 +84,4 @@ repeat " bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls " again to reflash 
 A tool automating all this is in the workings....
 
 [http://digg.com/apple/How_to_Downgrade_your_iPhone_s_Baseband http://digg.com/img/badges/180x35-digg-button.gif]
+Discuss this here: http://rdgaccess.com/iphone-elite/viewtopic.php?t=27
