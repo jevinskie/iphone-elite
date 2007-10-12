@@ -7,6 +7,8 @@
 
 Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.1.1 on an anySIM unlocked iPhone.
 
+_For simpler instructions for Mac and Windows see [http://rdgaccess.com/iphone-elite/viewtopic.php?p=141#141 here].
+
 = HOW TO =
 
 *0.* Download iPhone 1.0.2 firmware from Apple [http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-3823.20070821.vormd/iPhone1,1_1.0.2_1C28_Restore.ipsw Here]
