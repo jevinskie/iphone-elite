@@ -92,7 +92,8 @@ Now you have an unlocked 3.14 baseband with IMEI being your original one!
 || You can stop here if you want to remain unlocked with iPhone firmware 1.0.2 with working phone. ||
 
 == *Do you want to return to factory-locked state?* ==
-=== *NOTE:* === *This will not fix the NVRAM corruption problem caused by anySIM/iUnlock so will therefore not "virginize" your phone.  This is only useful to remove the anySIM patch from the baseband firmware.  Your IMEI will be incorrect and your phone will likely not work.*
+|| *NOTE:* ||
+*This will not fix the NVRAM corruption problem caused by anySIM/iUnlock so will therefore not "virginize" your phone.  This is only useful to remove the anySIM patch from the baseband firmware.  Your IMEI will be incorrect and your phone will likely not work.*
 
 Simply do:
 {{{
