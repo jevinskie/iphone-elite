@@ -46,22 +46,27 @@ bbupdater -v
 }}}
 It will tell you you run version 4.01 of the baseband.  "bbupdater" is a tool by Apple which is also on the ramdisk.
 
-*13.* run iEraser2. This will *WIPE* your baseband, given a file "secpack" is in the same
+*13.* Execute this in the console, to give iEraser executable rights:
+{{{
+chmod +x ieraser
+}}}
+
+*14.* Run iEraser2. This will *WIPE* your baseband, given a file "secpack" is in the same
 directory and this is a version 4 secpack.
 
-*14.* Run the bbupdater command again:
+*15.* Run the bbupdater command again:
 {{{
 bbupdater -v
 }}}
 This time it will not find any baseband firmware
 
-*15.* Now do:
+*16.* Now do:
 {{{
 bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls
 }}}
 This will flash the 3.14.08 baseband firmware back to the iPhone.
 
-*16.* Now check to make sure it worked:
+*17.* Now check to make sure it worked:
 {{{
 bbupdater -v
 }}}
@@ -70,10 +75,10 @@ It should tell you the version is 3.14
 At this point you will still have an IMEI number starting with 004999... and
 its not of use yet. So still bricked but at least downgraded to version 3.14.
 
-*17.* Now run anySIM Version 1.0.2 (*note:* older versions might not be good here as
+*18.* Now run anySIM Version 1.0.2 (*note:* older versions might not be good here as
 1.0.2 has a lot of fixes for this kind of stuff).
 
-*18.* Start commCenter again:
+*19.* Start commCenter again:
 {{{
 launchctl load com.apple.CommCenter
 }}}
