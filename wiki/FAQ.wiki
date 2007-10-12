@@ -10,3 +10,7 @@
 *2)* You can purchase an iPhoneSIMFree license and use their software to recover from anySIM/iUnlock corruption and unlock your phone under 1.1.1.
 
 *3)* You can wait for a free and [http://code.google.com/p/iphone-elite/wiki/iPhoneBrick safe] unlock solution, meanwhile just using your device as an iPod Touch.
+
+|| *Is it possible to completely remove any sign that anySIM or iUnlock ever touched my phone?* ||
+
+Not at this time.  We are actively investigating to what extent those applications corrupted the NVRAM and whether it is fixable.  iPhoneSIMFree's latest unlock solution claims to be able to fix the NVRAM corruption and unlock a bricked 1.1.1 phone.  We are currently do not know if they are actually rebuilding the NVRAM or merely patching out the integrity checks.
