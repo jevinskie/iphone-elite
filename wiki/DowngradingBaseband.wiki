@@ -1,6 +1,7 @@
 #summary How to Downgrade screwed up baseband 4.0 (after anySIM and 1.1.1 firmware upgrade).
 #labels Featured,Baseband,Downgrade,iEraser
-*Note: this will not help those waiting to upgrade to 1.1.1 without bricking. Stay tuned for an updated 1.0.2/1.1.1 unlock to allow you to upgrade and keep all functionality.*
+
+*Note: this will not help those waiting to upgrade from anySim/iunlock/geohot hw unlocked to 1.1.1 without bricking. Stay tuned for an updated 1.0.2/1.1.1 unlock to allow you to upgrade and keep all functionality.*
 
 = UNBRICKING 1.1.1 UPGRADE =
 
