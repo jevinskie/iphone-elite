@@ -7,8 +7,7 @@ Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.
 
 = HOW TO =
 
-0. Download firmware 1.0.2 from apple:
-http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-3823.20070821.vormd/iPhone1,1_1.0.2_1C28_Restore.ipsw
+*0.* Download firmware 1.0.2 from Apple [http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-3823.20070821.vormd/iPhone1,1_1.0.2_1C28_Restore.ipsw Here]
 
 1. rename it to iPhone1,1_1.0.2_1C28_Restore.zip and unpack.
 
