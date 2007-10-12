@@ -75,8 +75,8 @@ its not of use yet. So still bricked but at least downgraded to version 3.14.
 
 Now you have an unlocked 3.14 baseband with IMEI being your original one!
 
-*Congratulations you now fully recovered from your update 1.1.1 and are back to 1.0.2.*
-You can stop here if you want to remain unlocked with iPhone firmware 1.0.2 with working phone.
+*Congratulations you now fully recovered from your botched update to 1.1.1 and are back to 1.0.2.*
+|| You can stop here if you want to remain unlocked with iPhone firmware 1.0.2 with working phone. ||
 
 == *Do you want to completely virginize and remove all traces of anySIM?* ==
 Simply do:
