@@ -3,7 +3,7 @@
 
 = UNBRICKING 1.1.1 UPGRADE =
 
-Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.1.1 on a anySIM unlocked iPhone.
+Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.1.1 on an anySIM unlocked iPhone.
 
 = HOW TO =
 
