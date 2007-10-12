@@ -1,9 +1,9 @@
 #summary Frequently Asked Questions
 
 
-*I used anySIM or iUnlock on firmware 1.0.2 and then upgraded to 1.1.1 when it came out.  Now my iPhone's phone function does not work.  What should I do?*
+||*I used anySIM or iUnlock on firmware 1.0.2 and then upgraded to 1.1.1 when it came out.  Now my iPhone's phone function does not work.  What should I do?* ||
 
 You can do any of the following:
-* Downgrade the 1.1.1 OS firmware to 1.0.2 then follow our guide [http://code.google.com/p/iphone-elite/wiki/DowngradingBaseband here] to downgrade the baseband firmware to 3.14.08 (1.0.2).  This will restore the phone functionality.  You will basically have a 1.0.2 phone again.
+ Downgrade the 1.1.1 OS firmware to 1.0.2 then follow our guide [http://code.google.com/p/iphone-elite/wiki/DowngradingBaseband here] to downgrade the baseband firmware to 3.14.08 (1.0.2).  This will restore the phone functionality.  You will basically have a 1.0.2 phone again.
 * You can purchase an iPhoneSIMFree license and use their software to recover from anySIM/iUnlock corruption and unlock your phone under 1.1.1
 * You can wait for a free and *safe* unlock solution, meanwhile just using your device as an iPod Touch
