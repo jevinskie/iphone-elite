@@ -16,39 +16,57 @@ Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.
 dd if=009-7698-4.dmg of=ramdisk.dmg bs=512 skip=4 conv=sync
 }}}
 
-3. mount the ramdisk by doubleclicking it (on mac). On windows use some HFS tools to peek inside it or get the files from someone who extracted it already.
+*3.* Mount the ramdisk by double-clicking it (on Mac). On Windows use some HFS tools to peek inside it or get the files from someone who extracted it already.
 
-4. Put your phone into DFU mode and do option-restore in iTunes. This will reflash everything to 1.0.2. You will get an error at the end because it couldnt reflash the baseband. You will end up with a yellow triangle.
+*4.* Put your phone into DFU mode and do option-restore in iTunes. This will reflash everything to 1.0.2. You will get an error at the end because it couldnt reflash the baseband. You will end up with a yellow triangle.
 
-5. Quit iTunes, launch iNdependence and quit it again, relaunch iTunes. Press the power button on the phone for 3-4 seconds. After like 10 seconds you end up on the activation screen.
+*5.* Quit iTunes, launch iNdependence then quit it again.  Now relaunch iTunes. Press the power button on the iPhone for 3-4 seconds. After about 10 seconds you end up on the activation screen.
 
-6. Complete the Downgrade by Jailbreaking / Activating, Installing SSh on to the phone etc.
-There are tons of wiki's about that so I won't repeat. (probably also true for step 4,5)
+*6.* Complete the baseband downgrade by jailbreaking/activating, installing SSH on to the iPhone etc.  There are tons of wiki's about that so I won't repeat. (Probably also true for step 4 and 5.)
 
-7. Extract the baseband firmware and EEPROM files of 3.14 from the ramdisk of
-firmware 1.0.2. The files are named  ICE03.14.08_G.eep and ICE03.14.08_G.fls and are
-located under /usr/local/standalone/firmware.
+*7.* Extract the baseband firmware and EEPROM files of 3.14 from the ramdisk of
+firmware 1.0.2. The files are named  *ICE03.14.08_G.eep* and *ICE03.14.08_G.fls* and are
+located under */usr/local/standalone/firmware*.
 
-8. Get the Secpack of baseband firmware 4.0 (some people have that, I have no idea
-how they got it but its needed). I can't give that one out unfortunately. name it "secpack".
+*8.* Get the secpack of baseband firmware 4.0 (some people have that, I have no idea
+how they got it but its needed). I can't give that one out unfortunately. Name it "secpack".
 
-9. Download ieraser2 from http://www.fink.org/ieraser/ or from Geohot's blog.
+*9.* Download iEraser2 [http://www.fink.org/ieraser/ here] or from Geohot's blog.
 
-10. Install all the tools on to the phone (i use the location /usr/local/bin)needed to get ssh access to the 1.0.2 firmware phone and upload ieraser2, the secpack, the firmware 3.14's FLS and EEP file and anySIM 1.0.2.
+*10.* Install all the tools onto the iPhone (I use the location /usr/local/bin.)  You need to have SSH access to the 1.0.2 firmware iPhone and upload *iEraser2*, the *secpack*, *ICE03.14.08_G.eep*, *ICE03.14.08_G.fls* and *anySIM 1.0.2*.
 
-11. ssh to the phone. Stop CommCenter by typing: 
-     
-      launchctl remove com.apple.CommCenter
+*11.* SSH to the phone. Stop CommCenter by typing: 
+{{{
+launchctl remove com.apple.CommCenter
+}}}
 
-12. run bbupdater -v. it will tell you you run version 4.01 of the baseband.
-    (bbupdater is a tool by apple which is also on the ramdisk)
+*12.* Now run:
+{{{
+bbupdater -v
+}}}
+It will tell you you run version 4.01 of the baseband.  "bbupdater" is a tool by Apple which is also on the ramdisk.
 
-13. run ieraser2. This will WIPE your baseband, given a file "secpack" is in the same
+*13.* run iEraser2. This will *WIPE* your baseband, given a file "secpack" is in the same
 directory and this is a version 4 secpack.
 
-14. run " bbupdater -v " again. it will not find any firmware now.
-15. run " bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls "
-16. run " bbupdater -v " it will tell you you run version 3.14
+*14.* run the bbupdater command again:
+{{{
+bbupdater -v
+}}}" 
+This time it will not find any baseband firmware
+
+*15.* Now do:
+{{{
+bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls
+}}
+This will flash the 3.14.08 baseband firmware back to the iPhone.
+
+*16.* Now check to make sure it worked:
+{{{
+bbupdater -v
+}}}
+It should tell you the version is 3.14
+
 At this point in time you will still have a IMEI number starting with 004999... and
 its not of use yet. So still bricked but at least downgraded to version 3.14.
 
