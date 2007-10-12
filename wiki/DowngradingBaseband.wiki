@@ -83,7 +83,7 @@ Now you have an unlocked 3.14 baseband with IMEI being your original one!
 *Congratulations you now fully recovered from your botched update to 1.1.1 and are back to 1.0.2.*
 || You can stop here if you want to remain unlocked with iPhone firmware 1.0.2 with working phone. ||
 
-== *Do you want to completely virginize and remove all traces of anySIM?* ==
+== *Do you want to return to factory-locked state?* ==
 Simply do:
 {{{
 launchctl remove com.apple.CommCenter
@@ -94,7 +94,7 @@ then do:
 {{{
 bbupdater -e ICE03.14.08_G.eep -f ICE03.14.08_G.fls
 }}}
-This will reflash the "locked" version of the baseband removing any sign that anySIM ever touched your phone.
+This will reflash the "locked" version of the baseband.
 
 Now restart commCenter:
 {{{
