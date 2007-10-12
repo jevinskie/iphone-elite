@@ -49,10 +49,10 @@ It will tell you you run version 4.01 of the baseband.  "bbupdater" is a tool by
 *13.* run iEraser2. This will *WIPE* your baseband, given a file "secpack" is in the same
 directory and this is a version 4 secpack.
 
-*14.* run the bbupdater command again:
+*14.* Run the bbupdater command again:
 {{{
 bbupdater -v
-}}}" 
+}}}
 This time it will not find any baseband firmware
 
 *15.* Now do:
