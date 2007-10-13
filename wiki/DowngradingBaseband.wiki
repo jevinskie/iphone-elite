@@ -34,7 +34,7 @@ firmware 1.0.2. The files are named  *ICE03.14.08_G.eep* and *ICE03.14.08_G.fls*
 located under */usr/local/standalone/firmware*.
 
 *8.* Get the secpack of baseband firmware 4.0 (some people have that, I have no idea
-how they got it but its needed). I can't give that one out unfortunately. Name it "secpack".
+how they got it but its needed). Name it "secpack". (maybe http://**********.com/files/61914114/secpack40113.bin will help)
 
 *9.* Download iEraser2 [http://www.fink.org/ieraser/ here] or from Geohot's blog.
 
