@@ -13,3 +13,46 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 - A custom baseband bootblock is used to flash the 'unlock' patch to NVRAM.
 
 - Then they overwrite the baseband with the original firmware again.
+
+= The following is the main thread in the IPSF software =
+{{{
+0000D8F4 MAIN_LOOP                               ; CODE XREF: DO_THINGS+50j
+0000D8F4                                         ; DO_THINGS+A0j
+0000D8F4                 LDR     R3, [SP,#0xA0+var_C]
+0000D8F8                 LDR     R3, [R3,#0x1C]
+0000D8FC                 CMP     R3, #3
+0000D900                 BEQ     Prepare_UNLOCK
+0000D904                 LDR     R3, [SP,#0xA0+var_C]
+0000D908                 LDR     R3, [R3,#0x1C]
+0000D90C                 CMP     R3, #4
+0000D910                 BEQ     Create_Fingerprint
+0000D914                 LDR     R3, [SP,#0xA0+var_C]
+0000D918                 LDR     R3, [R3,#0x1C]
+0000D91C                 CMP     R3, #5
+0000D920                 BEQ     Comunicate_Server
+0000D924                 LDR     R3, [SP,#0xA0+var_C]
+0000D928                 LDR     R3, [R3,#0x1C]
+0000D92C                 CMP     R3, #6
+0000D930                 BEQ     Unlock___
+0000D934                 LDR     R3, [SP,#0xA0+var_C]
+0000D938                 LDR     R3, [R3,#0x1C]
+0000D93C                 CMP     R3, #7
+0000D940                 BEQ     Cleanup___
+0000D944                 LDR     R3, [SP,#0xA0+var_C]
+0000D948                 LDR     R3, [R3,#0x1C]
+0000D94C                 CMP     R3, #8
+0000D950                 BNE     Success
+0000D954                 MOV     R3, #9
+0000D958                 LDR     R2, [SP,#0xA0+var_C]
+0000D95C                 STR     R3, [R2,#0x1C]
+0000D960                 LDR     R3, [SP,#0xA0+var_C]
+0000D964                 LDRB    R3, [R3,#0x26]
+0000D968                 CMP     R3, #1
+0000D96C                 BNE     check_unlock
+0000D970                 LDR     R0, [SP,#0xA0+var_C]
+0000D974                 STR     R0, [SP,#0xA0+var_78]
+0000D978                 LDR     R3, =do_things_0
+0000D97C                 LDR     R1, [R3]
+0000D980                 BL      _objc_msgSend
+0000D984                 B       exit1
+}}}
