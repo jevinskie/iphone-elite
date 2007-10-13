@@ -60,8 +60,8 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 == Explaination: ==
 
--*Prepare_UNLOCK* is the routine that flashes custom firmware to the baseband.
--*Create_Fingerprint* extracts a small chunk of NVRAM and creates a packet.
+|| *Prepare_UNLOCK* is the routine that flashes custom firmware to the baseband.||
+|| *Create_Fingerprint* extracts a small chunk of NVRAM and creates a packet. ||
 -*Communicate_Server* sends that packet to backoffice.iphonesimfree.com and receives it back modified.
 -*Unlock* writes the now modified chunk back to NVRAM.
 -*Cleanup* removes the custom baseband firmware and replaces the original.
