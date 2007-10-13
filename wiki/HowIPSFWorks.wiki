@@ -16,8 +16,8 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 = The following is the main thread in the IPSF software =
 {{{
-0000D8F4 MAIN_LOOP                               ; CODE XREF: DO_THINGS+50j
-0000D8F4                                         ; DO_THINGS+A0j
+0000D8F4 MAIN_LOOP                               ; CODE XREF: DO_THINGS+50j
+0000D8F4                                         ; DO_THINGS+A0j
 0000D8F4                 LDR     R3, [SP,#0xA0+var_C]
 0000D8F8                 LDR     R3, [R3,#0x1C]
 0000D8FC                 CMP     R3, #3
