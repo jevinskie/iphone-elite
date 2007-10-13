@@ -1,5 +1,5 @@
 #summary How to Downgrade screwed up baseband 4.0 (after anySIM and 1.1.1 firmware upgrade).
-#labels Featured,Baseband,Downgrade,iEraser
+#labels Featured,Baseband,Downgrade,iEraser,Unbrick
 
 *Note: this will not help those waiting to upgrade from anySim/iunlock/geohot hw unlocked to 1.1.1 without bricking. Stay tuned for an updated 1.0.2/1.1.1 unlock to allow you to upgrade and keep all functionality.*
 
@@ -121,6 +121,15 @@ launchctl load com.apple.CommCenter
 *If you don't want to pay for iPhoneSIMFree to have a less ...bad... unlock solution then stay tuned as we are actively working on our own safe unlock for both 1.0.2 and 1.1.1!*
 
 _A tool automating all this is in the workings...._
+
+
+===Notes===
+
+A few clarifications:
+
+If you have 1.1.1 factory, never unlocked. the above method allows you to downgrade to factory 1.0.2 if you stop after the ieraser & bbupdater step. ieraser step allows you to reflash any firmware which is accepted by the bootloader. Otherwise you can only put same or newer firmware.
+
+If you have 1.0.2 unlocked with anySIM and then bricked by update 1.1.1, this method allows you to downgrade to 1.0.2 and baseband 3.14 firmware (probably also 3.12 if you want that one) and bring your phone back to life. If you do the first bbupdater step and then the anySIM step, your IMEI will be back to normal. The second bbupdater step will bring your phone to a virgin state with proper IMEI so you could run IPSF and then upgrade to 1.1.1 if you want this. If you leave it unlocked with anySIM it will brick again when updating to 1.1.1 of course. This is known. But so far 1.1.1 is not recommended for anyone with 3rd party apps and non AT&T sim anyway. In 1.1.1 so many things are much harder to get to.
 
 *Discuss this here*: http://rdgaccess.com/iphone-elite/viewtopic.php?t=27
 
