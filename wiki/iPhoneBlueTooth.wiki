@@ -1,5 +1,5 @@
 #summary Interesting finds when inspecting iPhone Bluetooth.
-#labels Featured,Phase-QA,Phase-Design
+#labels Phase-QA,Phase-Design
 
 = iPhone BlueTooth =
 
