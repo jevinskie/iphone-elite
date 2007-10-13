@@ -14,7 +14,7 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 - Then they overwrite the baseband with the original firmware again.
 
-= The following is the main thread in the IPSF software =
+== The following is the main thread in the IPSF software ==
 {{{
 0000D8F4 MAIN_LOOP                               ; CODE XREF: DO_THINGS+50j
 0000D8F4                                         ; DO_THINGS+A0j
