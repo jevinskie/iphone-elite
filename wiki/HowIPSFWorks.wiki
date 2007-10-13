@@ -1,4 +1,5 @@
 #summary How iPhoneSIMFree works.
+#labels Featured,IPSF,Phase-QA
 
 =How IPSF works=
 _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
