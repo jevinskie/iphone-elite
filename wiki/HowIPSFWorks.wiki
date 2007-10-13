@@ -1,31 +1,21 @@
-#summary How IPSF works.
+#summary How iPhoneSIMFree works.
 
 =How IPSF works=
-This was deleted from The iPhone Dev Wiki as spam
-A very incomplete approach, feel free to contribute details if you know any, can contain wrong assumptions
-or conclusions!
+_This was originally posted, then deleted from The iPhone Dev Wiki as spam._
 
 ==The following things were observed by Zibri and/or others:==
-- IPSF does not change or patch things in baseband firmware, only temporary to put their patch in the
-nvram
-- some parts of IPSF software are not necessary steps to their unlock, maybe just obfuscation and distraction
-for reversers
-- when you run their app, a chunk of nvram is read and uploaded to IPSF server
-- the chunk is sent back modified where the LOCK is saved
-- then a custom baseband bootloader is flashed
-- the chunk is written to nvram by custom baseband bootloader
-- then they overwrite baseband with the untouched firmware again, original baseband in phone again
-- that's it
+- IPSF does not make a patch or otherwise change things in baseband firmware, except temporarily to put their unlock patch in the NVRAM.
 
-So IPSF does a completely different approach as anySIM or iUnlock.c or geohot, they did not "steal" the
-devteams work.
+- Some parts of the IPSF software are not necessary steps to their unlock, maybe just obfuscation and distraction for those trying to reverse-engineer.
 
-It looks like IPSF has found a way to create official unlock-codes for iphone, we do not know how, and that
-they embed the result in nvram as if you would use a normal AT+CLCK unlock on the phone.
+- When their application is run a small chunk of NVRAM is extracted from the device and uploaded to the IPSF server.  This packet is sent to backoffice.iphonesimfree.com.
 
-How do they know this? Some think, they might got their hands on Apples official (internal, not even
-available to ATT) unlock-code creator tool and embedded it in their server. That would also explain their
-big effort to hide themselfs behind resellers and that they could release that tool so quickly.
+- The packet is sent back modified after being modified where the LOCK is saved.
+
+- A custom baseband bootblock is used to flash the 'unlock' patch to NVRAM.
+
+- Then they overwrite the baseband with the original firmware again.
+
 
 {{{
 <ebika> gopi: ipsf may gen real codes, or it may write the results as if real codes were gen'd
