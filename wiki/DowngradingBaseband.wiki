@@ -97,6 +97,8 @@ Now you have an unlocked 3.14 baseband with IMEI being your original one!
 *NOTE:*
 *This will not fix the NVRAM corruption problem caused by anySIM/iUnlock so will therefore not "virginize" your phone.  This is only useful to remove the anySIM patch from the baseband firmware.  Your IMEI will be incorrect and your phone will likely not work.*
 
+(well the author of above comment has not realized that at this stage the IMEI is already back to the original value... kiwi66)
+
 Simply do:
 {{{
 launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenter.plist
