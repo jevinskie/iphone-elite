@@ -65,3 +65,5 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 || *Communicate_Server* sends that packet to backoffice.iphonesimfree.com and receives it back modified. ||
 || *Unlock* writes the now modified chunk back to NVRAM. ||
 || *Cleanup* removes the custom baseband firmware and replaces the original. ||
+
+_This page will be updated as discoveries are made_
