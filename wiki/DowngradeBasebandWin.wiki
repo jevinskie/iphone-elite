@@ -172,4 +172,4 @@ Reconnect to the SSH and delete the anySIM application.
 Put your sim in and reboot your phone again and VOILA!
 
 *Page taken from this site:
-http://www.glaciuz.com/iphone/*
+[http://www.glaciuz.com/iphone/]*
