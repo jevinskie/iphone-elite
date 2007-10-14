@@ -10,7 +10,11 @@
 
 At this stage, the iPhone WILL APPEAR TO BE POWERED DOWN, but it is actually in a special type of recovery mode allowing software downgrades. If you see the “Connect to iTunes” icon, you’ve placed the phone into the wrong recovery mode, and will need to try again. 
 
+
+
 [http://www.glaciuz.com/iphone/images/step2.png]
+
+
 
 *Step 2: Downgrade the iPhone*
 
@@ -18,17 +22,27 @@ At this stage, the iPhone WILL APPEAR TO BE POWERED DOWN, but it is actually in 
 
 You will then be prompted with a file selection window allowing you to select a firmware file. Select the 'iPhone1,1_1.0.2_1C28_Restore.ipsw’ (can be found [http://appldnld.apple.com.edgesuite.net/content.info.apple.com/iPhone/061-3823.20070821.vormd/iPhone1,1_1.0.2_1C28_Restore.ipsw here], rename the extension from .zip to .ipsw). Ignore any errors itunes will give you.
 
+
+
+
 *Step 3: Using AppInstaller to Install 1.0.2.*
 
 - Use AppInstall.exe to install 1.0.2 on your iPhone. It might not work first time but just do it again it will work on the second time. AppInstall.exe can be found [http://www.glaciuz.com/iphone/files/AppTappInstaller.exe here]. Make sure iTunes is still running but not accessing the iPhone.
 
 [http://www.glaciuz.com/iphone/images/step3.png]
 
+
+
+
 *Step 4: Cancelling the activation screen*
 
 - Use the Application named PACAY. Can be found [http://www.glaciuz.com/iphone/files/PACAY.rar here]. Make sure you reboot the phone by holding the power button and then sliding the slide bar. Reboot your iPhone. It will now be booting 1.0.2 without the activation screen. You will now need to downgrade your baseband since there is no anySIM working on BB4. We will downgrade it later to BB3.
 
+
+
 [http://www.glaciuz.com/iphone/images/step4.png]
+
+
 
 *Step 5: Connecting to the Wi-Fi network.*
 
@@ -36,13 +50,22 @@ You will then be prompted with a file selection window allowing you to select a 
 
 Go to Settings -> Wi-Fi and make your connection working. I assume here you know what you are doing.
 
+
+
+
 *Step 6: Installing applications on the iPhone*
 
 - From the spring board, click on Installer. Go to the Sources section and install Community Sources. From the System section , install BSD Subsystem, Term-vt100 and also install OpenSSH. This may take a while. Now insall ncftp from the Network section.
 
+
+
+
 *Step 7: Connect via SSH to your iPhone*
 
 - You can find your iPhone IP Address by lunching Term-vt100 on your spring board and type # ifconfig en0 . It will say something like "inet 192.168.1.100". Open putty on your desktop (if you don't have it look for putty on google, it's a free software) and connect to your iPhone IP address. The default username and password is root / dottie. It will take more than 30 seconds the first time since the iPhone as to generate rsa keys.
+
+
+
 
 *Step 8: Downgrading the baseband*
 
@@ -118,6 +141,9 @@ Done
 #
 
 Got it! Now back to 3.14.08_G ! Time to install anySIM!
+
+
+
 
 *Step 9: Installing anySIM*
 
