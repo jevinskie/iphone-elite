@@ -7,12 +7,12 @@ iTunes (Ver 7.4.1.2), OSX, iPhone 1.1.1 (Virgin or Bricked)
 
 = Software Needed =
 
-* iNdependence 1.2.1a: http://independence.googlecode.com/files/iNdependence_v1.2.1a_bin.dmg
+iNdependence 1.2.1a: http://independence.googlecode.com/files/iNdependence_v1.2.1a_bin.dmg
 
-* Cyberduck:
+Cyberduck:
 http://cyberduck.ch/Cyberduck-2.8.dmg
 
-* Original 1.0.2 Firmware file:
+Original 1.0.2 Firmware file:
 Plenty of places to get it
 
 = Downgrade Firmware =
