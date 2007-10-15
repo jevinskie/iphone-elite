@@ -68,42 +68,45 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 = Theories about how to perform *true* unlock =
 == *Terms* ==
-  *NNCK: Unlock code
-  *IIMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.cellular.co.za/cellularterms.htm source]
-  *BBaseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
+  * NCK: Unlock code
+  * IMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.cellular.co.za/cellularterms.htm source]
+  * Baseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
 
 == *How a phone is normally true unlocked* ==
 
-  *MManufacturer generates a random NCK for IMEI.
-  *TThey do hash(NCK) and store it on the phone.
+  * Manufacturer generates a random NCK for IMEI.
+  * They do hash(NCK) and store it on the phone.
   hash(NCK) is *one way*.  It is not possible to retrieve the NCK from the hash stored on the phone.
-  *UUser enters an NCK into the phone to unlock it.
-  *TThe phone then does hash(NCK) and compares it to the hash already stored.
-  *IIf they match, then you're unlocked.
-  *TThis is how NCK is verified.
+  * User enters an NCK into the phone to unlock it.
+  * The phone then does hash(NCK) and compares it to the hash already stored.
+  * If they match, then you're unlocked.
+  * This is how NCK is verified.
 
 *The trick is: How does the phone actually perform the unlock?*
 
 == *METHOD 1* ==
 
-  *PPhone verifies hash(NCK) above and says "OK, I should unlock now."
-  *PPhone then jumps to a routine that generates an unlocked NVRAM and writes it.
-  *UUser is unlocked.
-  *IIn this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
+  * Phone verifies hash(NCK) above and says "OK, I should unlock now."
+  * Phone then jumps to a routine that generates an unlocked NVRAM and writes it.
+  * User is unlocked.
+  * In this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
 
 == *METHOD 2* ==
 
-  *hhash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
-  *TThis sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
-  *IIf we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NVRAM, how does the phone know if that == locked or unlocked?
-  *IIf we know what the real hash(NCK) is, it might be possible to generate the same hash with a fake NCK.
-  *SSomething *must* be written to NVRAM to indicate unlock or not.
-  *TThe question is does that something depend on NCK?
+  * hash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
+  * This sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
+  * If we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NVRAM, how does the phone know if that == locked or unlocked?
+  * If we know what the real hash(NCK) is, it might be possible to generate the same hash with a fake NCK.
+  * Something *must* be written to NVRAM to indicate unlock or not.
+  * The question is does that something depend on NCK?
 
 In the NVRAM there is an encrypted simlock data section based on IMEI.  It's not just 0 = unlocked 1 = locked.  Phone A will have a different bit of data than phone B.  If the phone receives the correct NCK then it can generate the correct piece of data that indicates UNLOCKED.  In this case we should forget about writing directly to NVRAM ourselves since it will be different for each phone.  We've only to learn exactly what the _phone_ wants to write, and trigger that.
 
-== *QUESTIONS* ==
-  *HHow does the phone know what to write into NVRAM? Is it based on the NCK or is the NCK irrelevant and it's just an access code to execute unlock routine?  If it's irrelevant we've only to jump the verification and execute the unlock.  Once we've triggered it we remove our baseband patch and the phone is virgin again.
+  * How does the phone know what to write into NVRAM? Is it based on the NCK or is the NCK irrelevant and it's just an access code to execute unlock routine?  If it's irrelevant we've only to jump the verification and execute the unlock.  Once we've triggered it we remove our baseband patch and the phone is virgin again.
 
+== *Theory about what IPSF _actually does_* ==
+  * They read the encrypted simlock area on the user's phone.  They create a packet including this data and upload it to their server where they put it into one of their phones.  They then trigger the routine on their phone but rather than write out the unlock to their device they send it back to the user's phone and writes it in their baseband.
+  * This would indicate that every phone is already capable of unlocking itself.  Their method is only useful so as to require the server.
+  * It is NOT believed that they have "official" NCKs, or other insider information aside from possibly a baseband datasheet or they work with an Infineon engineer.
 
 _This page will be updated as discoveries are made_
