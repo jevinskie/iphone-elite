@@ -68,36 +68,36 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 = Theories about how to perform *true* unlock =
 == *Terms* ==
-  *NCK:* Unlock code
-  *IMEI:* The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.google.com/url?sa=X&start=2&oi=define&q=http://www.cellular.co.za/cellularterms.htm&usg=AFQjCNERkKPued5T9F3b1dq4PpiMe-9_2Q source]
-  *Baseband*: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
+  NCK: Unlock code
+  IMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.google.com/url?sa=X&start=2&oi=define&q=http://www.cellular.co.za/cellularterms.htm&usg=AFQjCNERkKPued5T9F3b1dq4PpiMe-9_2Q source]
+  Baseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
 
 || How a phone is normally *true* unlocked ||
 
--- Manufacturer generates a random NCK for IMEI.
--- They do hash(NCK) and store it on the phone.
--- hash(NCK) is *one way*.  It is not possible to retrieve the NCK from the hash stored on the phone.
--- User enters an NCK into the phone to unlock it.
--- The phone then does hash(NCK) and compares it to the hash already stored.
--- If they match, then you're unlocked.
--- This is how NCK is verified.
+  Manufacturer generates a random NCK for IMEI.
+  They do hash(NCK) and store it on the phone.
+  hash(NCK) is *one way*.  It is not possible to retrieve the NCK from the hash stored on the phone.
+  User enters an NCK into the phone to unlock it.
+  The phone then does hash(NCK) and compares it to the hash already stored.
+  If they match, then you're unlocked.
+  This is how NCK is verified.
 
 *The trick is: How does the phone actually perform the unlock?*
 
 || *METHOD 1* ||
 
--- Phone verifies hash(NCK) above and says "OK, I should unlock now."
--- Phone then jumps to a routine that generates an unlocked NVRAM and writes it.
--- User is unlocked.
----- In this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
+  Phone verifies hash(NCK) above and says "OK, I should unlock now."
+  Phone then jumps to a routine that generates an unlocked NVRAM and writes it.
+  User is unlocked.
+  In this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
 
 || *METHOD 2* ||
--- hash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
--- This sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
----- If we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NVRAM, how does the phone know if that == locked or unlocked?
----- If we know what the real hash(NCK) is, it might be possible to generate the same hash with a fake NCK.
----- Something *must* be written to NVRAM to indicate unlock or not.
----- The question is does that something depend on NCK?
+  hash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
+  This sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
+  If we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NVRAM, how does the phone know if that == locked or unlocked?
+  If we know what the real hash(NCK) is, it might be possible to generate the same hash with a fake NCK.
+  Something *must* be written to NVRAM to indicate unlock or not.
+  The question is does that something depend on NCK?
 
 In the NVRAM there is an encrypted simlock data section based on IMEI.  It's not just 0 = unlocked 1 = locked.  Phone A will have a different bit of data than phone B.  If the phone receives the correct NCK then it can generate the correct piece of data that indicates UNLOCKED.  In this case we should forget about writing directly to NVRAM ourselves since it will be different for each phone.  We've only to learn exactly what the _phone_ wants to write, and trigger that.
 
