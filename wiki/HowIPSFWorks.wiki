@@ -72,7 +72,7 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
   *IIMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.cellular.co.za/cellularterms.htm source]
   *BBaseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
 
-== || How a phone is normally *true* unlocked || ==
+== *How a phone is normally true unlocked* ==
 
   *MManufacturer generates a random NCK for IMEI.
   *TThey do hash(NCK) and store it on the phone.
@@ -84,14 +84,14 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 *The trick is: How does the phone actually perform the unlock?*
 
-|| *METHOD 1* ||
+== *METHOD 1* ==
 
   *PPhone verifies hash(NCK) above and says "OK, I should unlock now."
   *PPhone then jumps to a routine that generates an unlocked NVRAM and writes it.
   *UUser is unlocked.
   *IIn this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
 
-|| *METHOD 2* ||
+== *METHOD 2* ==
 
   *hhash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
   *TThis sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
@@ -102,7 +102,7 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 In the NVRAM there is an encrypted simlock data section based on IMEI.  It's not just 0 = unlocked 1 = locked.  Phone A will have a different bit of data than phone B.  If the phone receives the correct NCK then it can generate the correct piece of data that indicates UNLOCKED.  In this case we should forget about writing directly to NVRAM ourselves since it will be different for each phone.  We've only to learn exactly what the _phone_ wants to write, and trigger that.
 
-|| *QUESTIONS* ||
+== *QUESTIONS* ==
   *HHow does the phone know what to write into NVRAM? Is it based on the NCK or is the NCK irrelevant and it's just an access code to execute unlock routine?  If it's irrelevant we've only to jump the verification and execute the unlock.  Once we've triggered it we remove our baseband patch and the phone is virgin again.
 
 
