@@ -105,7 +105,7 @@ In the NVRAM there is an encrypted simlock data section based on IMEI.  It's not
   * How does the phone know what to write into NVRAM? Is it based on the NCK or is the NCK irrelevant and it's just an access code to execute unlock routine?  If it's irrelevant we've only to jump the verification and execute the unlock.  Once we've triggered it we remove our baseband patch and the phone is virgin again.
 
 == *Theory about what IPSF _actually does_* ==
-  * They read the encrypted simlock area on the user's phone.  They create a packet including this data and upload it to their server where they put it into one of their phones.  They then trigger the routine on their phone but rather than write out the unlock to their device they send it back to the user's phone and writes it in their baseband.
+  * They read the encrypted simlock area on the user's phone.  They create a packet including this data and upload it to their server where they put it into one of their phones.  They then trigger the routine _on their phone_ but rather than write out the unlock to their device they send it back to the _user's phone_ and write it in their baseband.
   * This would indicate that every phone is already capable of unlocking itself.  Their method is only useful so as to require the server.
   * It is NOT believed that they have "official" NCKs, or other insider information aside from possibly a baseband datasheet or they work with an Infineon engineer.
 
