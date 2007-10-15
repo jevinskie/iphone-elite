@@ -72,7 +72,7 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
   *IIMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.cellular.co.za/cellularterms.htm source]
   *BBaseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
 
-|| How a phone is normally *true* unlocked ||
+== || How a phone is normally *true* unlocked || ==
 
   *MManufacturer generates a random NCK for IMEI.
   *TThey do hash(NCK) and store it on the phone.
@@ -92,6 +92,7 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
   *IIn this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
 
 || *METHOD 2* ||
+
   *hhash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
   *TThis sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
   *IIf we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NVRAM, how does the phone know if that == locked or unlocked?
