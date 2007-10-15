@@ -69,8 +69,8 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 = Theories about how to perform *true* unlock =
 == *Terms* ==
   *NNCK: Unlock code
-  IMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.google.com/url?sa=X&start=2&oi=define&q=http://www.cellular.co.za/cellularterms.htm&usg=AFQjCNERkKPued5T9F3b1dq4PpiMe-9_2Q source]
-  Baseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
+  *IIMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.google.com/url?sa=X&start=2&oi=define&q=http://www.cellular.co.za/cellularterms.htm&usg=AFQjCNERkKPued5T9F3b1dq4PpiMe-9_2Q source]
+  *BBaseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
 
 || How a phone is normally *true* unlocked ||
 
