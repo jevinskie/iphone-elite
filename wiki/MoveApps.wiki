@@ -12,9 +12,9 @@ Executing the commands below will remove your application space limitation so th
 *1)* SSH into your iPod touch (or iPhone) using the SSH client of your choice; I recommend putty, which you can download [http://www.chiark.greenend.org.uk/~sgtatham/putty/ here].
 
 *2)* Move your applications folder to the /private/var folder by typing the following:
-
-*`mv /Applications /private/var/Applications`*
-
+{{{
+mv /Applications /private/var/Applications
+}}}
 
 *3)* Change directory to / by typing
 
