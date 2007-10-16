@@ -66,6 +66,27 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 || *Unlock* writes the now modified chunk back to NVRAM. ||
 || *Cleanup* removes the custom baseband firmware and replaces the original. ||
 
+== Token Structure ==
+
+LTOKEN is 0x2820 bytes long
+  * 0x10=[IMEI]
+  * 0x10=LTOKEN1.0
+  * 0x200=HWID
+  * 0x600=bootloader(0xA0000000-0xA0000600)
+  * 0x2000=seczone(0xA03FA000-0xA03FC000)
+  * HWID+bootloader+seczone are encrypted
+ 
+UTOKEN is 0x2090 bytes long
+  * 0x10=UTOKEN1.0
+  * 0x2000=seczone(0xA03FA000-0xA03FC000)
+  * 0x80=hash
+  * only seczone is encrypted
+ 
+three "crypto" fxns
+  * genkey(&key, "Iphonesimfree.com", 0x11);
+  * decryptme(&key, &data, length);
+  * encryptme(&key, &data, length);
+
 = Theories about how to perform *true* unlock =
 == *Terms* ==
   * NCK: Unlock code
