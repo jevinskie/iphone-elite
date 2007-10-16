@@ -1,4 +1,4 @@
-Regain Battery Life After Installing 3rd-Party Applications
+#summary Regain Battery Life After Installing 3rd-Party Applications.
 
 So you've just finished hacking your iPhone and installed every application you could find, but what the heck happened to your battery life? In the process of installing various things, you've likely installed OpenSSH, the tool which allows remote login to your iPhone from a computer. The problem is, SSH requires that a listener called SSHD constantly runs, waiting for a remote login attempt. This in turn drains your battery. The solution is to disable SSHD when you don't need it. Read on for the how-to.
 
