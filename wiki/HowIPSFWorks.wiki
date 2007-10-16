@@ -6,15 +6,16 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 ==A Note on NVRAM==
 People frequently refer to "NVRAM". The baseband doesn't have any NVRAM, and everything(lockstate, IMEI, NCK) is stored encrypted in the NOR at 0xA03FA000-0xA03FC000
+  * Every instance of "NVRAM" has now been changed to "NOR seczone"
 
 ==The following things were observed by Zibri and/or others:==
-- IPSF does not make a patch or otherwise change things in baseband firmware, except temporarily to put their unlock patch in the NVRAM.
+- IPSF does not make a patch or otherwise change things in baseband firmware, except temporarily to put their unlock patch in the NOR seczone.
 
-- When their application is run a small chunk of NVRAM is extracted from the device and uploaded to the IPSF server.  This packet is sent to backoffice.iphonesimfree.com.
+- When their application is run a small chunk of NOR seczone is extracted from the device and uploaded to the IPSF server.  This packet is sent to backoffice.iphonesimfree.com.
 
 - The packet is sent back after being modified where the LOCK is saved.
 
-- A custom baseband bootblock is used to flash the 'unlock' patch to NVRAM.
+- A custom baseband bootblock is used to flash the 'unlock' patch to NOR seczone.
 
 - Then they overwrite the baseband with the original firmware again.
 
@@ -64,9 +65,9 @@ People frequently refer to "NVRAM". The baseband doesn't have any NVRAM, and eve
 == Explaination: ==
 
 || *Prepare_UNLOCK* is the routine that flashes custom firmware to the baseband.||
-|| *Create_Fingerprint* extracts a small chunk of NVRAM and creates a packet. ||
+|| *Create_Fingerprint* extracts a small chunk of NOR seczone and creates a packet. ||
 || *Communicate_Server* sends that packet to backoffice.iphonesimfree.com and receives it back modified. ||
-|| *Unlock* writes the now modified chunk back to NVRAM. ||
+|| *Unlock* writes the now modified chunk back to NOR seczone. ||
 || *Cleanup* removes the custom baseband firmware and replaces the original. ||
 
 == Token Structure ==
@@ -111,22 +112,22 @@ three "crypto" fxns
 == *METHOD 1* ==
 
   * Phone verifies hash(NCK) above and says "OK, I should unlock now."
-  * Phone then jumps to a routine that generates an unlocked NVRAM and writes it.
+  * Phone then jumps to a routine that generates an unlocked NOR seczone and writes it.
   * User is unlocked.
   * In this case it could be possible to skip the NCK verification by patching the baseband to jump directly to the unlock routine, write the unlock, then unpatch.
 
 == *METHOD 2* ==
 
-  * hash(NCK) is required to be put into NVRAM to trigger a successful unlock routine.
+  * hash(NCK) is required to be put into NOR seczone to trigger a successful unlock routine.
   * This sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
-  * If we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NVRAM, how does the phone know if that == locked or unlocked?
+  * If we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NOR seczone, how does the phone know if that == locked or unlocked?
   * If we know what the real hash(NCK) is, it might be possible to generate the same hash with a fake NCK.
-  * Something *must* be written to NVRAM to indicate unlock or not.
+  * Something *must* be written to NOR seczone to indicate unlock or not.
   * The question is does that something depend on NCK?
 
-In the NVRAM there is an encrypted simlock data section based on IMEI.  It's not just 0 = unlocked 1 = locked.  Phone A will have a different bit of data than phone B.  If the phone receives the correct NCK then it can generate the correct piece of data that indicates UNLOCKED.  In this case we should forget about writing directly to NVRAM ourselves since it will be different for each phone.  We've only to learn exactly what the _phone_ wants to write, and trigger that.
+In the NOR seczone there is an encrypted simlock data section based on IMEI.  It's not just 0 = unlocked 1 = locked.  Phone A will have a different bit of data than phone B.  If the phone receives the correct NCK then it can generate the correct piece of data that indicates UNLOCKED.  In this case we should forget about writing directly to NOR seczone ourselves since it will be different for each phone.  We've only to learn exactly what the _phone_ wants to write, and trigger that.
 
-  * How does the phone know what to write into NVRAM? Is it based on the NCK or is the NCK irrelevant and it's just an access code to execute unlock routine?  If it's irrelevant we've only to jump the verification and execute the unlock.  Once we've triggered it we remove our baseband patch and the phone is virgin again.
+  * How does the phone know what to write into NOR seczone? Is it based on the NCK or is the NCK irrelevant and it's just an access code to execute unlock routine?  If it's irrelevant we've only to jump the verification and execute the unlock.  Once we've triggered it we remove our baseband patch and the phone is virgin again.
 
 == *Theory about what IPSF _actually does_* ==
   * They read the encrypted simlock area on the user's phone.  They create a packet including this data and upload it to their server where they put it into one of their phones.  They then trigger the routine _on their phone_ but rather than write out the unlock to their device they send it back to the _user's phone_ and write it in their baseband.
