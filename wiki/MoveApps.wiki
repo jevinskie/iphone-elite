@@ -17,24 +17,24 @@ mv /Applications /private/var/Applications
 }}}
 
 *3)* Change directory to / by typing
-
-`cd /`
-
+{{{
+cd /
+}}}
 
 *4)* Create a symbolic link to the Applications folders new location:
-
-`ln -s /private/var/Applications Applications`
-
+{{{
+ln -s /private/var/Applications Applications
+}}}
 
 *5)* Type the following to get a directory list of /, so we can make sure the symbolic link was created correctly:
-
-`ls -la`
-
+{{{
+ls -la
+}}}
 
 In the list that comes up, you should have an entry similar to this one:
-
-`lrwxr-xr-x 1 root admin 25 Oct 12 22:31 Applications -> /private/var/Applications`
-
+{{{
+lrwxr-xr-x 1 root admin 25 Oct 12 22:31 Applications -> /private/var/Applications
+}}}
 
 *6)* Alright, seems like it worked.. Now all you have to do is reboot your iPod touch (or iPhone)! Do that now.
 
