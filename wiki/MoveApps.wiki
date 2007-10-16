@@ -21,7 +21,7 @@ mv /Applications /private/var/Applications
 cd /
 }}}
 
-*4)* Create a symbolic link to the Applications folders new location:
+*4)* Create a symbolic link to the Applications folder's new location:
 {{{
 ln -s /private/var/Applications Applications
 }}}
