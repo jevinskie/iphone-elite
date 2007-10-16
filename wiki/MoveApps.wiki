@@ -46,3 +46,6 @@ lrwxr-xr-x 1 root admin 25 Oct 12 22:31 Applications -> /private/var/Application
 7. To further make sure it's working correctly for you, enter the Installer app and check the available space at the bottom. It should be higher than it was previously, as you've moved away all space-intensive apps. Try installing an app larger than 1MB (MobileChat for example) to see that the amount of available space stays the same.
 
 8. Done! Install away!
+
+Guide originally found here:
+http://www.hackint0sh.org/forum/showpost.php?p=85073&postcount=1
