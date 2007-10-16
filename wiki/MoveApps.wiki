@@ -13,22 +13,22 @@ Executing the commands below will remove your application space limitation so th
 
 *2)* Move your applications folder to the /private/var folder by typing the following:
 
-mv /Applications /private/var/Applications
+`mv /Applications /private/var/Applications`
 
 
 *3)* Change directory to / by typing
 
-cd /
+`cd /`
 
 
 *4)* Create a symbolic link to the Applications folders new location:
 
-ln -s /private/var/Applications Applications
+`ln -s /private/var/Applications Applications`
 
 
 *5)* Type the following to get a directory list of /, so we can make sure the symbolic link was created correctly:
 
-ls -la
+`ls -la`
 
 
 In the list that comes up, you should have an entry similar to this one:
