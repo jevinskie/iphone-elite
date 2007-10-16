@@ -5,8 +5,8 @@
 
 = UNBRICKING 1.1.1 UPGRADE =
 
-= *WARNING:* =
-Some have reported that if this process is done out of order or in any way fails that it's possible to lose wifi, bluetooth, and GSM modem functionality which may be very difficult to restore.  USE AT YOUR OWN RISK.
+== *WARNING:* ==
+=== Some have reported that if this process is done out of order or in any way fails that it's possible to lose wifi, bluetooth, and GSM modem functionality which may be very difficult to restore.  USE AT YOUR OWN RISK. ===
 
 Here's the procedure to downgrade after you upgraded (by mistake) to firmware 1.1.1 on an anySIM unlocked iPhone.
 
