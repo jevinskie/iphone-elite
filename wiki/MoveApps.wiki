@@ -13,7 +13,7 @@ Executing the commands below will remove your application space limitation so th
 
 *2)* Move your applications folder to the /private/var folder by typing the following:
 
-`mv /Applications /private/var/Applications`
+*`mv /Applications /private/var/Applications`*
 
 
 *3)* Change directory to / by typing
