@@ -98,7 +98,7 @@ Now you have an unlocked 3.14 baseband with IMEI being your original one!
 
 == *Do you want to return to factory-locked state?* ==
 *NOTE:*
-*This will not fix the NVRAM corruption problem caused by anySIM/iUnlock so will therefore not "virginize" your phone.  This is only useful to remove the anySIM patch from the baseband firmware.*
+*This will not fix the NOR seczone corruption problem caused by anySIM/iUnlock so will therefore not "virginize" your phone.  This is only useful to remove the anySIM patch from the baseband firmware.*
 
 Simply do:
 {{{
