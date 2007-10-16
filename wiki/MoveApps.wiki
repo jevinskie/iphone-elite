@@ -9,8 +9,7 @@ NOTE: This guide assumes you have jailbreaked your iPod touch (or iPhone) and in
 
 WARNING: Although this seems to work just as intended, it's not been tested for more than a number of hours, meaning that it's entirely possible it could somehow break in the future. Therefore, only do this at your own risk!
 
-1.
-SSH into your iPod touch (or iPhone) using the SSH client of your choice; I recommend putty, which you can download at http://www.chiark.greenend.org.uk/~sgtatham/putty/
+  # SSH into your iPod touch (or iPhone) using the SSH client of your choice; I recommend putty, which you can download at http://www.chiark.greenend.org.uk/~sgtatham/putty/
 
 2.
 Move your applications folder to the /private/var folder by typing the following:
