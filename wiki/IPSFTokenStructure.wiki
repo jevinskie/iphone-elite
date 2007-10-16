@@ -1,3 +1,5 @@
+= The data that is transmitted between the phone and server =
+
 LTOKEN is 0x2820 bytes long
   * 0x10=[IMEI]
   * 0x10=LTOKEN1.0
