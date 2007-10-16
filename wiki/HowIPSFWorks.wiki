@@ -120,8 +120,7 @@ three "crypto" fxns
 
   * hash(NCK) is required to be put into NOR seczone to trigger a successful unlock routine.
   * This sounds more secure but it's not since it would indicate that the phone can do unhash(NCK) in order to validate.
-  * If we make up an NCK (FAKE_NCK) and do hash(FAKE_NCK) and put it into NOR seczone, how does the phone know if that == locked or unlocked?
-  * If we know what the real hash(NCK) is, it might be possible to generate the same hash with a fake NCK.
+  * That means that the NCK must be already stored somewhere on the phone and that all we have to do is find it.
   * Something *must* be written to NOR seczone to indicate unlock or not.
   * The question is does that something depend on NCK?
 
