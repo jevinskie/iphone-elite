@@ -133,4 +133,6 @@ In the NOR seczone there is an encrypted simlock data section based on IMEI.  It
   * This would indicate that every phone is already capable of unlocking itself.  Their method is only useful so as to require the server.
   * It is NOT believed that they have "official" NCKs, or other insider information aside from possibly a baseband datasheet or they work with an Infineon engineer.
 
-_This page will be updated as discoveries are made_
+_This page is updated as discoveries are made_
+
+*Feel free to make comments but if they're not technically relevant to the content above they'll be deleted.*
