@@ -6,7 +6,6 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 
 ==A Note on NVRAM==
 People frequently refer to "NVRAM". The baseband doesn't have any NVRAM, and everything(lockstate, IMEI, NCK) is stored encrypted in the NOR at 0xA03FA000-0xA03FC000
-  * Every instance of "NVRAM" has now been changed to "NOR seczone"
 
 ==The following things were observed by Zibri and/or others:==
 - IPSF does not make a patch or otherwise change things in baseband firmware, except temporarily to put their unlock patch in the NOR seczone.
