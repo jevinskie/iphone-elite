@@ -96,6 +96,7 @@ three "crypto" fxns
   * NCK: Unlock code
   * IMEI: The International Mobile Equipment Identity is a 15 digit code used to identify the GSM/DCS/PCS phone to the network. [http://www.cellular.co.za/cellularterms.htm source]
   * Baseband: This is the GSM modem along with a few other things.  It has it's own co-processor, memory cache and operating system (Nucleus real-time OS.)
+  * NOR seczone: This is a protected area of the baseband NOR which contains encrypted data relating to whether the phone is locked or not.  This area is commonly called the "NVRAM" -- which is incorrect.
 
 == *How a phone is normally true unlocked* ==
 
