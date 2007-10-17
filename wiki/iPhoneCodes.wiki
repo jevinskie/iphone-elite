@@ -1,0 +1,28 @@
+#summary One-sentence summary of this page.
+#labels Featured,Phase-Implementation,Phase-Design
+
+= iPhone Codes =
+
+Here will be a full table of commands supported by iPhone
+using the phone keyboard.
+
+= Details =
+
+From *CommCenter*:
+{{{
+Any command can be preceded by *#, ** or ##.
+
+*#5005*78283#
+*#5005*62#
+*#5005*62255#
+*#5005*87223#
+*#5005*86#
+*#5005*7672#
+*#5005*22#
+*#5005*5264#
+*#5005#
+*#5005*86*
+*#5005*7672*
+*#5005*22*
+##5005*22*12345678#
+}}}
