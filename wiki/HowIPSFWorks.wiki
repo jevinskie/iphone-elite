@@ -135,4 +135,4 @@ In the NOR seczone there is an encrypted simlock data section based on IMEI.  It
 
 _This page is updated as discoveries are made_
 
-*Feel free to make comments but if they're not technically relevant to the content above they'll be deleted.*
+*Feel free to comment but in order to keep things tidy we must delete those which aren't technically relevant to the above content.  If you want to participate please read the front page for IRC and forums information.*
