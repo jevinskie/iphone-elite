@@ -9,20 +9,23 @@ using the phone keyboard.
 = Details =
 
 From *CommCenter*:
+
 {{{
+
 Any command can be preceded by *#, ** or ##.
 
-*#5005*78283#
+*#5005*78283#           This starts a baseband log in /Library/Logs/Baseband/
 *#5005*62#
 *#5005*62255#
 *#5005*87223#
 *#5005*86#
-*#5005*7672#
+*#5005*7672#            SMSC related...
 *#5005*22#
-*#5005*5264#
+*#5005*5264#            This reads LANG and tells you the "actual language". (en)
 *#5005#
 *#5005*86*
 *#5005*7672*
-*#5005*22*
-##5005*22*12345678#
+*#5005*22*              "Please wait...then returns to normal"
+##5005*22*12345678#     This one makes the phone do something and write "please wait"
+
 }}}
