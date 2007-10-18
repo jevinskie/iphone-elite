@@ -14,12 +14,19 @@ From *CommCenter*:
 
 Any command can be preceded by *#, ** or ##.
 
+*# is INTERROGATION.
+** is SETUP.
+## is CANCEL / DELETE.
+
+
 *#5005*78283#           This starts a baseband log in /Library/Logs/Baseband/
 *#5005*62#
 *#5005*62255#
 *#5005*87223#
 *#5005*86#
-*#5005*7672#            SMSC related...
+*#5005*7672#            Display the SMSC Setting. 
+**5005*7672*SMSCNUMBER# Sets the SMSC to SMSCNUMBER (international format)
+##5005*7672#            Erases the SMSC number from phone.
 *#5005*22#
 *#5005*5264#            This reads LANG and tells you the "actual language". (en)
 *#5005#
