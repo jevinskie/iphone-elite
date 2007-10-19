@@ -3,7 +3,7 @@
 = Introduction =
 
 Iphone kernel memory map. Derived from pmaps.
-Names got from ioreg command output, IODeviceMemory properties.
+Names from ioreg command output, IODeviceMemory properties.
 
 = Details =
 {{{
