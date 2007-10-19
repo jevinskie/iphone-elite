@@ -1,0 +1,10 @@
+This is a framework for putting together an interactive stub that runs
+in the baseband (PMB8876) of the iPhone.
+
+Shouts out to #iphone-dev on irc.ircnet.com
+
+Please feel free to contribute
+
+You need an arm-elf toolchain to build this
+
+chris@wmpp.com
