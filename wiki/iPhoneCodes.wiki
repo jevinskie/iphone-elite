@@ -35,7 +35,7 @@ Any command can be preceded by *#, ** or ##.
 *#5005#                 "Error performing request - No Network Service" - Note 2
 *#5005*22*              "Please wait"...then returns to normal.
 ##5005*22*12345678#     Function unknown, displays "please wait"...; power-off to exit.
-}}}
+
 
 Note 1: It may be necessary to change the prefix from the set of (*#, **, ##) to
         initiate a new log dump.  The logs are not "tail" able, since this is a single
@@ -45,3 +45,4 @@ Note 1: It may be necessary to change the prefix from the set of (*#, **, ##) to
 Note 2: These tests were performed with a stock phone on the AT&T network.  It is
         possible that these errors represent debugging features that are only
         available on a special debug cellular base-station (CONJECTURE only!)
+}}}
