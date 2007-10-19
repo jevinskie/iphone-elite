@@ -40,7 +40,7 @@ Any command can be preceded by *#, ** or ##.
 Note 1: It may be necessary to change the prefix from the set of (*#, **, ##) to
         initiate a new log dump.  The logs are not "tail" able, since this is a single
         dump, with no additional data written.  So far, these logs appear to always
-        remain the same size.
+        remain the same size.  Logfiles are stamped with the current date.
 
 Note 2: These tests were performed with a stock phone on the AT&T network.  It is
         possible that these errors represent debugging features that are only
