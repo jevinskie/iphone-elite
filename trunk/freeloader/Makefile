@@ -11,13 +11,13 @@ ENTRY = 0x0
 OBJS =	arm9_utils.o \
 	cfi_flash.o
 
-shitload.bin:	shitload.elf
+freeload.bin:	freeload.elf
 		$(OBJCOPY) -O binary $< $@
 
-shitload.elf:	$(OBJS)
+freeload.elf:	$(OBJS)
 		$(LD) -e $(ENTRY) -o $@ $(OBJS)
 
-all:	shitload.bin
+all:	freeload.bin
 
 .S.o:
 	$(AS) -o $@ $<
@@ -25,4 +25,4 @@ all:	shitload.bin
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
 clean:
-	rm -f $(OBJS) *~ shitload.bin shitload.elf
+	rm -f $(OBJS) *~ freeload.bin freeload.elf
