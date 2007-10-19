@@ -1,4 +1,5 @@
 #summary geohot's manifesto, version 2 :)
+#labels Featured
 
 
 = Details =
