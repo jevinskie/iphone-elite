@@ -1,0 +1,37 @@
+#summary geohot's manifesto, version 2 :)
+
+
+= Details =
+
+{{{
+<+geohot> currently there are three patches on the "market"
+<+geohot> old anysim, new anysim, and ipsf
+<+geohot> old anysim patches out the token check
+<+geohot> so the lockstate table was updated but not the token
+<+geohot> while the patch was present this was fine
+<+geohot> but once the patch got removed, the phone failed the integrity check
+<+geohot> hence, bad imei and xlock 2
+<+geohot> ipsf patches the seczone server side
+<+geohot> they get your tea key so they can de/en crypt lockstate tables for your phone
+<+geohot> they also found a bug in the implementation of rsa
+<+geohot> this is what enables them to generate the tokens
+<+geohot> so...new lockstate+new token="real" unlocked phone
+<+geohot> the third, new anysim
+<+geohot> technically this isn't an unlock, but it is the best option, for reasons i will explain later
+<+geohot> it patches out the mnc check, disabling the network check allowing anysim to be used :)
+<+geohot> zibri is trying to patch more integrity checks to allow 1.1.1 to read old anysim corrupted data
+<+geohot> this will work, but it is a hack
+<+geohot> due to the symmetric nature of tea, regenerating the seczone to virgin from old anysim can be done
+<+geohot> and i can do it, this loader is just a bitch
+<+geohot> now, onto ipsf
+<+geohot> ipsf unlocks *cannot* be reversed
+<+geohot> unless you have a backup
+<+geohot> this is because ipsf changes the tokens, which cannot be regened
+<+geohot> i really hope ipsf keeps backups of utokens, because here is what i think will happen...
+<+geohot> when the bootloader is updated(it hasn't been yet), all ipsf phones will become bricks
+<+geohot> because they will fix the exploit in the rsa
+<+geohot> the best option now is the new anysim
+<+geohot> it doesn't touch the seczone, so your phone will never be bricked
+<+geohot> although it isn't restore/upgrade resistent
+<+geohot> **end rant**
+}}}
