@@ -263,8 +263,8 @@ int main(int argc, char *argv[]) {
     if (big_endian)  memswp(buf,ibuf,length);
     else             memcpy(buf,ibuf,length);
   } else {
-    if (big_endian)  memcpy(buf,ibuf,length);
-    else             memswp(buf,ibuf,length);
+    if (big_endian)  memswp(buf,ibuf,length);
+    else             memcpy(buf,ibuf,length);
     encrypt_cbc(buf, length, &sha1hash[0], ibuf);
     if (big_endian)  memswp(buf,ibuf,length);
     else             memcpy(buf,ibuf,length);
