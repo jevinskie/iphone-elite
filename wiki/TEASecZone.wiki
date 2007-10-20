@@ -20,7 +20,7 @@ This is a decryptor for areas of your iPhone seczone.
  * 20-byte SHA-1 hash of these 32 bytes:  norID, 8 zeros, HWID, 4 zeros
  *
  * Core TEA algorithm at http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm
- *  TEA key is 16 bytes/128 bits, TEA block is 8 bytes/64 bits
+ * TEA key is 16 bytes/128 bits, TEA block is 8 bytes/64 bits
  * iPhone uses TEA in CBC mode to encrypt/decrypt seczone areas
  */
 
@@ -90,8 +90,6 @@ int main(int argc, char *argv[]) {
   unsigned long offset, length;
   int i;
   unsigned long sha1hash[5];
-
-  //unsigned long sha1hash[5]   = { 0xaeb0afde,0x93e7528c,0x286e8655,0x023e4617,0x5173825a };
   
   if (argc != 5) {
     fprintf(stderr, "Usage: %s <infile> <offset> <length> <sha>\n", argv[0]);
