@@ -233,7 +233,7 @@ Here I am using teasz to decrypt the lock tables at offset 0xc88 of my seczone. 
 
 After passing that through teasz, I get:
 {{{
-% teasz seczone.bin 0xc88 0xe0 $myhash | hexdump -C
+% teasz d seczone.bin 0xc88 0xe0 $myhash | hexdump -C
 00000000  00 05 01 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 00000010  00 00 00 00 00 00 00 01  01 05 01 01 00 00 00 00  |................|
 00000020  00 00 00 09 00 00 00 00  00 00 00 00 00 00 00 00  |................|
