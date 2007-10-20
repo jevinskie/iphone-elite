@@ -1,8 +1,12 @@
 #summary TEA SecZone encryptor/decryptor
 
-= Introduction =
+= Overview =
 
-This is a an encryptor and decryptor for areas of your iPhone seczone. 
+The *teasz* program below implements the same encryption scheme as used by the iPhone firmware when accessing the seczone.  Specifically, it's [http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm TEA encryption] used in [http://en.wikipedia.org/wiki/Cipher_block_chaining CBC mode].  It's primarly a proof on concept, but in principle it can be used in larger programs that do things like:
+   * Re-virginize your seczone
+   * Unlock your iPhone the same way IPSF does
+
+Such programs would need to be running out of baseband, and work on those programs is underway.
 
 = Details =
 
