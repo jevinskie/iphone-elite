@@ -20,7 +20,7 @@ Now, consider this:
 
  * The decrypted lock table for a locked phone is *identical in every iPhone*.  Encrypting the lock table makes it look different on every iPhone, but once decrypted it is identical.  
 
- * The "token" is *unique to every iPhone*.  It uses RSA encryption and only Apple knows the private key used to encrypt.  If it gets wiped out, it is gone forever (unless you, or IPSF, saved a backup).
+ * The "token" is *unique to every iPhone*.  It uses RSA encryption and only Apple knows the private key used to encrypt.  In other words, even after doing the initial TEA CBC decryption on this page, your token is still a very unique RSA value specific to your iPhone..  If it gets wiped out, it is gone forever (unless you, or IPSF, saved a backup).
 
  * The code on this page can be used to restore the virgin lock table to any iPhone, regardless of unlock method.  That's because the data to encrypt is known (in fact, it's shown below).
 
