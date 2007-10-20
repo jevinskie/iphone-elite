@@ -1,0 +1,152 @@
+#summary TEA SecZone decryptor
+
+= Introduction =
+
+This is a decryptor for areas of your iPhone seczone. 
+
+
+= Details =
+
+{{{
+/*
+ * teasz - TEA seczone utility
+ *
+ * Written my MuscleNerd, with lots of help from wikipedia :)
+ *
+ * Thanks to everyone at iphone-elite.org wiki and IRC channel
+ * for providing a more friendly environment in which to participate.
+ *
+ * The SHA-1 hash value you need to supply is the first 16 bytes of the 
+ * 20-byte SHA-1 hash of these 32 bytes:  norID, 8 zeros, HWID, 4 zeros
+ *
+ * Core TEA algorithm at http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm
+ *  TEA key is 16 bytes/128 bits, TEA block is 8 bytes/64 bits
+ * iPhone uses TEA in CBC mode to encrypt/decrypt seczone areas
+ */
+
+void encrypt(unsigned long* in, unsigned long* k, unsigned long* out) {
+  unsigned long v0, v1, sum, i, delta, k0, k1, k2, k3;
+  delta=0X9E3779B9;                       /* a key schedule constant */
+  k0=k[0]; k1=k[1]; k2=k[2]; k3=k[3];     /* cache key */
+  v0 = in[0]; v1 = in[1]; sum=0;          /* set up */
+
+  for (i=0; i < 32; i++) {                /* basic cycle start */
+    sum += delta;
+    v0 += ((v1<<4) + k0) ^ (v1 + sum) ^ ((v1>>5) + k1);
+    v1 += ((v0<<4) + k2) ^ (v0 + sum) ^ ((v0>>5) + k3); /* end cycle */
+  }
+  out[0]=v0; out[1]=v1;
+}
+/* To do: encrypt_cbc() */
+
+void decrypt(unsigned long* v, unsigned long* k) {
+  unsigned long v0, v1, sum, i, delta, k0, k1, k2, k3;
+  delta=0X9E3779B9;                       /* a key schedule constant */
+  k0=k[0]; k1=k[1]; k2=k[2]; k3=k[3];     /* cache key */
+  v0 = v[0]; v1 = v[1]; sum=0xC6EF3720;   /* set up */
+
+  for (i=0; i<32; i++) {                               /* basic cycle start */
+    v1 -= ((v0<<4) + k2) ^ (v0 + sum) ^ ((v0>>5) + k3);
+    v0 -= ((v1<<4) + k0) ^ (v1 + sum) ^ ((v1>>5) + k1);
+    sum -= delta;                                      /* end cycle */
+  }
+  v[0]=v0; v[1]=v1;
+}
+
+/* See http://upload.wikimedia.org/wikipedia/en/6/66/Cbc_decryption.png 
+   for a depiction of general CBC decryption */
+void decrypt_cbc(unsigned long *in, unsigned long len, unsigned long *key, unsigned long *out) {
+  unsigned long x[2], nx[2], dec[2], tea[2], offset;
+
+  /* initialization vector */
+  /* Note: this is referenced at 0xa02e8320+0x30 by sub_A0234BB8 4.0.1 */
+  x[0] = x[1] = 0xffffffff;
+
+  for (offset=0; offset<len; offset+=8) {  /* block size of TEA is 8 bytes */
+    int blen = 8;
+    if ((len-offset)<8)
+      blen = len-offset;
+
+    int i;
+    for (i=0; i<(blen>>2); i++)
+      tea[i] = in[(offset>>2)+i];
+
+    nx[0]  = tea[0];  nx[1]  = tea[1];  // save these for next CBC round
+    decrypt(tea, key);
+    dec[0] = tea[0] ^ x[0];
+    dec[1] = tea[1] ^ x[1];
+    x[0]   = nx[0];   x[1]   = nx[1];
+    
+    /* Plaintext */
+    for (i=0; i<blen; i++)
+      ((unsigned char *)out)[offset+i] = ((unsigned char *)dec)[i];
+  }
+}
+
+int main(int argc, char *argv[]) {
+  FILE *f;
+  void *ibuf, *buf;
+  char *s;
+  unsigned long offset, length;
+  int i;
+  unsigned long sha1hash[5];
+
+  //unsigned long sha1hash[5]   = { 0xaeb0afde,0x93e7528c,0x286e8655,0x023e4617,0x5173825a };
+  
+  if (argc != 5) {
+    fprintf(stderr, "Usage: %s <infile> <offset> <length> <sha>\n", argv[0]);
+    return -1;
+  }
+  if (sscanf(argv[2], "0x%x", &offset)!=1) {
+    fprintf(stderr, "please use 0x notation for numbers\n");
+    exit(1);
+  }
+  if (sscanf(argv[3], "0x%x", &length)!=1) {
+    fprintf(stderr, "please use 0x notation for numbers\n");
+    exit(1);
+  }
+  s = argv[4];
+  if ((strlen(s)!=34) || (strncasecmp(s,"0x", 2)!=0)) {
+    fprintf(stderr, "sha must be a 32-character hex string beginning with 0x\n");
+    exit(1);
+  }
+  for (i=0; i<4; i++) {
+    char s1[9];
+    strncpy(s1,s+2+i*8,8);
+    s1[8] = '\0';
+    if (sscanf(s1, "%x", &sha1hash[i])!=1) {
+      fprintf(stderr, "couldn't parse sha value\n");
+      exit(1);
+    }
+  }
+
+  ibuf = malloc(length); buf = malloc(length);
+  if ((f = fopen(argv[1], "rb"))==NULL) {
+    perror(argv[1]);
+    exit(1);
+  }
+  if (fseek(f, offset, SEEK_SET)==-1) {
+    perror("fseek");
+    exit(1);
+  }
+  if (fread(ibuf, 1, length, f)!=length) {
+    perror("fread");
+    exit(1);
+  }
+  fclose(f);
+
+  /* Sorry for this mess... */
+  for (i=0; i<length; i++) {
+    unsigned char *a;
+    unsigned long e;
+    a = (unsigned char *)ibuf + i*4;
+    e = ((*(a+3))<<24) | ((*(a+2))<<16) | ((*(a+1))<<8) | ((*(a+0))<<0);
+    *((unsigned long *)buf+i) = e;
+  }
+
+  decrypt_cbc(buf, length, &sha1hash[0], buf);
+  fwrite(buf, length, 1, stdout);
+
+  exit(0);
+}
+}}}
