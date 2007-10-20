@@ -8,11 +8,29 @@ The *teasz* program below implements the same encryption scheme as used by the i
 
 Such programs would need to be running out of baseband, and work on those programs is underway.
 
-= Details =
+= Getting your norID and HWID =
 
-In order to use this, you first need to generate the SHA-1 sum of 32 bytes formed from: your norID, 8 zeros, your HWID, then 4 zeros
+In order to use this program, you need to know the norID (8 bytes) and HWID (12 bytes) of your iPhone.  There are a few ways to get those.
 
-Your norID and HWID are unique to your phone, and are discussed on other pages at this Wiki and elsewhere.
+== LTOKEN extraction ==
+
+You can capture the LTOKEN sent to IPSF when you unlock your iPhone (this was the method that I used).  The LTOKEN itself is encrypted, and you need a program like  [http://lpahome.com/geohot/deipsf.c depisf] from geohot to decrypt it.  Once you do decrypt it, the HWID is 0x18 bytes into the decrypted part and lasts for 12 bytes.  The norID is 0x302 bytes into the decrypted part and lasts of 8 bytes.
+
+ * For anyone curious, I knew the only 12 bytes of the HWID section that mattered began at 0x18 bytes into the HWID section because the RCE of their bbsimfree v1.6 shows they are interested in those bytes.  See the code at 0xA0024818
+
+== Custom baseband program ==
+
+A baseband program can access the HWID directly by reading from 0xF440006C through 0xF4400074
+
+ * For the curious, bbsimfree v1.6 can be seen doing this at 0xA00245CC.
+
+A baseband program can also read the norID directly by issuing a CFI query command and reading back the data at 0x102 through 0x109.
+
+= Using your norID and HWID =
+
+The norID and HWID aren't used directly.  They are assembled into a 32-byte structure that looks like: norID, 8 bytes of 0, HWID, 4 bytes of zero.  Then, the SHA-1 sum is computed over those 32-bytes.  The first 16 bytes of that SHA-1 sum is what you need, and what the program below expects you to give it.  It is unique for every iPhone.
+
+= Source code =
 
 {{{
 /*
