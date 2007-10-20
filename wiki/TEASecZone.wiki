@@ -24,7 +24,7 @@ Now, consider this:
 
  * The code on this page can be used to restore the virgin lock table to any iPhone, regardless of unlock method.  That's because the data to encrypt is known (in fact, it's shown below).
 
- * The code on this page *cannot* be used to restore the token on your iPhone *unless you have a backup of the encrypted seczone*.  That sucks for IPSF users who didn't make such a backup.
+ * The code on this page *cannot* be used to restore the token on your iPhone *unless you have a backup of the encrypted seczone*.  That sucks for IPSF users who didn't make such a backup, if Apple ever closes the RSA hole.
 
  * *IN SUMMARY*: If you used anySIM 1.x0 and became 0049'd, the source code on this page will help revirginize your phone.  If you used IPSF, the source code here will help you only if Apple closes the RSA hole (otherwise, why bother to re-virginize) and if you (or IPSF) has a backup of your original seczone.
 
