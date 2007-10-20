@@ -18,7 +18,7 @@ When the code below is incorporated into a program running in the baseband CPU, 
 
 Now, consider this:
 
- * The encrypted lock table for a locked phone is *identical in every iPhone*.  Encrypting the lock table makes it look different on every iPhone, but once decrypted it is identical.  
+ * The decrypted lock table for a locked phone is *identical in every iPhone*.  Encrypting the lock table makes it look different on every iPhone, but once decrypted it is identical.  
 
  * The "token" is *unique to every iPhone*.  It uses RSA encryption and only Apple knows the private key used to encrypt.  If it gets wiped out, it is gone forever (unless you, or IPSF, saved a backup).
 
