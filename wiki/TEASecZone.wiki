@@ -1,11 +1,14 @@
-#summary TEA SecZone decryptor
+#summary TEA SecZone encryptor/decryptor
 
 = Introduction =
 
-This is a decryptor for areas of your iPhone seczone. 
-
+This is a an encryptor and decryptor for areas of your iPhone seczone. 
 
 = Details =
+
+In order to use this, you first need to generate the SHA-1 sum of 32 bytes formed from: your norID, 8 zeros, your HWID, then 4 zeros
+
+Your norID and HWID are unique to your phone, and are discussed on other pages at this Wiki and elsewhere.
 
 {{{
 /*
