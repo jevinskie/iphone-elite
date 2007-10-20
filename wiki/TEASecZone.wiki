@@ -2,15 +2,15 @@
 
 = Overview =
 
-The *teasz* program below implements the same encryption scheme as used by the iPhone firmware when accessing the seczone.  Specifically, it's [http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm TEA encryption] used in [http://en.wikipedia.org/wiki/Cipher_block_chaining CBC mode].  It's primarly a proof on concept, but in principle it can be used in larger programs that do things like:
+The *teasz* program below implements the same encryption scheme as used by the iPhone firmware when accessing the seczone.  Specifically, it's [http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm TEA encryption] used in [http://en.wikipedia.org/wiki/Cipher_block_chaining CBC mode].  It's primarily a proof on concept, but in principle it can be used in larger programs that do things like:
    * Re-virginize your seczone (but see next section for details)
    * Unlock your iPhone the same way IPSF does
 
-Such programs would need to be running out of baseband, and work on those programs is underway.
+Such programs would need to be running on the baseband CPU, and work on those programs is underway.
 
 == Note about re-virginization ==
 
-When the code below is incorporated into a program running in the baseband CPU, it has the ability to properly encrypt every part of the seczone.  But such a program still needs to know *what* to encrypt.  At this point, the differences between the anySIM 1.0x unlock and the IPSF unlock become important.
+When the code below is incorporated into a program running on the baseband CPU, it has the ability to properly encrypt every part of the seczone.  But such a program still needs to know *what* to encrypt.  At this point, the differences between the anySIM 1.0x unlock and the IPSF unlock become important.
 
  * The anySIM 1.0x unlock inadvertantly convinces the Apple baseband code to rewrite the lock tables at seczone+0xc88, away from their virgin locked status.  That's okay as long as the anySIM 1.0x patch to the baseband is still in place, because that inconsistency is ignored (by the patch).  The anySIM 1.0x unlock does not change the "token" at seczone+0x400.
 
