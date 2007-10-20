@@ -6,16 +6,17 @@ AS = arm-elf-as
 INCLUDE = -I.
 CFLAGS = -O0
 
-ENTRY = 0x0
+NAME = freeloader
 
 OBJS =	arm9_utils.o \
-	cfi_flash.o
+	cfi_flash.o \
+	pmb8876_uart.o
 
-freeload.bin:	freeload.elf
+$(NAME).bin:	$(NAME).elf
 		$(OBJCOPY) -O binary $< $@
 
-freeload.elf:	$(OBJS)
-		$(LD) -e $(ENTRY) -o $@ $(OBJS)
+$(NAME).elf:	$(OBJS) freeloader.o
+		$(LD) -Tfreeloader.x -o $@ $(OBJS)
 
 all:	freeload.bin
 
@@ -25,4 +26,4 @@ all:	freeload.bin
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
 clean:
-	rm -f $(OBJS) *~ freeload.bin freeload.elf
+	rm -f $(OBJS) *~ freeload.bin freeload.elf freeloader.o
