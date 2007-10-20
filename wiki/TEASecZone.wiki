@@ -14,7 +14,7 @@ Your norID and HWID are unique to your phone, and are discussed on other pages a
 /*
  * teasz - TEA seczone utility
  *
- * Written my MuscleNerd, with help from wikipedia :)
+ * Written my MuscleNerd, with help from wikipedia
  *
  * Thanks to everyone at iphone-elite.org wiki and IRC channel
  * for providing a more friendly environment in which to participate.
@@ -38,7 +38,8 @@ void usage(void) {
           "   infile - raw binary file input\n"\
           "   offset - offset into file\n"\
           "   length - how many bytes to process\n"\
-          "   sha    - first 16 bytes of sha1 sum\n"\
+          "   sha    - first 16 bytes of sha1 sum\n\n"\
+          "   NOTE: The last three arguments must all be hex with 0x prefix\n"\
           ,whoami);
   exit(1);
 }
@@ -128,23 +129,37 @@ void decrypt_cbc(unsigned long *in, unsigned long len, unsigned long *key, unsig
   }
 }
 
-void swap(void *obuf, void *ibuf, unsigned long length) {
-  unsigned long i;
-  /* I'm sure there's a cleaner way than this... */
-  for (i=0; i<length; i++) {
-    unsigned char *a;
-    unsigned long e;
-    a = (unsigned char *)ibuf + i*4;
-    e = ((*(a+3))<<24) | ((*(a+2))<<16) | ((*(a+1))<<8) | ((*(a+0))<<0);
-    *((unsigned long *)obuf+i) = e;
+int is_big_endian(void) {
+  union {
+    char     c[4];
+    unsigned l;
+  } u;
+  u.c[0]=0x12; u.c[1]=0x34; u.c[2]=0x56; u.c[3]=0x78;
+  if (u.l==0x12345678)
+    return 1;
+  else if (u.l==0x78563412)
+    return 0;
+  else {
+    perror("can't determine endianness!\n");
+    exit(1);
   }
 }
+#define BYTESWAP(x) \
+    (((x)<<24) | (((x)&0xff00)<<8) | (((x)>>8)&0xff00) | ((x)>>24))
 
+void memswp(unsigned long obuf[], unsigned long ibuf[], unsigned long length) {
+  int i;
+  for (i=0; i<length; i++) {
+    obuf[i] = BYTESWAP(ibuf[i]);
+  }
+}
+    
 int main(int argc, char *argv[]) {
   FILE *f;
   void *ibuf, *buf;
   unsigned long offset, length, sha1hash[4];
   int i, decrypt = 1;
+  int big_endian = is_big_endian();
 
   whoami = strrchr(argv[0], '/');
   whoami = (whoami == NULL) ? argv[0] : whoami+1;
@@ -181,6 +196,10 @@ int main(int argc, char *argv[]) {
   }
 
   ibuf = malloc(length); buf = malloc(length);
+  if (!ibuf || !buf) {
+    perror("malloc");
+    exit(1);
+  }
   if ((f = fopen(argv[2], "rb"))==NULL) {
     perror(argv[2]);
     exit(1);
@@ -196,13 +215,17 @@ int main(int argc, char *argv[]) {
   fclose(f);
 
   if (decrypt) {
-    swap(buf,ibuf,length);
-    decrypt_cbc(buf, length, &sha1hash[0], buf);
+    if (big_endian)  memswp(buf,ibuf,length);
+    else             memcpy(buf,ibuf,length);
+    decrypt_cbc(buf, length, &sha1hash[0], ibuf);
+    if (big_endian)  memcpy(buf,ibuf,length);
+    else             memswp(buf,ibuf,length);
   } else {
-    memcpy(buf,ibuf,length);
-    encrypt_cbc(buf, length, &sha1hash[0], buf);
-    memcpy(ibuf,buf,length);
-    swap(buf,ibuf,length);
+    if (big_endian)  memcpy(buf,ibuf,length);
+    else             memswp(buf,ibuf,length);
+    encrypt_cbc(buf, length, &sha1hash[0], ibuf);
+    if (big_endian)  memswp(buf,ibuf,length);
+    else             memcpy(buf,ibuf,length);
   }
   fwrite(buf, length, 1, stdout);
 
