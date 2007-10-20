@@ -16,7 +16,7 @@ In order to use this program, you need to know the norID (8 bytes) and HWID (12 
 
 You can capture the LTOKEN sent to IPSF when you unlock your iPhone (this was the method that I used).  The LTOKEN itself is encrypted, and you need a program like  [http://lpahome.com/geohot/deipsf.c depisf] from geohot to decrypt it.  Once you do decrypt it, the HWID is 0x18 bytes into the decrypted part and lasts for 12 bytes.  The norID is 0x302 bytes into the decrypted part and lasts for 8 bytes.
 
- * For anyone curious, I knew the only 12 bytes of the HWID section that mattered began at 0x18 bytes into the HWID section because the RCE of their bbsimfree v1.6 shows they are interested in those bytes.  See the code at 0xA0024818
+ * For anyone curious, you can tell that only 12 bytes of the HWID section that matter begin at 0x18 bytes into the HWID section because the RCE of their bbsimfree v1.6 shows they are interested in those bytes.  See the code at 0xA0024818.  That was a big tip-off.
 
 == Custom baseband program ==
 
