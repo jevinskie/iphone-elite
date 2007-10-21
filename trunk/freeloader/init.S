@@ -1,8 +1,6 @@
 #define ASM_FUNC_NAME(_name_) \
 	.globl _name_ ; _name_:
 
-.section .freeloader_entry
-.code 32
 /*
  * This code disables the MMU, invalidates the I & D caches,
  * and drains the write buffers
