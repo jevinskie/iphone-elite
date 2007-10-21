@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Iphone kernel memory map. Derived from pmaps.
+Iphone 1.0.2 kernel memory map. Derived from pmaps.
 Names from ioreg command output, IODeviceMemory properties.
 
 = Details =
