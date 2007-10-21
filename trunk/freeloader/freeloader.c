@@ -52,10 +52,6 @@ freeloader_entry()
      */
     disablewdt();
 
-    do {
-	waitbyte = uart_poll_rx_byte();
-    } while(waitbyte != 0xCC);
-
     while(1) {
 	uart_poll_tx_byte('F');
 	for(i = 0; i < 1000000; i++);
