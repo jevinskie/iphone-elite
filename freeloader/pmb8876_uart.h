@@ -109,7 +109,7 @@
 #define FSTAT_TXFFL		(0xF <<  8)	/* Transmit FIFO filling level mask */
 #define FSTAT_RXFFL		(0xF)		/* Receive FIFO filling level mask */
 
-void uart_set_speed(unsigned int speed);
+void uart_set_speed(unsigned int uart, unsigned int speed);
 unsigned char uart_poll_rx_byte();
 void uart_poll_tx_byte(unsigned char byte);
 void uart_poll_tx_string(const char *msg);

@@ -52,6 +52,8 @@ freeloader_entry()
      */
     disablewdt();
 
+    uart_set_speed(0, USART_115200);
+
     while(1) {
 	uart_poll_tx_byte('F');
 	for(i = 0; i < 1000000; i++);

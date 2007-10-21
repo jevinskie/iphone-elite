@@ -2,16 +2,26 @@
 #include <pmb8876_uart.h>
 
 void
-uart_set_speed(unsigned int speed)
+uart_set_speed(unsigned int uart, unsigned int speed)
 {
     unsigned int i = 0;
 
-    i = PMB8876_REG(USART0_BG) & 0xFF;
-    i |= (speed >> 16);
-    PMB8876_REG_SET_MASK(USART0_BG, i);
-    
-    i = ((speed << 16) >> 16);
-    PMB8876_REG_SET_MASK(USART0_FDV, i);
+    if(!uart) {
+	i = PMB8876_REG(USART0_BG) & 0xFF;
+	i |= (speed >> 16);
+	PMB8876_REG_SET_MASK(USART0_BG, i);
+	
+	i = ((speed << 16) >> 16);
+	PMB8876_REG_SET_MASK(USART0_FDV, i);
+    }
+    else{
+	i = PMB8876_REG(USART0_BG) & 0xFF;
+	i |= (speed >> 16);
+	PMB8876_REG_SET_MASK(USART0_BG, i);
+	
+	i = ((speed << 16) >> 16);
+	PMB8876_REG_SET_MASK(USART0_FDV, i);
+    }	
 }
 
 unsigned char
