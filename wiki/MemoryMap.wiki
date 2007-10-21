@@ -52,7 +52,7 @@ Names from ioreg command output, IODeviceMemory properties.
  041 f1755000.01000000 -> 3b000000 mbx
  042 f278d000.00001000 -> 38d00000 sdio, MRVL868X, airport en0
  043 f27e3000.00001000 -> 39700000 camin, H1CameraInterface
- 044 f27e5000.00c00000 -> 0f400000
+ 044 f27e5000.00c00000 -> 0f400000 vram
 
  not kernel mapped, kexts not loaded ?
 
