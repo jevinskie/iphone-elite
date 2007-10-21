@@ -38,7 +38,13 @@ disablewdt()
     WDT_CON0 = 0xAAAA00F3;      //Relock endinit(modify)
 }
 
-int freeloader_entry() __attribute__ ((section (".rom_vectors")));
+unsigned char cjkt_magic[] __attribute ((section (".rom_vectors"))) =
+{ 
+    0x00, 0x20, 0x00, 0x00, 0xFF, 0xDF, 0xFF, 0xFF, 
+    0x20, 0x10, 0x02, 0xA0, 0x43, 0x4A, 0x4B, 0x54
+};
+
+int freeloader_entry() __attribute__ ((section (".freeloader_init")));
 
 int
 freeloader_entry()
