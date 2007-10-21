@@ -8,8 +8,10 @@ INCLUDE = -I.
 
 NAME = freeloader
 
-OBJS =	arm9_utils.o \
+OBJS =	init.o \
+	arm9_utils.o \
 	cfi_flash.o \
+	pmb8876_misc.o \
 	pmb8876_uart.o
 
 $(NAME).bin:	$(NAME).elf
@@ -21,7 +23,7 @@ $(NAME).elf:	$(OBJS) freeloader.o
 all:	freeload.bin
 
 .S.o:
-	$(CC) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
