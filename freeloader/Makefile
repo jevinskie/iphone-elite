@@ -1,10 +1,10 @@
 CC = arm-elf-gcc
+CFLAGS = -O0
 LD = arm-elf-ld
 OBJCOPY = arm-elf-objcopy
 AS = arm-elf-as
 
 INCLUDE = -I.
-CFLAGS = -O0
 
 NAME = freeloader
 
@@ -21,7 +21,7 @@ $(NAME).elf:	$(OBJS) freeloader.o
 all:	freeload.bin
 
 .S.o:
-	$(AS) -o $@ $<
+	$(CC) -c -o $@ $<
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
