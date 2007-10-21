@@ -19,11 +19,13 @@ SECTIONS
     .debug_macinfo 0 : { *(.debug_macinfo) } 
     .note.arm.ident 0 : { KEEP (*(.note.arm.ident)) }
 
-    .rom_vectors 0x20000 : { __rom_vectors_vma = ABSOLUTE(.); 
-    . = .; 
-    KEEP (*(.vectors)) } > ram __rom_vectors_lma = LOADADDR(.rom_vectors);
+    .rom_vectors 0x20000 : { 
+    		 __rom_vectors_vma = ABSOLUTE(.);
+		 . = .; 
+		 KEEP (*(.vectors)) } > ram
+     __rom_vectors_lma = LOADADDR(.rom_vectors);
 
-    .freeloader_entry 0x21020 : { . = .; KEEP (*(.freeloader_entry)) } > ram
+    .freeloader_entry 0x21020 : { init.o . = .; KEEP (*(.freeloader_entry)) } > ram
 
     .rel.text : { *(.rel.text) *(.rel.text.*) *(.rel.gnu.linkonce.t*) } > ram
     .rela.text : { *(.rela.text) *(.rela.text.*) *(.rela.gnu.linkonce.t*) } > ram
