@@ -7,7 +7,7 @@
  */
 
 #define USART0_BASE		0xF1000000
-#define USART1_BASE		0xF1800000
+#define USART1_BASE		0xF7500000
 
 #define USART0_CLC		USART0_BASE
 #define USART0_PISEL		USART0_BASE + 0x04
@@ -42,6 +42,16 @@
 #define USART1_FSTAT		USART1_BASE + 0x48
 #define USART1_FCSTAT		USART1_BASE + 0x68
 #define	USART1_ICR		USART1_BASE + 0x70
+
+#define USART_57600		0x001901D8	/* 57600 / 0x1D8 = 122.033898 * 0x1a = 3172.881348 */
+#define USART_115200		0x000C01D8	/* 115200 / 0x1D8 = 244.067797 * 13 = 3172.881361 */
+#define USART_230400		0x000501B4	/* 230400 / 0x1B4 = 528.440367 * 0x6 = 3170.642202 */
+#define USART_460800		0x00000092	/* 460800 / 0x92 = 3156.164384 */
+#define USART_614400		0x000000C3	/* 614400 / 0xC3 = 3150.769231 */
+#define USART_921600		0x00000127	/* 921600 / 0x127 = 3124.067797 */
+#define USART_1228800		0x0000018A	/* 1228800 / 0x18A = 3118.781726 */
+#define USART_1600000		0x00000000	/* 1600000 / 0x200 = 3125 */
+#define USART_1500000		0x000001D0	/* 1500000 / 0x1D0 = 3232.758621 */
 
 #define	CON_R			(1 << 15)	/* Baud rate generator run control (0: disable; 1: enable) */
 #define CON_LB			(1 << 14)	/* Loopback mode (0: disable; 1: enable) */
@@ -99,6 +109,7 @@
 #define FSTAT_TXFFL		(0xF <<  8)	/* Transmit FIFO filling level mask */
 #define FSTAT_RXFFL		(0xF)		/* Receive FIFO filling level mask */
 
+void uart_set_speed(unsigned int speed);
 unsigned char uart_poll_rx_byte();
 void uart_poll_tx_byte(unsigned char byte);
 void uart_poll_tx_string(const char *msg);

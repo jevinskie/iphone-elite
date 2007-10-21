@@ -28,19 +28,6 @@ typedef volatile unsigned int vu32;
 #define	NORWORD		((unsigned short int*)0xA0000000)
 #define MEM		((unsigned char*)0xA8000000)
 
-void initflash()
-{
-    ADDRSEL1 = 0xA8000041;
-    BUSCON1 = 0x30720200;
-    SDRMREF0 = 6;
-    SDRMCON0 = 0x891C70;
-    SDRMOD0 = 0x23;
-    ADDRSEL0 = 0xA0000011;
-    ADDRSEL4 = 0xA0000011;
-    BUSCON0 = 0x00522600;
-    BUSCON4 = 0x00522600;
-}
-
 void
 disablewdt()
 {
@@ -57,12 +44,20 @@ int
 freeloader_entry()
 {
     int i;
+    unsigned char waitbyte;
 
+    /* 
+     * I don't know if the watchdog is disabled at this point
+     * or not, but why take chances
+     */
     disablewdt();
-    initflash();
+
+    do {
+	waitbyte = uart_poll_rx_byte();
+    } while(waitbyte != 0xCC);
 
     while(1) {
-	uart_poll_tx_string("Test string\n");
+	uart_poll_tx_byte('F');
 	for(i = 0; i < 1000000; i++);
     }
 }
