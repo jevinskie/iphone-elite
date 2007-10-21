@@ -1,33 +1,32 @@
-//#include <pmb8876_reg.h>
-//#include <pmb8876_uart.h>
+#include <pmb8876_reg.h>
+#include <pmb8876_uart.h>
 
-#define			USART0_TXB		*(volatile unsigned int*)0xF1000020
-#define			USART0_RXB		*(volatile unsigned int*)0xF1000024
-#define			USART0_FCSTAT		*(volatile unsigned int*)0xF1000068
-#define			USART0_ICR		*(volatile unsigned int*)0xF1000070
+void
+uart_set_speed(unsigned int speed)
+{
+    unsigned int i = 0;
+
+    i = PMB8876_REG(USART0_BG) & 0xFF;
+    i |= (speed >> 16);
+    PMB8876_REG_SET_MASK(USART0_BG, i);
+    
+    i = ((speed << 16) >> 16);
+    PMB8876_REG_SET_MASK(USART0_FDV, i);
+}
 
 unsigned char
 uart_poll_rx_byte()
 {
-#if 0
     while(!(USART0_FCSTAT & 4));
     
     PMB8876_REG_SET_BIT(USART0_ICR, 4);
     
     return(PMB8876_REG(USART0_RXB) & 0xFF);
-#else
-	while(	(USART0_FCSTAT & 4) == 0 );
-
-	USART0_ICR |= 4;
-
-	return USART0_RXB&255;
-#endif
 }
 
 void
 uart_poll_tx_byte(unsigned char byte)
 {
-#if 0
     unsigned int data;
 
     data = (PMB8876_REG(USART0_TXB) & ~0xFF) | byte;
@@ -37,18 +36,6 @@ uart_poll_tx_byte(unsigned char byte)
     while(!(USART0_FCSTAT & 2));
 
     PMB8876_REG_SET_BIT(USART0_ICR, 2);
-#else
-	unsigned int data = USART0_TXB;
-	
-	data &= ~0xFF;
-	data |= byte;
-
-	USART0_TXB = data;
-
-	while(  (USART0_FCSTAT&2) == 0 );
-
-	USART0_ICR	|= 2;
-#endif
 }
 
 void
