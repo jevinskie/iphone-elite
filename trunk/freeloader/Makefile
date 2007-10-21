@@ -1,5 +1,5 @@
 CC = arm-elf-gcc
-CFLAGS = -O0
+CFLAGS = -O0 -Wall
 LD = arm-elf-ld
 OBJCOPY = arm-elf-objcopy
 AS = arm-elf-as

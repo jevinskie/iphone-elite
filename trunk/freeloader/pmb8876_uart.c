@@ -28,12 +28,12 @@ unsigned char
 uart_poll_rx_byte(unsigned int uart)
 {
     if(!uart) {
-	while(!(USART0_FCSTAT & 4));
+	while(!(PMB8876_REG(USART0_FCSTAT) & 4));
 	PMB8876_REG_SET_BIT(USART0_ICR, 4);
 	return(PMB8876_REG(USART0_RXB) & 0xFF);
     }
     else {
-	while(!(USART1_FCSTAT & 4));
+	while(!(PMB8876_REG(USART1_FCSTAT) & 4));
 	PMB8876_REG_SET_BIT(USART1_ICR, 4);
 	return(PMB8876_REG(USART1_RXB) & 0xFF);
     }
@@ -47,13 +47,13 @@ uart_poll_tx_byte(unsigned int uart, unsigned char byte)
     if(!uart) {
 	data = (PMB8876_REG(USART0_TXB) & ~0xFF) | byte;
 	PMB8876_REG_SET_MASK(USART0_TXB, data);
-	while(!(USART0_FCSTAT & 2));
+	while(!(PMB8876_REG(USART0_FCSTAT) & 2))
 	PMB8876_REG_SET_BIT(USART0_ICR, 2);
     }
     else {
 	data = (PMB8876_REG(USART1_TXB) & ~0xFF) | byte;
 	PMB8876_REG_SET_MASK(USART1_TXB, data);
-	while(!(USART1_FCSTAT & 2));
+	while(!(PMB8876_REG(USART1_FCSTAT) & 2));
 	PMB8876_REG_SET_BIT(USART1_ICR, 2);
     }
 }
