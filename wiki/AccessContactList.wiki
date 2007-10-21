@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Access the contact list easily on a BRAND NEW phone.
 #labels Featured,Phase-Implementation,Phase-QA
 
 = How To Access Contacts on a BRAND NEW iPhone =
