@@ -10,7 +10,7 @@ oneSIM un-patches the bytes that anySIM changes, back to their original values :
 
 oneSIM 1.1 is an "undo" *ONLY* for iPhones patched with anySIM 1.1 owned by developers, researchers, and testers (_thank you, testers!_)
 
-= But....are you about to use anySIM 1.1? =
+= Are you about to use anySIM 1.1? =
 
 Zibree found an oversight with anySIM 1.1.  It needlessly increases your unlock attempt count. 
 
