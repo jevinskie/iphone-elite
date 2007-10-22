@@ -12,7 +12,7 @@ oneSIM 1.1 is an "undo" *ONLY* for iPhones patched with anySIM 1.1 owned by deve
 
 = Are you about to use anySIM 1.1? =
 
-Zibree found an oversight with anySIM 1.1.  It needlessly increases your NCK unlock attempt count.  Given how early we are in the iPhone world, you probably don't want to waste those counts.
+Zibree found an oversight with anySIM 1.1.  It needlessly increases your NCK unlock attempt count.  Given how early we are in the iPhone "cat and mouse" game, you probably don't want to waste those counts.
 
 If you are about to unlock using anySIM 1.1, you may want to make a patch first!   anySIM 1.1 still executes the command ` AT+CLCK="PN",0,"00000000"`.  That command was needed by anySIM 1.0x because of the specific patch used.  But the new patch no longer requires that command.  It will make your NCK unlock counter increment.  Why do that if you don't need to?.
 
