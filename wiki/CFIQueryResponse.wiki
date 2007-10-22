@@ -1,4 +1,5 @@
 #summary Intepreting the CFI Query Reponse from the Intel NOR chip
+#labels Featured
 
 = Overview =
 
@@ -34,4 +35,3 @@ Anyway, the bytes at 0x48 through 0x4e are the "Protection Field 1"
 is writeable.
 
 Then the 8 bytes of factory OTP follow. That's the "norID"
-
