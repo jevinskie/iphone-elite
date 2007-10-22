@@ -1,0 +1,34 @@
+#summary oneSIM patches back!
+#labels Featured,Phase-Deploy,Phase-Requirements
+= What is oneSIM ? =
+
+oneSIM is a patched anySIM version.
+
+oneSIM patches the bytes that anySIM patches, back to normal :)
+
+it's only for developers, researchers, and testers.
+
+Just a useful tool to fastly patch back and do tests.
+
+oneSIM 1.1 patches back ONLY iPhones patched with anySIM 1.1.
+
+It has nothing to do with the upcoming 'virginator'.
+
+
+= Notes =
+
+I found a problem in anySIM:
+
+If you want to unlock (anySIM 1.1) and relock (oneSIM 1.1), don't use the normal anySIM 
+
+1.1 version: they forgot to eliminate the command "AT+CLCK="PN",0,"00000000" which was 
+
+needed by the *previous* patch. Issuing that command, anySIM make the counter go *up* by
+
+1 everytime you run it.
+
+To patch it, take an HEX editor and search for the command above.
+
+Substitute it with ATZ (followed by 0x0D and 0x00).
+
+That's all folks!
