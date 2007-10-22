@@ -2,6 +2,8 @@
 #labels Featured,Phase-Deploy,Phase-Requirements
 = What is oneSIM ? =
 
+*ATTENTION: The issues with NCK in anySIM 1.1 is being further investigated. Please don't rush with your judgments. * 
+
 *Note:*  this has nothing to do with the upcoming 'revirginator'.  But stay tuned for that!
 
 oneSIM is an "undo" of anySIM 1.1.  It reverses the patches made by anySIM 1.1.  _It's useful to developers, researchers, and testers_.   *BUT end users should read the next section if you haven't yet applied anySIM 1.1.  (It will save you one or more unlock counts!  Those counts add up...to "5" specifically)*
