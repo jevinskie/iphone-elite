@@ -2,7 +2,7 @@
 #labels Featured,Phase-Deploy,Phase-Requirements
 = What is oneSIM ? =
 
-*ATTENTION: The issues with NCK in anySIM 1.1 is being further investigated. Please don't rush with your judgments. * 
+*ATTENTION: The issue with NCK in anySIM 1.1 is being further investigated. Please don't rush with your judgments. * 
 
 *Note:*  this has nothing to do with the upcoming 'revirginator'.  But stay tuned for that!
 
