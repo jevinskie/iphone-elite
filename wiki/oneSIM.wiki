@@ -2,7 +2,7 @@
 #labels Featured,Phase-Deploy,Phase-Requirements
 = What is oneSIM ? =
 
-*ATTENTION: The issue with NCK in anySIM 1.1 is being further investigated. Please don't rush with your judgments. * 
+
 
 *Note:*  this has nothing to do with the upcoming 'revirginator'.  But stay tuned for that!
 
@@ -13,6 +13,8 @@ oneSIM un-patches the bytes that anySIM changes, back to their original values :
 oneSIM 1.1 is an "undo" *ONLY* for iPhones patched with anySIM 1.1 owned by developers, researchers, and testers (_thank you, testers!_)
 
 = Are you about to use anySIM 1.1? =
+
+*ATTENTION: The issue with NCK in anySIM 1.1 is being further investigated. Please don't rush with your judgments. * 
 
 Zibree found an oversight with anySIM 1.1.  It needlessly increases your NCK unlock attempt count.  Given how early we are in the iPhone "cat and mouse" game, you probably don't want to waste those counts.
 
