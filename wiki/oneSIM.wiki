@@ -2,33 +2,20 @@
 #labels Featured,Phase-Deploy,Phase-Requirements
 = What is oneSIM ? =
 
-oneSIM is a patched anySIM version.
+*Note:*  this has nothing to do with the upcoming 'revirginator'.  But stay tuned for that!
 
-oneSIM patches the bytes that anySIM patches, back to normal :)
+oneSIM is an "undo" of anySIM 1.1.  It reverses the patches made by anySIM 1.1.  _It's useful to developers, researchers, and testers_.   *BUT end users should read the next section* if you haven't yet applied anySIM 1.1.  (It will save you one or more unlock counts!  Those counts add up...to "5" specifically)
 
-it's only for developers, researchers, and testers.
+oneSIM un-patches the bytes that anySIM changes, back to their original values :)  It's a useful tool to quickly undo anySIM 1.1, to help further testing.
 
-Just a useful tool to fastly patch back and do tests.
+oneSIM 1.1 is an "undo" *ONLY* for iPhones patched with anySIM 1.1 owned by developers, researchers, and testers (_thank you, testers!_)
 
-oneSIM 1.1 patches back ONLY iPhones patched with anySIM 1.1.
+= Are you about to use anySIM 1.1? =
 
-It has nothing to do with the upcoming 'virginator'.
+Zibree found an oversight with anySIM 1.1.  It needlessly increases your unlock attempt count. 
 
+If you are about to unlock using anySIM 1.1, you may want to make a patch first!   anySIM 1.1 still executes the command "AT+CLCK="PN",0,"00000000".  That command was needed by anySIM 1.0x because of the specific patch used.  But the new patch no longer requires that command.  It will make your nck unlock counter increment.  Why do that if you don't need to?.
 
-= Notes =
-
-I found a problem in anySIM:
-
-If you want to unlock (anySIM 1.1) and relock (oneSIM 1.1), don't use the normal anySIM 
-
-1.1 version: they forgot to eliminate the command "AT+CLCK="PN",0,"00000000" which was 
-
-needed by the *previous* patch. Issuing that command, anySIM make the counter go *up* by
-
-1 everytime you run it.
-
-To patch it, take an HEX editor and search for the command above.
-
-Substitute it with ATZ (followed by 0x0D and 0x00).
+To patch it, take an HEX editor and search for the AT+CLCK command above.  Patch it to be "ATZ" followed by 0x0d \x00.
 
 That's all folks!
