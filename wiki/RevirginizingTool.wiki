@@ -28,7 +28,7 @@ The other files included in the ZIP file are the source code.  It's also in SVN.
 
 Before running this, it would be very advisable to backup your seczone flash page, just in case anything goes wrong.
 
-To do this, grab a copy of 'norz' and run the following on the phone:
+To do this, grab a copy of [http://iphone-elite.googlecode.com/svn/trunk/hnorz/norz norz] and run the following on the phone:
 
 # norz seczone.backup 0x3FA000 0x2000 (sorry, there was a mistake here earlier -- we're tired)
 
