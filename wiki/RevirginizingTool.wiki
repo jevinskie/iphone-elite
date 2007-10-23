@@ -84,6 +84,8 @@ Run:
 
 # iUnlock firmware/ICE03.14.08_G.fls eliteloader.bin
 
+(v42.PROPER is the iUnlock released on 9/11/2007 and can be found at http://www.engadget.com/videos/iUnlock.zip among other places)
+
 You should see:
 {{{
 iUnlock v42.PROPER -- Copyright 2007 The dev team
