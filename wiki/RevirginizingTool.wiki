@@ -405,7 +405,7 @@ Done
 
   * Restart CommCenter:
 {{{
-launchctl load /System/Library/LaunchDaemons/com.apple.CommCenter.plist
+launchctl load -w /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 }}}
 
 === *Congratulations, you have virginized your phone!* ===
