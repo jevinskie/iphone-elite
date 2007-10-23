@@ -5,6 +5,9 @@
 
 This process is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  In essence, it re-virginizes your phone. 
 
+*A test was just made by Zibri. A phone has been intentionally bricked
+wrong imei and wrong sim) and then the phone came back to life with this tool.*
+
 == FAQ ==
 
 || I got "bricked" when I upgraded to 1.1.1 after using anySIM/iUnlock on 1.0.2.  Will this allow me to safely upgrade to 1.1.1 without further problems? ||
