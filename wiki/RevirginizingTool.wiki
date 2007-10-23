@@ -148,7 +148,7 @@ Completed.
 Enjoy!
 }}}
 
-  * Make bbupdater executable:
+  * Make *bbupdater* executable:
 {{{
 chmod +x ./bbupdater
 }}}
