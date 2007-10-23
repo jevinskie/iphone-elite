@@ -16,7 +16,7 @@ Before running this, it would be very advisable to backup your seczone flash pag
 
 To do this, grab a copy of 'norz' and run the following on the phone:
 
-# norz seczone.backup 0x3A0000 0x50000 (sorry, there was a mistake here earlier -- we're tired)
+# norz seczone.backup 0x3A000 0x5000 (sorry, there was a mistake here earlier -- we're tired)
 
 You should see:
 {{{
