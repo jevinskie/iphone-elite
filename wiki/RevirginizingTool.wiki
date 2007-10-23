@@ -9,6 +9,8 @@ This process is designed to rebuild your lock table in the seczone area and repa
 
 || *_daurnimator_* has written a script that automates this whole process.  Please download it [http://iphone-elite.googlecode.com/files/Virginiser.tar.gz here]. ||
 
+|| *Corresponding Forum Topic [http://rdgaccess.com/iphone-elite/viewtopic.php?t=98 here]. ||
+
 
 == FAQ ==
 
