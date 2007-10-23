@@ -90,6 +90,11 @@ This will create a file called *seczone.backup* in the working directory.  Pleas
 
 == Virginize == 
 
+  * Stop CommCenter:
+{{{
+launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenter.plist
+}}}
+
   * While still in the working directory (/usr/bin/virginizer_pack) do:
 {{{
 ./iUnlock ./ICE03.14.08_G.fls ./eliteloader.bin
@@ -375,6 +380,11 @@ issuing +xgendata...
 eep revision: EEP_REVISION:7
   bootloader: BOOTLOADER_VERSION:3.9_M3S2
 Done
+}}}
+
+  * Restart CommCenter:
+{{{
+launchctl load com.apple.CommCenter
 }}}
 
 === *Congratulations, you have virginized your phone!* ===
