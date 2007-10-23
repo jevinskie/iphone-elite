@@ -5,11 +5,9 @@
 
 This process is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  In essence, it re-virginizes your phone. 
 
-*A test was just made by Zibri. A phone has been intentionally bricked
-wrong imei and wrong sim) and then the phone came back to life with this tool.*
+* This method has been personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process which successfully restored the device to working condition.*
 
-
-|| Download this file* http://sharebee.com/31994895 *for an automated script.* - by daurnimator ||
+|| daurnimator has written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
 
 
 == FAQ ==
