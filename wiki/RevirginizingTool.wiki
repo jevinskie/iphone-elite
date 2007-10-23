@@ -8,9 +8,6 @@ To answer some questions:
 
 Yes, it does clear the NCK counter
 
-  # Will this reset the NCK counter?
-  * Yes
-
 Yes, it does obsolete the IPSF + server method.  The entire process is done on your phone in the baseband.
 
 = Details =
