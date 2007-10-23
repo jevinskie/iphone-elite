@@ -29,7 +29,7 @@ This process is designed to rebuild your lock table in the seczone area and repa
 *This guide assumes you've already established ssh access to your phone.  For added peace-of-mind it is advisable to install the vt100 terminal application or MobileTerminal prior to running through this process just in case anything fails and you lose wifi access.*
 
   * All references to IP address *192.168.1.100* should be replaced by your phone's address.
-  * Extract *virginizer_pack.zip* and copy the directory *virginizer_pack* to your phone:
+  * Extract [http://rapidshare.com/files/64647223/virginizer_pack.zip.html *virginizer_pack.zip*] and copy the directory *virginizer_pack* to your phone:
 {{{
 scp -r virginizer_pack root@192.168.1.100:/usr/bin
 }}}
