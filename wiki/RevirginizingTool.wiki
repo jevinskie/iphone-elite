@@ -12,7 +12,7 @@ To do this, grab a copy of 'norz' and run the following on the phone:
 
 # norz seczone.backup 0x3E0000 0xFFFF
 
-[ You should see:
+You should see:
 {{{
 geohot's nor dumper
 all your norz are belong to us
@@ -62,7 +62,7 @@ Wrote: 0xa03ef000
 Dumped
 resetbaseband
 }}}
-]
+
 
 Copy the seczone.backup file off to somewhere safe
 
@@ -76,7 +76,7 @@ Run:
 
 # iUnlock firmware/ICE03.14.08_G.fls eliteloader.bin
 
-[ You should see:
+You should see:
 {{{
 iUnlock v42.PROPER -- Copyright 2007 The dev team
 
@@ -107,20 +107,16 @@ FW are equal!
 Completed.
 Enjoy!
 }}}
-]
 
 # bbupdater -v
 
-[ You should see:
+You should see:
 {{{
 Resetting target...
 pinging the baseband...
 baseband unresponsive to pinging
 Done
 }}}
-]
-
-#
 
 Your seczone should now be repaired
 
@@ -128,7 +124,7 @@ Now run:
 
 # bbupdater -f ICE03.14.08_G.fls -e ICE03.14.08_G.eep
 
-[ You should see:
+You should see:
 {{{
 Preparing to flash using /dev/tty.baseband at 750000 baud
 Please reset target
@@ -340,14 +336,13 @@ pinging the baseband...
 issuing +cpwroff...
 Done
 }}}
-]
 
 
 Then run:
 
 # bbupdater -v
 
-[ You should see:
+You should see:
 {{{
 Resetting target...
 pinging the baseband...
@@ -358,7 +353,7 @@ eep revision: EEP_REVISION:7
   bootloader: BOOTLOADER_VERSION:3.9_M3S2
 Done
 }}}
-]
+
 
 Congrats, you're done! 
 Reboot your phone and be happy.  
