@@ -6,20 +6,20 @@ This tool is designed to rebuild your lock table in the seczone area and repair 
 
 == FAQ ==
 
-  * I got "bricked" when I upgraded to 1.1.1 after using anySIM/iUnlock on 1.0.2.  Will this allow me to safely upgrade to 1.1.1 without further problems?
-*Yes.*
+|| I got "bricked" when I upgraded to 1.1.1 after using anySIM/iUnlock on 1.0.2.  Will this allow me to safely upgrade to 1.1.1 without further problems? ||
+  * Yes.
 
-  * *Will this reset the NCK counter?*
-*Yes.*
+|| Will this reset the NCK counter? ||
+  * Yes.
 
-  * *Can I use this method to re-virginize my iUnlock/anySIM'd phone in either 1.0.2 or 1.1.1 firmwares?*
-*Yes.  However, this process involves reflashing the 3.14 baseband firmware so it is safer to downgrade to 1.0.2 OS firmware prior to proceeding.*
+|| Can I use this method to re-virginize my iUnlock/anySIM'd phone in either 1.0.2 or 1.1.1 firmwares? ||
+  * Yes.  However, this process involves reflashing the 3.14 baseband firmware so it is safer to downgrade to 1.0.2 OS firmware prior to proceeding.
 
-  * *Can I use this tool if my phone was unlocked with IPSF?*
-*No. Only IPSF can restore the baseband seczone to factory-default.*
+|| Can I use this tool if my phone was unlocked with IPSF? ||
+  * No. Only IPSF can restore the baseband seczone to factory-default.
 
-  * *I attempted to virginize using geohot's server but it failed.  Is it safe to use this method now?*
-*Maybe.  If the previous attempt to re-virginize accidentally wrote zeroes in the baseband seczone then this method will likely not work.  However, if the failure was non-damaging then you are welcome to try and see if this works.  Be sure to backup your seczone first!*
+|| I attempted to virginize using geohot's server but it failed.  Is it safe to use this method now? ||
+  * Maybe.  If the previous attempt to re-virginize accidentally wrote zeroes in the baseband seczone then this method will likely not work.  However, if the failure was non-damaging then you are welcome to try and see if this works.  Be sure to backup your seczone first!
 
 _*This guide assumes you've already established ssh access to your phone.  For added peace-of-mind it is advisable to install the vt100 terminal application or MobileTerminal prior to running through this process just in case anything fails and you lose wifi access.*_
 
