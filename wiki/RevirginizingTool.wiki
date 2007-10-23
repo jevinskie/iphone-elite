@@ -92,7 +92,7 @@ This will create a file called *seczone.backup* in the working directory.  Pleas
 
   * Stop CommCenter:
 {{{
-launchctl unload -w /System/Library/LaunchDaemons/com.apple.CommCenter.plist
+launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 }}}
 
   * While still in the working directory (/usr/bin/virginizer_pack) do:
@@ -384,7 +384,7 @@ Done
 
   * Restart CommCenter:
 {{{
-launchctl load com.apple.CommCenter
+launchctl load /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 }}}
 
 === *Congratulations, you have virginized your phone!* ===
