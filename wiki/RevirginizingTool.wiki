@@ -26,7 +26,13 @@ The other files included in the ZIP file are the source code.  It's also in SVN.
 
 = Details =
 
-Before running this, it would be very advisable to backup your seczone flash page, just in case anything goes wrong.
+Before running this, it would be very advisable to backup your seczone flash page, just in case anything goes wrong. Also be aware that prior to any interaction with your baseband, you must first unload the CommCenter using:
+
+# launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
+
+Don't forget to turn it back on after you are finished working your baseband by running:
+
+# launchctl load /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 
 To do this, grab a copy of [http://iphone-elite.googlecode.com/svn/trunk/hnorz/norz norz] and run the following on the phone:
 
@@ -72,7 +78,7 @@ resetbaseband
 }}}
 
 
-Copy the seczone.backup file off to somewhere safe
+Copy the 8192B seczone.backup file off to somewhere safe
 
 Usage:
 
