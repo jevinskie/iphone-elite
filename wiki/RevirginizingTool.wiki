@@ -2,47 +2,53 @@
 
 = Introduction =
 
-*Can someone please find out why http://www.hackint0sh.org/ keeps killing any threads related to this tool?*
+This process is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  In essence, it re-virginizes your phone. 
 
-*eg.*
+== FAQ ==
 
-*One step Virginizer - NOT A DEV TEAM PROGRAM* *http://www.hackint0sh.org/forum/showthread.php?t=12789*
+|| I got "bricked" when I upgraded to 1.1.1 after using anySIM/iUnlock on 1.0.2.  Will this allow me to safely upgrade to 1.1.1 without further problems? ||
 
-*624 views last time you could read it -- non-existent thread now.*
+  * Yes.
 
-*Invalid Thread specified. If you followed a valid link, please notify the administrator*
+|| Will this reset the NCK counter? ||
 
-This tool is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  It in essence re-virginizes your phone. 
+  * Yes.
 
-To answer some questions:
+|| Can I use this method to re-virginize my iUnlock/anySIM'd phone in either 1.0.2 or 1.1.1 firmwares? ||
 
-Yes, it does clear the NCK counter
+  * Yes.  However, this process involves reflashing the 3.14 baseband firmware so it is safer to downgrade to 1.0.2 OS firmware prior to proceeding.
 
-Yes, it does obsolete the IPSF + server method.  The entire process is done on your phone in the baseband.
+|| Can I use this tool if my phone was unlocked with IPSF? ||
 
-Note:  To be clear though, the only file from virgintool-release.zip that needs to end up on the phone itself is *eliteloader.bin*  
+  * No. Only IPSF can restore the baseband seczone to factory-default.
 
-The other files included in the ZIP file are the source code.  It's also in SVN.  This is in case you want to build the software yourself or just are curious.  We believe in releasing source so that others can examine the code, learn from it (or maybe correct mistakes -- hey, we're not perfect!) and contribute now and in the future.
+|| I attempted to virginize using geohot's server but it failed.  Is it safe to use this method now? ||
 
-= Details =
+  * Maybe.  If the previous attempt to re-virginize accidentally wrote zeroes in the baseband seczone then this method will likely not work.  However, if the failure was non-damaging then you are welcome to try and see if this works.  Be sure to backup your seczone first!
 
-Before running this, it would be very advisable to backup your seczone flash page, just in case anything goes wrong. Also be aware that prior to any interaction with your baseband, you must first unload the CommCenter using:
+*This guide assumes you've already established ssh access to your phone.  For added peace-of-mind it is advisable to install the vt100 terminal application or MobileTerminal prior to running through this process just in case anything fails and you lose wifi access.*
 
+  * All references to IP address *192.168.1.100* should be replaced by your phone's address.
+  * Extract *virginizer_pack.zip* and copy the directory *virginizer_pack* to your phone:
 {{{
-launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
+scp -r virginizer_pack root@192.168.1.100:/usr/bin
+}}}
+== Backup your seczone ==
+Please backup your seczone flash page before running through this process.
+  * Connect to your phone:
+{{{
+ssh root@192.168.1.100
+}}}
+  * Change to the working directory:
+{{{
+cd /usr/bin/virginizer_pack
+}}}
+  * Now do:
+{{{
+./norz seczone.backup 0x3FA000 0x2000
 }}}
 
-Don't forget to turn it back on after you are finished working your baseband by running:
-
-{{{
-launchctl load /System/Library/LaunchDaemons/com.apple.CommCenter.plist
-}}}
-
-To do this, grab a copy of [http://iphone-elite.googlecode.com/svn/trunk/hnorz/norz norz] and run the following on the phone:
-
-# norz seczone.backup 0x3FA000 0x2000 (sorry, there was a mistake here earlier -- we're tired)
-
-You should see:
+  * You should see:
 {{{
 # ./norz seczone.backup 0x3FA000 0x2000
 geohot's nor dumper
@@ -78,25 +84,17 @@ Wrote: 0xa03fa000
 Wrote: 0xa03fb000
 Dumped
 resetbaseband
+}}}
+This will create a file called *seczone.backup* in the working directory.  Please copy this file to somewhere safe.
 
+== Virginize == 
+
+  * While still in the working directory (/usr/bin/virginizer_pack) do:
+{{{
+./iUnlock ./ICE03.14.08_G.fls ./eliteloader.bin
 }}}
 
-
-Copy the 8192B seczone.backup file off to somewhere safe
-
-Usage:
-
-From your Mac or PC:
-
-scp eliteloader.bin your.phones.ip:
-
-Run:
-
-# iUnlock firmware/ICE03.14.08_G.fls eliteloader.bin
-
-(v42.PROPER is the iUnlock released on 9/11/2007 and can be found at http://www.engadget.com/videos/iUnlock.zip among other places)
-
-You should see:
+  * You should see:
 {{{
 iUnlock v42.PROPER -- Copyright 2007 The dev team
 
@@ -128,9 +126,12 @@ Completed.
 Enjoy!
 }}}
 
-# bbupdater -v
+  * Now check the baseband status:
+{{{
+./bbupdater -v
+}}}
 
-You should see:
+  * You should see:
 {{{
 Resetting target...
 pinging the baseband...
@@ -138,13 +139,14 @@ baseband unresponsive to pinging
 Done
 }}}
 
-Your seczone should now be repaired
+*Your seczone should now be repaired.*
 
-Now run:
+  * Now reflash the default 3.14.08 baseband firmware:
+{{{
+./bbupdater -f ./ICE03.14.08_G.fls -e ./ICE03.14.08_G.eep
+}}}
 
-# bbupdater -f ICE03.14.08_G.fls -e ICE03.14.08_G.eep
-
-You should see:
+  * You should see:
 {{{
 Preparing to flash using /dev/tty.baseband at 750000 baud
 Please reset target
@@ -357,12 +359,12 @@ issuing +cpwroff...
 Done
 }}}
 
+  * Now check the baseband again:
+{{{
+./bbupdater -v
+}}}
 
-Then run:
-
-# bbupdater -v
-
-You should see:
+  * You should see:
 {{{
 Resetting target...
 pinging the baseband...
@@ -374,7 +376,6 @@ eep revision: EEP_REVISION:7
 Done
 }}}
 
-
-Congrats, you're done! 
-Reboot your phone and be happy.  
-You did back up you seczone like I told you, right?  :-)
+=== *Congratulations, you have virginized your phone!* ===
+Now Reboot and be happy.
+You backed up your seczone, right?  :-)
