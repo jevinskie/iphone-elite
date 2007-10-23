@@ -16,14 +16,15 @@ Before running this, it would be very advisable to backup your seczone flash pag
 
 To do this, grab a copy of 'norz' and run the following on the phone:
 
-# norz seczone.backup 0x3A000 0x5000 (sorry, there was a mistake here earlier -- we're tired)
+# norz sd1 0x3FA000 0x2000 (sorry, there was a mistake here earlier -- we're tired)
 
 You should see:
 {{{
+# ./norz sd1 0x3FA000 0x2000
 geohot's nor dumper
 all your norz are belong to us
 super fast...just the way i like it
-Dumping: A03E0000-A03EFFFF
+Dumping: A03FA000-A03FC000
 Waiting for data...
 Got Header: 77 0b cc
 Increasing baud rate...
@@ -49,24 +50,11 @@ Increasing baud rate...
 00 00 00 00 00 00 A6 03 03 00 
 02 00 85 00 02 00 FF FF 85 02 03 00 
 02 00 02 08 06 00 00 00 01 02 03 00 0E 08 03 00 
-Wrote: 0xa03e0000
-Wrote: 0xa03e1000
-Wrote: 0xa03e2000
-Wrote: 0xa03e3000
-Wrote: 0xa03e4000
-Wrote: 0xa03e5000
-Wrote: 0xa03e6000
-Wrote: 0xa03e7000
-Wrote: 0xa03e8000
-Wrote: 0xa03e9000
-Wrote: 0xa03ea000
-Wrote: 0xa03eb000
-Wrote: 0xa03ec000
-Wrote: 0xa03ed000
-Wrote: 0xa03ee000
-Wrote: 0xa03ef000
+Wrote: 0xa03fa000
+Wrote: 0xa03fb000
 Dumped
 resetbaseband
+
 }}}
 
 
