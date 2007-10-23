@@ -9,7 +9,7 @@ This process is designed to rebuild your lock table in the seczone area and repa
 wrong imei and wrong sim) and then the phone came back to life with this tool.*
 
 
-Download this file http://sharebee.com/31994895 for an automated script. - by daurnimator
+|| Download this file* http://sharebee.com/31994895 *for an automated script.* - by daurnimator ||
 
 
 == FAQ ==
