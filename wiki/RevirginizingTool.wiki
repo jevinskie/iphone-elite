@@ -51,7 +51,7 @@ ssh root@192.168.1.100
 {{{
 cd /usr/bin/virginizer_pack
 }}}
-  * Now use [http://iphone-elite.googlecode.com/svn/trunk/hnorz/norz norz] to make a seczone backup:
+  * Now use *norz* to make a seczone backup:
 {{{
 ./norz seczone.backup 0x3FA000 0x2000
 }}}
