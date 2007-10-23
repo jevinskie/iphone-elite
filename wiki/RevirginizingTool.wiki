@@ -10,7 +10,59 @@ Before running this, it would be very advisable to backup your seczone flash pag
 
 To do this, grab a copy of 'norz' and run the following on the phone:
 
-norz seczone.backup 0x3E0000 0xFFFF
+# norz seczone.backup 0x3E0000 0xFFFF
+
+[ You should see:
+{{{
+geohot's nor dumper
+all your norz are belong to us
+super fast...just the way i like it
+Dumping: A03E0000-A03EFFFF
+Waiting for data...
+Got Header: 77 0b cc
+Increasing baud rate...
+02 00 82 00 04 00 00 10 0E 00 A4 00 03 00 
+02 00 01 08 14 00 00 00 00 00 A4 00 03 00 09 00 
+00 00 33 2E 39 5F 4D 33 53 32 C3 0A 03 00 
+02 00 84 00 00 01 01 00 00 00 89 00 00 00 62 88 
+00 00 03 00 00 00 00 00 00 00 01 00 00 00 02 00 
+00 00 00 00 40 00 3F 00 00 00 00 00 01 00 08 00 
+00 00 00 20 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 A6 03 03 00 
+02 00 85 00 02 00 FF FF 85 02 03 00 
+02 00 02 08 06 00 00 00 01 02 03 00 0E 08 03 00 
+Wrote: 0xa03e0000
+Wrote: 0xa03e1000
+Wrote: 0xa03e2000
+Wrote: 0xa03e3000
+Wrote: 0xa03e4000
+Wrote: 0xa03e5000
+Wrote: 0xa03e6000
+Wrote: 0xa03e7000
+Wrote: 0xa03e8000
+Wrote: 0xa03e9000
+Wrote: 0xa03ea000
+Wrote: 0xa03eb000
+Wrote: 0xa03ec000
+Wrote: 0xa03ed000
+Wrote: 0xa03ee000
+Wrote: 0xa03ef000
+Dumped
+resetbaseband
+}}}
+]
 
 Copy the seczone.backup file off to somewhere safe
 
@@ -21,45 +73,51 @@ From your Mac or PC:
 scp eliteloader.bin your.phones.ip:
 
 Run:
+
 # iUnlock firmware/ICE03.14.08_G.fls eliteloader.bin
+
 [ You should see:
-        iUnlock v42.PROPER -- Copyright 2007 The dev team
+{{{
+iUnlock v42.PROPER -- Copyright 2007 The dev team
 
 
-        Credits: Daeken, Darkmen, guest184, gray, iZsh, pytey, roxfan, Sam, uns, Zappaz, Zf
+Credits: Daeken, Darkmen, guest184, gray, iZsh, pytey, roxfan, Sam, uns, Zappaz, Zf
 
-        * Leet Hax not for commercial uses
-          Punishment: Monkeys coming out of your ass Bruce Almighty style.
+* Leet Hax not for commercial uses
+Punishment: Monkeys coming out of your ass Bruce Almighty style.
 
-        Sending Begin Secpack command
-        Sending Erase command
-        Waiting For Erase Completion...
-        Sending Write command
-        00%
-        05%
-        15%
-        25%
-        35%
-        45%
-        55%
-        65%
-        75%
-        80%
-        90%
-        Sending End Secpack command
-        Validating the write command
-        FW are equal!
-        Completed.
-        Enjoy!
+Sending Begin Secpack command
+Sending Erase command
+Waiting For Erase Completion...
+Sending Write command
+00%
+05%
+15%
+25%
+35%
+45%
+55%
+65%
+75%
+80%
+90%
+Sending End Secpack command
+Validating the write command
+FW are equal!
+Completed.
+Enjoy!
+}}}
 ]
 
 # bbupdater -v
 
 [ You should see:
-        Resetting target...
-        pinging the baseband...
-        baseband unresponsive to pinging
-        Done
+{{{
+Resetting target...
+pinging the baseband...
+baseband unresponsive to pinging
+Done
+}}}
 ]
 
 #
