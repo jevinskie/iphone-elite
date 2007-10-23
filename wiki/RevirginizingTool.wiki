@@ -16,11 +16,11 @@ Before running this, it would be very advisable to backup your seczone flash pag
 
 To do this, grab a copy of 'norz' and run the following on the phone:
 
-# norz sd1 0x3FA000 0x2000 (sorry, there was a mistake here earlier -- we're tired)
+# norz seczone.backup 0x3FA000 0x2000 (sorry, there was a mistake here earlier -- we're tired)
 
 You should see:
 {{{
-# ./norz sd1 0x3FA000 0x2000
+# ./norz seczone.backup 0x3FA000 0x2000
 geohot's nor dumper
 all your norz are belong to us
 super fast...just the way i like it
