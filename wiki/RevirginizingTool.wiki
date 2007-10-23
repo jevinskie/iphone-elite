@@ -57,7 +57,7 @@ launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 
   * Make *norz* executable:
 {{{
-chmod +x norz
+chmod +x ./norz
 }}}
 
   * Make a seczone backup:
@@ -108,7 +108,7 @@ This will create a file called *seczone.backup* in the working directory.  Pleas
 
   * Make *iUnlock* executable:
 {{{
-chmod +x iUnlock
+chmod +x ./iUnlock
 }}}
 
   * Now do:
@@ -146,6 +146,11 @@ Validating the write command
 FW are equal!
 Completed.
 Enjoy!
+}}}
+
+  * Make bbupdater executable:
+{{{
+chmod +x ./bbupdater
 }}}
 
   * Now check the baseband status:
