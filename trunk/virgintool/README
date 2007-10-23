@@ -1,0 +1,51 @@
+Usage:
+
+From your Mac or PC:
+
+scp eliteloader.bin your.phones.ip:
+
+Run:
+# iUnlock firmware/ICE03.14.08_G.fls eliteloader.bin
+[ You should see:
+	iUnlock v42.PROPER -- Copyright 2007 The dev team
+
+
+	Credits: Daeken, Darkmen, guest184, gray, iZsh, pytey, roxfan, Sam, uns, Zappaz, Zf
+
+	* Leet Hax not for commercial uses
+	  Punishment: Monkeys coming out of your ass Bruce Almighty style.
+
+	Sending Begin Secpack command
+	Sending Erase command
+	Waiting For Erase Completion...
+	Sending Write command
+	00%
+	05%
+	15%
+	25%
+	35%
+	45%
+	55%
+	65%
+	75%
+	80%
+	90%
+	Sending End Secpack command
+	Validating the write command
+	FW are equal!
+	Completed.
+	Enjoy!
+]
+
+# bbupdater -v
+
+[ You should see:
+	Resetting target...
+	pinging the baseband...
+	baseband unresponsive to pinging
+	Done
+]
+
+#
+
+Your seczone should now be repaired
