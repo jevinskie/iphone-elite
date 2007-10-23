@@ -7,7 +7,7 @@ This process is designed to rebuild your lock table in the seczone area and repa
 
 * This method has been personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process which successfully restored the device to working condition.*
 
-|| *_daurnimator_* has written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
+|| *_daurnimator_* has written a script that automates this whole process.  Please download it [http://iphone-elite.googlecode.com/files/Virginiser.tar.gz here]. ||
 
 
 == FAQ ==
