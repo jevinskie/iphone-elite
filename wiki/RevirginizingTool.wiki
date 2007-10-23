@@ -2,7 +2,13 @@
 
 = Introduction =
 
-This tool is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  It in essence re-virginizes your phone.
+This tool is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  It in essence re-virginizes your phone. 
+
+To answer some questions:
+
+Yes, it does clear the NCK counter
+
+Yes, it does obsolete the IPSF + server method.  The entire process is done on your phone in the baseband.
 
 = Details =
 
