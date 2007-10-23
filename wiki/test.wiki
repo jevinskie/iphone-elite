@@ -29,13 +29,10 @@ This tool is designed to rebuild your lock table in the seczone area and repair 
 _*This guide assumes you've already established ssh access to your phone.  For added peace-of-mind it is advisable to install the vt100 terminal application or MobileTerminal prior to running through this process just in case anything fails and you lose wifi access.*_
 
   * _All references to IP address *192.168.1.100* should be replaced by your phone's address._
-  * _All tools required to perform this process can be downloaded {here}.  Please verify the integrity of the files by matching the md5sums before beginning.
-
-  * Please extract the zip archive and copy the *virginizer_pack* directory to your iPhone:
+  * Extract *virginizer_pack.zip* and copy the directory *virginizer_pack* to your phone:
 {{{
 scp -r virginizer_pack root@192.168.1.100:/usr/bin
 }}}
-
 == Backup your seczone ==
 Please backup your seczone flash page before running through this process.
   * Connect to your phone:
@@ -90,7 +87,7 @@ resetbaseband
 }}}
 This will create a file called *seczone.backup* in the working directory.  Please copy this file to somewhere safe.
 
-== HOW TO VIRGINZE == 
+== Virginize == 
 
   * While still in the working directory (/usr/bin/virginizer_pack) do:
 {{{
