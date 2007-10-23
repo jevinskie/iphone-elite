@@ -1,5 +1,5 @@
 #summary oneSIM patches back!
-#labels Featured,Phase-Deploy,Phase-Requirements
+#labels Phase-Deploy,Phase-Requirements
 = What is oneSIM ? =
 
 
