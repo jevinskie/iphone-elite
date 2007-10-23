@@ -51,6 +51,12 @@ ssh root@192.168.1.100
 {{{
 cd /usr/bin/virginizer_pack
 }}}
+
+  * Stop CommCenter:
+{{{
+launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
+}}}
+
   * Now use *norz* to make a seczone backup:
 {{{
 ./norz seczone.backup 0x3FA000 0x2000
@@ -96,11 +102,6 @@ resetbaseband
 This will create a file called *seczone.backup* in the working directory.  Please copy this file to somewhere safe.
 
 == Virginize == 
-
-  * Stop CommCenter:
-{{{
-launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
-}}}
 
   * While still in the working directory (/usr/bin/virginizer_pack) do:
 {{{
