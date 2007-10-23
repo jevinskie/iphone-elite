@@ -10,6 +10,10 @@ Yes, it does clear the NCK counter
 
 Yes, it does obsolete the IPSF + server method.  The entire process is done on your phone in the baseband.
 
+Note:  To be clear though, the only file from virgintool-release.zip that needs to end up on the phone itself is *eliteloader.bin*  
+
+The other files included in the ZIP file are the source code.  It's also in SVN.  This is in case you want to build the software yourself or just are curious.  We believe in releasing source so that others can examine the code, learn from it (or maybe correct mistakes -- hey, we're not perfect!) and contribute now and in the future.
+
 = Details =
 
 Before running this, it would be very advisable to backup your seczone flash page, just in case anything goes wrong.
