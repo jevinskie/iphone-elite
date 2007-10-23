@@ -55,7 +55,12 @@ cd /usr/bin/virginizer_pack
 launchctl unload /System/Library/LaunchDaemons/com.apple.CommCenter.plist
 }}}
 
-  * Now use *norz* to make a seczone backup:
+  * Make *norz* executable:
+{{{
+chmod +x norz
+}}}
+
+  * Make a seczone backup:
 {{{
 ./norz seczone.backup 0x3FA000 0x2000
 }}}
@@ -101,7 +106,12 @@ This will create a file called *seczone.backup* in the working directory.  Pleas
 
 == Virginize == 
 
-  * While still in the working directory (/usr/bin/virginizer_pack) do:
+  * Make *iUnlock* executable:
+{{{
+chmod +x iUnlock
+}}}
+
+  * Now do:
 {{{
 ./iUnlock ./ICE03.14.08_G.fls ./eliteloader.bin
 }}}
