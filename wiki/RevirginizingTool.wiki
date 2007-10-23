@@ -2,16 +2,7 @@
 
 = Introduction =
 
-_*Can someone please find out why [http://www.hackint0sh.org/] keeps killing any threads related to this tool?*
-
-_*eg.*_
-
-_*One step Virginizer - NOT A DEV TEAM PROGRAM*_
-_*[http://www.hackint0sh.org/forum/showthread.php?t=12789]*_
-
-_*624 views last time you could read it -- non-existent thread now.*_
-
-_*Invalid Thread specified. If you followed a valid link, please notify the administrator*_
+*There was an issue with [http://www.hackint0sh.org/forum/] deleting threads related to this tool, but for the time being, they seem to be restored*
 
 This tool is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  It in essence re-virginizes your phone. 
 
