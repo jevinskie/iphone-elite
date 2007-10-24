@@ -29,7 +29,7 @@ This process is designed to rebuild your lock table in the seczone area and repa
 
 || Is this tool useful if my phone was unlocked with IPSF? ||
 
-  * Only if you did a full NOR dump of your iPhone before doing the IPSF unlock.  (Note: if you did do that, please leave a comment below...you can be helped).  If you didn't do that, then IPSF _may_ be able to restore the baseband seczone to factory-default (because they _may_ have saved the RSA value they overwrote with 0's).  Please note that unless Apple fixes the RSA bug in a future firmware release, then you have no need to worry about reversing IPSF.
+  * Only if you did a full NOR dump of your iPhone before doing the IPSF unlock.  (Note: if you did do that, please leave a comment below...you can be helped).  If you didn't do that, then IPSF _may_ be able to restore the baseband seczone to factory-default (because they _may_ have saved the RSA value they overwrote with 0's).  IPSF users please remember that until/unless Apple fixes the RSA bug in a future firmware release, then you have no need to undo IPSF.
 
 || I attempted to virginize using geohot's server but it failed.  Is it safe to use this method now? ||
 
