@@ -1,5 +1,5 @@
+#summary Using the re-virginizing tool
 #labels Featured,Phase-Deploy,Phase-Support
-ir#summary Using the re-virginizing tool
 
 = Introduction =
 
@@ -27,9 +27,9 @@ This process is designed to rebuild your lock table in the seczone area and repa
 
   * Yes.  However, this process involves reflashing the 3.14 baseband firmware so it is safer to downgrade to 1.0.2 OS firmware prior to proceeding.
 
-|| Can I use this tool if my phone was unlocked with IPSF? ||
+|| Is this tool useful if my phone was unlocked with IPSF? ||
 
-  * No. Only IPSF can restore the baseband seczone to factory-default.
+  * Not unless you did a full NOR dump of your iPhone before doing the IPSF unlock.  (Note: if you did do that, please leave a comment below...you can be helped).  If you didn't do a full NOR dump before your IPSF unlock, only IPSF can restore the baseband seczone to factory-default.
 
 || I attempted to virginize using geohot's server but it failed.  Is it safe to use this method now? ||
 
