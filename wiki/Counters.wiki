@@ -1,4 +1,5 @@
-#summary Initial study on the counter seczone.
+#summary Initial study on the counter seczone. By Zibri.
+#labels Featured,Phase-Design,Phase-Support
 
 = Introduction =
 
