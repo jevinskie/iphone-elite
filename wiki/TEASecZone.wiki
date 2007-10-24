@@ -46,7 +46,7 @@ A baseband program can access the HWID directly by reading from 0xF440006C throu
  * For the curious, bbsimfree v1.6 can be seen doing this at 0xA00245CC.
 
 === norID ===
-A baseband program can read the norID directly by issuing a CFI query command and reading back the data at 0x102 through 0x109.  Such a program would need to be executing out of RAM, though, because if it is executing out of NOR then its address space will drop out from under it after the command, and it will be "executing" CFI response bytes, which is garbage.
+A baseband program can read the norID directly by issuing a CFI query command and reading back the data at 0x102 through 0x109.  Such a program would need to be executing out of RAM, because if it is executing out of NOR then its address space will drop out from under it after the command, and it will be "executing" CFI response bytes, which is garbage.  The IPSF hlloader executes out of RAM, and uses this very method.  The eliteloader.bin executes out of NOR, and capitalizes on the next bit of information...
 
 == Poor-man's NORid extraction ==
 
