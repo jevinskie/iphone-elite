@@ -2,11 +2,11 @@
 
 = Overview =
 
-The *teasz* program below implements the same encryption scheme as used by the iPhone firmware when accessing the seczone.  Specifically, it's [http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm TEA encryption] used in [http://en.wikipedia.org/wiki/Cipher_block_chaining CBC mode].  It's primarily a proof on concept, but in principle it can be used in larger programs that do things like:
-   * Re-virginize your seczone (but see next section for details)
-   * Unlock your iPhone the same way IPSF does
+The *teasz* program below implements the same encryption scheme as used by the iPhone firmware when accessing the seczone.  Specifically, it's [http://en.wikipedia.org/wiki/Tiny_Encryption_Algorithm TEA encryption] used in [http://en.wikipedia.org/wiki/Cipher_block_chaining CBC mode].  It can be used in programs that need to access the seczone to do things like:
+   * [http://code.google.com/p/iphone-elite/wiki/RevirginizingTool Re-virginize your seczone] (but see next section for details regarding anySIM vs. IPSF unlocks)
+   * Unlock your iPhone the same way IPSF does (this shouldn't be done unless you save your original seczone+0x400 token)
 
-Such programs would need to be running on the baseband CPU, and work on those programs is underway.
+[http://code.google.com/p/iphone-elite/wiki/RevirginizingTool Such programs] would need to be running on the baseband CPU (not a normal mach-o executable) because the address space for the baseband CPU is separate from the main CPU.
 
 == Note about re-virginization ==
 
