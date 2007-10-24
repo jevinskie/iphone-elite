@@ -48,7 +48,7 @@ A baseband program can also read the norID directly by issuing a CFI query comma
 
 == Poor-man's NORid extraction ==
 
-If you have BSD subsystem and norz on your phone, then do this:
+If you have the BSD subsystem and norz on your iPhone, then do this:
 {{{
 norz /tmp/f  ffff3000 1000 >/dev/null 2>&1 && dd if=/tmp/f bs=1 skip=3042 count=8 2>/dev/null  | hexdump -C
 }}}
