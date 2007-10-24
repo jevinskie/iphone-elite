@@ -8,7 +8,7 @@ This process is designed to rebuild your lock table in the seczone area and repa
 * This method has been personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process which successfully restored the device to working condition.*
 
 || * [http://iphone-elite.googlecode.com/files/virginator_10.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything.* NOTE: The virginator.zip package that was originally posted contains a bug that prevents virginization.  The link has been updated to download virginator_10.zip, which is the fixed version. ||
-|| *_daurnimator_* has also written a script that automates this whole process.  Please download it [http://iphone-elite.googlecode.com/files/Virginiser.tar.gz here]. ||
+|| *_daurnimator_* has also written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
 
 || *Corresponding Forum Topic [http://rdgaccess.com/iphone-elite/viewtopic.php?t=98 here]. ||
 
