@@ -7,7 +7,7 @@ This process is designed to rebuild your lock table in the seczone area to repai
 
 || *NOTE:  DO NOT POWER OFF YOUR PHONE (or allow it to auto-lock...see Settings->General->Auto-Lock) WHILE THE RE-VIRGINIZER IS RUNNING.  WAIT FOR IT TO COMPLETE!*  Wait for bbupdater to respond with "baseband unresponsive to pinging" when eliteloader.bin is the baseband.||
 
-* Before the public release, this method was personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process....it successfully restored the device to a working condition. Since the release, it's also been confirmed by the many comments below and on the forums.  It works perfectly if you follow the guide or use the scripts.*
+* Before the public release, this method was personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process....it successfully restored the device to a working condition. Since the release, it's also been confirmed by the many commenters below and on the forums.  It works perfectly if you follow the guide or use the scripts.*
 
 The re-virginizer is neither intended for, nor necessarily required for (yet), iPhones unlocked via IPSF.  See [http://code.google.com/p/iphone-elite/wiki/TEASecZone TEASecZone] for further explanation.
 
