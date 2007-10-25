@@ -14,4 +14,6 @@ Yes.   [http://code.google.com/p/iphone-elite/wiki/RevirginizingTool Revirginize
 
 Why are you so reluctant to re-virginize? Okay, you may have your reasons, but [http://code.google.com/p/iphone-elite/wiki/RevirginizingTool seriously], re-virginization is meant for you.  Don't resist.
 
-|| *I used: geohot's weekend-in-Austin spoofed IPSF server with success.   What should I do?* || You don't need to do anything...your seczone's lock table is restored and you can upgrade to 1.1.1
+|| *I used: geohot's weekend-in-Austin spoofed IPSF server with success.   What should I do?* ||
+
+You don't need to do anything...your seczone's lock table is restored and you can upgrade to 1.1.1
