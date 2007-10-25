@@ -9,7 +9,7 @@ This process is designed to rebuild your lock table in the seczone area to repai
 
 * Before the public release, this method was personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process....it successfully restored the device to a working condition. Since the release, it's also been confirmed by the many comments below and on the forums.  It works perfectly if you follow the guide or use the scripts.*
 
-The re-virginizer is not intended (or necessarily required) for iPhones unlocked via IPSF.  See TEASecZone for further explanation.
+The re-virginizer is not intended (or necessarily required...yet) for iPhones unlocked via IPSF.  See [http://code.google.com/p/iphone-elite/wiki/TEASecZone TEASecZone] for further explanation.
 
 || * [http://iphone-elite.googlecode.com/files/virginator-0.3.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything.* ||
 || *_daurnimator_* has also written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
