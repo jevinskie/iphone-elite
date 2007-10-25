@@ -2,7 +2,7 @@
 #labels Featured,FAQ
 
 
-|| *I used: (anySIM 1.0x or iUnlock or geohot's hardware unlock or Harrro's GUI unlock) on firmware 1.0.2 and then upgraded to 1.1.1 when it came out.  Now my iPhone's phone function does not work (IMEI 0049...).  What should I do?* ||
+|| *I used: (anySIM 1.0x or iUnlock or geohot's hardware unlock or Harro's GUI unlock) on firmware 1.0.2 and then upgraded to 1.1.1 when it came out.  Now my iPhone's phone function does not work (IMEI 0049...).  What should I do?* ||
 
 *You need to [http://code.google.com/p/iphone-elite/wiki/RevirginizingTool revirginize].  You'll enjoy it, believe us.
 
