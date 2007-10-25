@@ -16,4 +16,4 @@ Why are you so reluctant to re-virginize? Okay, you may have your reasons, but [
 
 || *I used: geohot's weekend-in-Austin spoofed IPSF server with success.   What should I do?* ||
 
-You don't need to do anything...your seczone's lock table is restored and you can upgrade to 1.1.1
+You don't need to do anything...your seczone's lock table is correct and you can upgrade to 1.1.1  Unless you used IPSF without saving your seczone beforehand. In that case, please refer to [http://code.google.com/p/iphone-elite/wiki/TEASecZone TEASecZone] for a discussion of the IPSF unlock.
