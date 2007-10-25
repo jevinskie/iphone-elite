@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This process is designed to rebuild your lock table in the seczone area to repair the damage done by the original anySIM 1.0x unlock (and its cousins, including the hardware unlock).  In essence, it re-virginizes your phone.
+This process is designed to rebuild your lock table in the seczone area to repair the damage done by the original anySIM 1.0x unlocks (and its cousins, including the hardware unlock).  In essence, it re-virginizes your phone.
 
 || *NOTE:  DO NOT POWER OFF YOUR PHONE (or allow it to auto-lock...see Settings->General->Auto-Lock) WHILE THE RE-VIRGINIZER IS RUNNING.  WAIT FOR IT TO COMPLETE!*  Wait for bbupdater to respond with "baseband unresponsive to pinging" when eliteloader.bin is the baseband.||
 
