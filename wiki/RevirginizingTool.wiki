@@ -1,7 +1,7 @@
 #summary Using the re-virginizing tool
 #labels Featured,Phase-Deploy,Phase-Support
 
-= Introduction =
+= What it is =
 
 This tool is designed to rebuild your lock table in the seczone area to repair the damage done by the original anySIM 1.0x unlockers (and its cousins, including the hardware unlock).  In essence, it re-virginizes your phone.
 
@@ -9,14 +9,20 @@ This tool is designed to rebuild your lock table in the seczone area to repair t
 
 Before the public release, this method was personally confirmed by Zibri who intentionally bricked an iPhone (wrong IMEI, Invalid SIM) then ran through this process....it successfully restored the device to a working condition. Since the release, it's also been confirmed by the many commenters below and on the forums.  *It works perfectly...just follow the guide or use the scripts.*
 
+= What it isn't =
+
 The re-virginizer is neither intended for, nor necessarily required by, iPhones unlocked via IPSF.  See [http://code.google.com/p/iphone-elite/wiki/TEASecZone TEASecZone] for further explanation.
+
+= Scripts to make life easier =
 
 || * [http://iphone-elite.googlecode.com/files/virginator-0.3.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything.* ||
 || *_daurnimator_* has also written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
 
-|| *Corresponding Forum Topic [http://rdgaccess.com/iphone-elite/viewtopic.php?t=98 here]. ||
+= Forum =
 
-== FAQ ==
+See [http://rdgaccess.com/iphone-elite/viewtopic.php?t=98 here] for an iphone-elite discussion of this tool.
+
+= FAQ =
 
 || I got "bricked" when I upgraded to 1.1.1 after using anySIM/iUnlock on 1.0.2.  Will this allow me to safely upgrade to 1.1.1 without further problems? ||
 
@@ -45,6 +51,9 @@ The re-virginizer is neither intended for, nor necessarily required by, iPhones 
 {{{
 scp -r virginizer_pack root@192.168.1.100:/usr/bin
 }}}
+
+= Enough already, let's just do it! =
+
 == Backup your seczone ==
 Please backup your seczone flash page before running through this process.
   * Connect to your phone:
