@@ -13,6 +13,8 @@ Before the public release, this method was personally confirmed by Zibri who int
 
 The re-virginizer is neither intended for, nor necessarily required by, iPhones unlocked via IPSF.  See [http://code.google.com/p/iphone-elite/wiki/TEASecZone TEASecZone] for further explanation.
 
+It's also not required by an iPhone that has never run anySIM 1.0x unlockers, or the hardware unlock.  If your iPhone has seen none of these, or if it has only run anySIM 1.1x unlockers, then you don't need to become re-virginized.  Again, see  [http://code.google.com/p/iphone-elite/wiki/TEASecZone here] for further details.
+
 = Scripts to make life easier =
 
 || * [http://iphone-elite.googlecode.com/files/virginator-0.3.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything.* ||
