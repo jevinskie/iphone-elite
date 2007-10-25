@@ -5,9 +5,9 @@
 
 This process is designed to rebuild your lock table in the seczone area and repair the damage done by the original anySIM unlock.  In essence, it re-virginizes your phone. 
 
-|| *NOTE:  JUST FOR THE AVOIDANCE OF DOUBT (and n00bs) DO NOT POWER OFF YOUR PHONE WHILE THE VIRGINIZIER IS RUNNING.  WAIT FOR IT TO COMPLETE* ||
+|| *NOTE:  DO NOT POWER OFF YOUR PHONE (or allow it to auto-lock...see Settings->General->Auto-Lock) WHILE THE VIRGINIZIER IS RUNNING.  WAIT FOR IT TO COMPLETE!*  Wait for the bbupdater to respond with "baseband unresponsive to pinging" when eliteloader.bin is the baseband.||
 
-* This method has been personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process which successfully restored the device to working condition.*
+* This method has been personally confirmed by Zibri who intentionally bricked a phone (wrong IMEI, Invalid SIM) then ran through this process which successfully restored the device to working condition.  It's also been confirmed by many below and on the forums.  It works perfectly if you follow the guides.*
 
 || * [http://iphone-elite.googlecode.com/files/virginator-0.3.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything.* ||
 || *_daurnimator_* has also written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
