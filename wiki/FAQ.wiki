@@ -8,7 +8,7 @@
 
 || *Is it possible to completely remove any sign that (anySIM 1.0x or iUnlock or the geohot's hardware unlock or Harro's GUI unlock) ever touched my phone?* ||
 
-Yes.   [http://code.google.com/p/iphone-elite/wiki/RevirginizingTool Revirginize].  You'll enjoy it.
+Yes.   [http://code.google.com/p/iphone-elite/wiki/RevirginizingTool Revirginize].  It feels great.
 
 || *Can I downgrade the 4.0 (1.1.1) baseband to the 3.14.08 (1.0.2) baseband but keep the 1.1.1 OS firmware so I can use my unlocked phone in 1.1.1?* ||
 
