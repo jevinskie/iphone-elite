@@ -15,3 +15,18 @@ right after `<string>/usr/sbin/syslogd</string>`:
 }}}
 
 3. reboot & enjoy your kernel and other messages
+
+Note:
+
+Once enabled, syslog will grow in size really fast...
+To disable it without changing the plist, here is a quick way:
+
+  * Disable syslog:
+  {{{
+  # rm /var/log/syslog; mknod /var/log/syslog c 3 2
+  }}}
+
+  * Re-Enable syslog:
+  {{{
+  # rm /var/log/syslog; touch /var/log/syslog
+  }}}
