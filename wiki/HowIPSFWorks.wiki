@@ -8,15 +8,15 @@ _This was originally posted, then deleted, from The iPhone Dev Wiki...as spam._
 People frequently refer to "NVRAM". The baseband doesn't have any NVRAM, and everything(lockstate, IMEI, NCK) is stored encrypted in the NOR at 0xA03FA000-0xA03FC000
 
 ==The following things were observed by Zibri and/or others:==
-- IPSF does not make a permanent patch to baseband like the other SW unlockers do.  But they do temporarily load their own custom baseband in order to change the NOR seczone.  That custom baseband is unloaded before the application exits, and the original baseband is restored.
+ * IPSF does not make a permanent patch to baseband like the other SW unlockers do.  
 
-- When their application is run a small chunk of NOR seczone is extracted from the device and uploaded to the IPSF server.  This packet is sent to backoffice.iphonesimfree.com.
+ * When their application is run a small chunk of NOR seczone is extracted from the device and uploaded to the IPSF server.  This packet is sent to backoffice.iphonesimfree.com.
 
-- The packet is sent back after being modified where the LOCK is saved.
+ * The packet is sent back after being modified where the LOCK is saved.
 
-- A custom baseband bootblock is used to flash the 'unlock' patch to NOR seczone.
+ * A custom baseband bootblock is used to flash the 'unlock' patch to NOR seczone.
 
-- Then they overwrite the baseband with the original firmware again.
+- Then they restore the baseband with the original firmware again.
 
 == The following is the main thread in the IPSF software ==
 {{{
