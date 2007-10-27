@@ -1,0 +1,16 @@
+#summary Undocumented AT commands.
+
+= Introduction =
+
+Here will live a list of only *UNDOCUMENTED* AT Commands for the baseband.
+
+
+= Commands =
+
+|| *AT+ipr=XXXX* |||| This one sets the terminal speed. Example: at+ipr=230400. ||
+|| at+xgendata |||| Writes the baseband version and EEP version and revision ||
+|| at+xtransportmode |||| Leaves AT mode and enters TRANSPORT mode (binary) ||
+|| at+xlog=0 |||| Shows firmware Version ||
+|| at+xpincnt |||| Show SIM PIN Counters (attempts left) ||
+|| at+ccid |||| Shows SIM ICCID ||
+|| at+xsimstate=1 |||| Locks Display ||
