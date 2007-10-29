@@ -17,7 +17,7 @@ It's also not required by an iPhone that has never run anySIM 1.0x unlockers, or
 
 = Scripts to make life easier =
 
-|| * [http://iphone-elite.googlecode.com/files/virginator-0.4.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything.* ||
+|| * [http://iphone-elite.googlecode.com/files/virginator-0.4.zip Click here] for an automated script that will give the user the option to just backup the seczone or both backup and revirginize.  This script also performs decent sanity checking prior to executing anything. NOTE: Requires BSD Subsystem be installed.* ||
 || *_daurnimator_* has also written a script that automates this whole process.  Please download it [http://sharebee.com/31994895 here]. ||
 
 = Forum =
