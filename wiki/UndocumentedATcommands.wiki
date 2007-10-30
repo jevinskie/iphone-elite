@@ -28,6 +28,8 @@ Here will live a list of only *UNDOCUMENTED* AT Commands for the baseband.
 
 === To be inspected ===
 
+*SYS COMMANDS*
+
 at+xdiag
 
 at+xgendata
@@ -99,3 +101,19 @@ at+xmagetblock
 at+xpow
 
 at+xtracesystime
+
+*TEST COMMANDS*
+
+at+xdevice
+
+at+xmultislot
+
+at+xrlcset
+
+at+xrrset
+
+at+xsimloopback
+
+at+xloopback
+
+at+xppp
