@@ -26,5 +26,7 @@ Found by Zibri.
 
 *NOTE*
 This procedure works for sure on 1.0.2.
+
 It doesn't seem to work on 1.1.1.
+
 Maybe it could also work on early 1.0.
