@@ -24,4 +24,30 @@ Here will live a list of only *UNDOCUMENTED* AT Commands for the baseband.
 
   # "help", "psvoff", "psvon", "sev", "mon:", "ms_error_log", "HO_FAIL_ON", "HO_FAIL_OFF", "scell", "balist", "pdch_filter"
 
-  # Unknown parameters at the moment.
+  # Unknown parameters at the moment. GPRS related.
+
+=== To be inspected ===
+
+at+xdiag
+
+at+xgendata
+
+at+xmer
+
+at+xceer
+
+at+xcind
+
+at+xconfig
+
+at+xctmdr
+
+at+xctms
+
+at+xsln
+
+at+xals
+
+at+xhandsfree
+
+at+xselfrxstat
