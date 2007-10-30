@@ -16,6 +16,7 @@ Here will live a list of only *UNDOCUMENTED* AT Commands for the baseband.
 || at+xl1set="command" |||| various commands see note 1 ||
 || at+xrrset="command" |||| various commands see note 2 ||
 || at+xgcntset=?!?!? |||| various commands see note 3 ||
+|| at+xgcntrd=?!?!? |||| various commands see note 3 ||
 
 == Notes ==
 
