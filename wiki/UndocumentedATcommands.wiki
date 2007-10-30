@@ -13,4 +13,14 @@ Here will live a list of only *UNDOCUMENTED* AT Commands for the baseband.
 || at+xlog=0 |||| Shows firmware Version ||
 || at+xpincnt |||| Show SIM PIN Counters (attempts left) ||
 || at+ccid |||| Shows SIM ICCID ||
-|| at+xsimstate=1 |||| Locks Display ||
+|| at+xl1set="command" |||| various commands see note 1 ||
+|| at+xrrset="command" |||| various commands see note 2 ||
+|| at+xgcntset=?!?!? |||| various commands see note 3 ||
+
+== Notes ==
+
+  # "help", "iroff", "iron", "ir_opt_off", "ir_opt_on", "iroff"
+
+  # "help", "psvoff", "psvon", "sev", "mon:", "ms_error_log", "HO_FAIL_ON", "HO_FAIL_OFF", "scell", "balist", "pdch_filter"
+
+  # Unknown parameters at the moment.
