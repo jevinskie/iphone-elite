@@ -1,0 +1,26 @@
+#summary WTF?! *READ THIS*.
+#labels Featured,Phase-Support,Phase-Implementation
+
+= Album3.plist =
+
+On my 3 iphones i found this file:
+
+/System/Library/Frameworks/PhotoLibrary.framework/Album3.plist
+
+Inside it there was a dotmac account and password:
+
+UserName: grape01
+
+Password: 123456
+
+Well..
+That happened to be a real account.
+There also were a few emails on that account from an apple software engineer.
+
+I changed the password.
+And I replied to the test email...
+
+But now i wonder: 
+  # what was that for ?
+  # why it was there ?
+  # what will happen now ? :)
