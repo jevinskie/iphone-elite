@@ -12,4 +12,4 @@ IPSF users can probably recover their original seczone token value before IPSF z
   * Log into your iphone and type: `cp $(find /var/root/Library/Caches/bbsimfree -name "*.cache") /ipsf.cache`
   * Copy that cache off of your iPhone and save it!  It contains very valuable data.
 
-The existence of this valuable file was reported by sh1n1gam1 on the [http://rdgaccess.com/iphone-elite/viewtopic.php?p=803 iPhone Elite forums]
+The existence of this important file was reported by sh1n1gam1 on the [http://rdgaccess.com/iphone-elite/viewtopic.php?p=803 iPhone Elite forums]
