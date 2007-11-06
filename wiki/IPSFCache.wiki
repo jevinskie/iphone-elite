@@ -1,5 +1,5 @@
 #summary Important cache for IPSF users
-#labels IPSF,Featured
+#labels Featured,IPSF
 
 = Overview =
 
