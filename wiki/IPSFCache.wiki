@@ -1,0 +1,13 @@
+#summary Important cache for IPSF users
+#labels IPSF
+
+= Overview =
+
+IPSF users can probably recover their original seczone token value before IPSF zeroed it out.
+
+= Details =
+
+*IPSF users should do the following*
+
+  * Log into your iphone and type: `cp $(find /var/root/Library/Caches/bbsimfree -name "*.cache") /ipsf.cache`
+  * Copy that cache off of your iPhone and save it!  It contains very valuable data.
