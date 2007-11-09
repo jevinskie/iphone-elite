@@ -1,0 +1,25 @@
+#labels Featured,Phase-Requirements,Phase-Design
+#How to downgrade from 1.1.2 to 1.0.2.
+
+= Instructions =
+
+GO TO DFU MODE
+(power+home for 10 seconds then home for 10 seconds)
+Phone will remain completely BLACK.
+If not repeat previous step.
+
+Then select 1.0.2 firmware for restoring.
+
+At the end you will have an error.
+
+THAT's NORMAL!
+
+Now get IPHUC and issue:
+
+*cmd setenv auto-boot true*
+
+*cmd saveenv*
+
+*cmd fsboot*
+
+You just downgraded!
