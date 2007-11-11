@@ -3,7 +3,10 @@
 == Credits ==
 
 Based on directions at http://www.iphonealley.com/news/unofficial-1-1-2-jailbreak-instructions
+
 Only parts by me are those pertaining to the UK iPhone setup.
+
+*THIS IS NOT AN OFFICIAL DEV TEAM RELEASE, THERE WILL BE A MORE USER FRIENDLY VERSION IN THE FUTURE* 
 
 == Before you start ==
 
