@@ -30,6 +30,8 @@ However, VisualVoicemail and EDGE will not work properly - this is easily fixed,
 
 `ln -s /System/Library/Frameworks/CoreTelephony.framework/Support/O2_UK.plist /var/root/Library/Preferences/com.apple.carrier.plist`
 
+`rm -f /var/root/Library/Preferences/SystemConfiguration/preferences.plist`
+
 Reboot your iPhone, and all going well you'll now have EDGE and VisualVoicemail working again 
 
 You now have a 1.1.2 O2-UK iPhone with all the third party apps you could want. Enjoy :)
