@@ -20,60 +20,52 @@ Here's my interpretation on what happens in Apple's code does:
 
 3. Symlinks are being created
 
-
-{{{
-/private/var/root/Libraries/Preferences/com.apple.carrier.plist
-/private/var/root/Libraries/Preferences/com.apple.operator.plist
-}}}
+  `/private/var/root/Libraries/Preferences/com.apple.carrier.plist`
+  `/private/var/root/Libraries/Preferences/com.apple.operator.plist`
 
 will point to
 
-{{{
-/System/Library/Frameworks/CoreTelephony.framework/Support/*carriers-name*.plist
-}}}
+  `/System/Library/Frameworks/CoreTelephony.framework/Support/`*carriers-name*`.plist`
+
 or if the carrier is not found to
-{{{
-/System/Library/Frameworks/CoreTelephony.framework/Support/UnknownCarrier.plist
-}}}	
+
+  `/System/Library/Frameworks/CoreTelephony.framework/Support/UnknownCarrier.plist`	
 
 
 There is also a symlink from the MNC/MCC codes to the carrier in the same directory.
-{{{
-/System/Library/Frameworks/CoreTelephony.framework/Support/*<mnc><mcc>*
-}}}
+
+  `/System/Library/Frameworks/CoreTelephony.framework/Support/`*<mnc><mcc>*
+
 also points to
-{{{
-/System/Library/Frameworks/CoreTelephony.framework/Support/*carriers-name*.plist
-}}}	
 
-	
-Now if you dial, the number formatting string is being pulled out by looking up
+  `/System/Library/Frameworks/CoreTelephony.framework/Support/`*carriers-name*`.plist`
 
-MCC/MNC in
 
-{{{/System/Library/Frameworks/UIKit.framework/PhoneFormats/UIMobileCountryCodes.plist}}}
+Now if you dial, the number formatting string is being pulled out by looking up MCC/MNC in
 
-to find the country code.
-Then the country code is being looked up in
+   `/System/Library/Frameworks/UIKit.framework/PhoneFormats/UIMobileCountryCodes.plist`
 
-{{{/System/Library/Frameworks/UIKit.framework/PhoneFormats/UIPhoneFormats.plist}}}
+to find the country code. Then the country code is being looked up in
+
+   `/System/Library/Frameworks/UIKit.framework/PhoneFormats/UIPhoneFormats.plist`
+
 
 for the string formatting rules.
 
-When UnknownCarrier.plist is being used because of unknown MNC/MCC,
-the lookup in UIMobileCountryCodes.plist seems to fail and no country is found
-and then the lookup in UIPhoneFormats.plist returns NULL which then makes the
+When `UnknownCarrier.plist` is being used because of unknown MNC/MCC,
+the lookup in `UIMobileCountryCodes.plist` seems to fail and no country is found
+and then the lookup in `UIPhoneFormats.plist` returns NULL which then makes the
 formatting routine crash.
 
-Fix: create your own MCC/MNC.plist file (see [http://en.wikipedia.org/wiki/Mobile_Network_Code#International] for known MNC/MCC values)
+Fix: create your own *MCCMNC*`.plist` file (see [http://en.wikipedia.org/wiki/Mobile_Network_Code#International] for known MNC/MCC values)
 
 So for example for a Swisscom Mobile file you create
 
-SwisscomMobile.plist
+  `SwisscomMobile.plist`
 
 edit it to include the right APN's etc.
-and then create a symlink 22801 to point to SwisscomMobile.plist
+and then create a symlink `22801` to point to `SwisscomMobile.plist`
 
 All this in directory /System/Library/Frameworks/CoreTelephony.framework/Support/
  
-Then swap Simcard with other SIM (your unused AT&T SIM for example) and back. This will recreate the symlinks in /private/var/root/Library/Preferences. Now the code should remember 22801 as code and the mapping should properly work.
+Then swap Simcard with other SIM (your unused AT&T SIM for example) and back. This will recreate the symlinks in `/private/var/root/Library/Preferences`. Now the code should remember 22801 as code and the mapping should properly work.
