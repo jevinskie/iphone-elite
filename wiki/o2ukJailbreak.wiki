@@ -1,4 +1,5 @@
 #summary Jailbreaking the O2 iPhone
+#labels featured,O2,1.1.2
 
 == Credits ==
 
