@@ -22,8 +22,13 @@ Patched CRC-32: FE3496C3
 
 ==Zibri's NOTE==
 There is something wrong with this patch.
+
 It works but not always and only under some circumstances.
+
 I don't know what's wrong.
+
 It SORTA works.
+
 But sometimes it doesn't.
+
 Feel free to delete this note.. but check it.
