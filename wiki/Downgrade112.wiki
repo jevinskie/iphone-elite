@@ -27,7 +27,9 @@ You just downgraded!
 You also can, after jailbreaking 1.0.2, issue these commands:
 
 *cd /var/root/Media*
+
 *mknod disk c 14 1*
+
 *chmod 666 disk*
 
 and then UPDATE to 1.1.2 directly.
