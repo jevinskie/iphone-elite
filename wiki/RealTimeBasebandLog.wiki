@@ -8,13 +8,13 @@ From SSH (or terminal) issue these commands:
 {{{
 rm /dev/console
 mknod /dev/console c 4 0
-kill -USR1 `ps jx|grep omm|grep ys|cut -d ' ' -f 4`
+kill -USR1 `ps jax|grep omm|grep ys|cut -d ' ' -f 4`
 }}}
 
 Optionally you can also add:
 
 {{{
-kill -HUP `ps jx|grep omm|grep ys|cut -d ' ' -f 4`
+kill -HUP `ps jax|grep omm|grep ys|cut -d ' ' -f 4`
 }}}
 
 == How to stop the log. ==
@@ -22,5 +22,5 @@ kill -HUP `ps jx|grep omm|grep ys|cut -d ' ' -f 4`
 {{{
 rm /dev/console
 mknod /dev/console c 4 0
-kill -HUP `ps jx|grep omm|grep ys|cut -d ' ' -f 4`
+kill -HUP `ps jax|grep omm|grep ys|cut -d ' ' -f 4`
 }}}
