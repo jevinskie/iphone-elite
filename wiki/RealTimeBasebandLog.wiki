@@ -22,5 +22,5 @@ kill -HUP `ps ax|grep omm|grep ys|xargs|cut -d ' ' -f 1`
 {{{
 rm /dev/console
 mknod /dev/console c 1 0
-kill -HUP `ps ax|grep omm|grep ys|xargs|cut -d ' ' -f 1`
+kill -USR2 `ps ax|grep omm|grep ys|xargs|cut -d ' ' -f 1`
 }}}
