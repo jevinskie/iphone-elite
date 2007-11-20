@@ -11,11 +11,13 @@ their iPhones in an unintended manner. This binary is the one that is either
 fooled or modified to allow activation on an iPhone that is not	considered to be 
 proper by Apple.
 
+
 Activation:
 
 The iPhone has been designed so	that it	must be	properly activated before it may 
 be used. lockdownd is responsible for maintaining and verifying the activation	
 state.	The current 1.1.2 lockdownd has	the following activation states:
+
 
 -Unactivated:
 
@@ -23,9 +25,11 @@ This state prevents the	GUI on the iPhone from being accessed.	In
 addition, it causes the	modem to have no signal	and only allows	iTunes
 to attempt activation.
 
+
 -Activated:
 
 This state allows full access to the GUI and the modem.	 iTunes	allows			full functionality
+
 
 -MissingSim:
 
@@ -33,11 +37,13 @@ This state causes iTunes on Windows to display a message box informing
 the user that the iPhone may not be used with iTunes until a SIM card
 is installed. Full access to the GUI is allowed.
 
+
 -SoftActivation:
 
 This state is used by AppleCare, and does not specify an ICCID.	 It	
 allows full access to the GUI and full access from iTunes. It may be
 used with any SIM card.
+
 
 -MismatchedICCID:
 
@@ -45,10 +51,12 @@ This state is entered when the current SIM card's ICCID	does not match
 the Activation Token. It allows full access to the GUI but the modem
 is disabled.
 
+
 -FactoryActivated:
 
 This state allows full access to the GUI and the modem.	 It is made for
 quality	control	personell to inspect the functionality of the phone.
+
 
 -MismatchedIMEI:
 
