@@ -139,10 +139,12 @@ then register the unlock code and set new Activation State to Unlocked.
 18.) Retrieve the InternationalMobileEquipmentIdentity from the data ark.
 
 -On failure, go	to step	21.
+
  
 19.) Retrieve the InternationalMobileEquipmentIdentity from the AccountToken.
 
--On failure, go	to step	21.	
+-On failure, go	to step	21.
+
 
 20.) Compare the InternationalMobileEquipmentIdentity from steps 18 and 19.
 
