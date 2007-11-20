@@ -4,7 +4,9 @@
 
 This here program allows you to manually enable / disable the brick state on your iPhone.
 
-If your iPhone no longer makes calls, or appears to have NO SIGNAL then it is likely the firmware has enabled brick mode, you can now easily disable the brick state with this program (must be compiled first) 
+If your iPhone no longer makes calls, or appears to have NO SIGNAL then it is likely the firmware has enabled brick mode.
+
+You can now easily disable the brick state with this program (must be compiled first) 
 
 
 Additionally, the brick state can be enabled across reboots of the iPhone. 
