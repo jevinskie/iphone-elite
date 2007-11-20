@@ -5,8 +5,9 @@
 
 Disclaimer:
 iPatcher comes without any warranty, expressed or implied.  iPatcher may void
-the warranty on your iPhone, and may cause damage to the device.  It is not
-known that it will cause such damage, but your use of the program is at your
+the warranty on your iPhone, and may cause damage to the device.  
+
+It is not known that it will cause such damage, but your use of the program is at your
 own risk.
 
 What is iPatcher?
