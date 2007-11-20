@@ -12,6 +12,7 @@ own risk.
 
 What is iPatcher?
 iPatcher is a program that runs on MacOS X, Win32-Cygwin, and the iPhone.
+
 It will automatically patch lockdownd to make the iPhone appear activated,
 regardless of the actual activation state.  It has been designed to patch the
 following firmware versions:
