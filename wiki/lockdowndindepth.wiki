@@ -262,11 +262,6 @@ makes to the stock lockdownd binary:
 
 
 
-
-
-
-
-
 Lockdownd 1.0.0	Modifications:
 
 Offset		Original Byte		New	Byte	Reason
@@ -287,13 +282,9 @@ Offset		Original Byte		New	Byte	Reason
 
 0x9258		0x01	                   0x00	Change enable brick mode to disable.
 
-
-
-
-
-
-
-
+*
+*
+*
 
 Lockdownd 1.0.1	Modifications:
 
@@ -316,11 +307,9 @@ Offset		Original Byte		New	Byte	Reason
 0x9678		0x01			0x00	Change enable brick mode to disable.
 
 
-
-
-
-
-
+*
+*
+*
 
 
 Lockdownd 1.0.2	Modifications
@@ -344,10 +333,9 @@ Offset		Original Byte		New	Byte	Reason
 0x96A4		0x01			0x00	Change enable brick mode to disable.
 
 
-
-
-
-
+*
+*
+*
 
 
 Lockdownd 1.1.1	Modifications:
@@ -377,10 +365,9 @@ Offset 	        Original Byte		New	Byte	Reason
 0xBA58		0x01			0x00	Change enable brick mode to disable.
 
 
-
-
-
-
+*
+*
+*
 
 
 
