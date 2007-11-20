@@ -26,9 +26,13 @@ following firmware versions:
 Why Use iPatcher?
 Here are a few reasons you might want to use iPatcher:
     1.) All code inside lockdownd that disabled the baseband has been disabled
+    
     2.) All modifications to lockdownd have been documented
+    
     3.) Distributing copies of lockdownd doesn't feel right
+    
     4.) iPatcher lockdownds shouldn't interfere with the use of iASign
+   
     5.) The lockdownd distributed with 1.1.2 allows Apple to give you a baseband
         unlock code.  iPatcher lockdownds will allow you to apply these unlock
         codes.
