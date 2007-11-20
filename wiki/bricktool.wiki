@@ -11,3 +11,12 @@ You can now easily disable the brick state with this program (must be compiled f
 
 Additionally, the brick state can be enabled across reboots of the iPhone. 
 bricktool has been tested on version 1.1.2 of the iPhone software.
+
+The following people have made this possible:
+  -79b1caf2c95695e0af0e6216216eec54
+  -BlaCkBirD
+  -Zibri
+  -b1llyb0y
+  -kiwi66
+  -rdh
+  
