@@ -1,4 +1,4 @@
-#summary Manually Enable / Disable iPhone brick state (NO CARRIER STATUS)
+#summary Manually Enable / Disable iPhone brick state (DISABLE NO CARRIER ISSUE!)
 
 = Introduction =
 
