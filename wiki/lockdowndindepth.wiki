@@ -406,7 +406,9 @@ Offset		Original Byte		New	Byte	Reason
 0xC904		0x01			0x00	Change enable brick mode to disable.
 
 
-
+-
+-
+-
 
 
 Issues with the	Current	Work
