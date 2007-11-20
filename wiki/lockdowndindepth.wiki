@@ -262,6 +262,11 @@ makes to the stock lockdownd binary:
 
 
 
+
+
+
+
+
 Lockdownd 1.0.0	Modifications:
 
 Offset		Original Byte		New	Byte	Reason
@@ -281,6 +286,11 @@ Offset		Original Byte		New	Byte	Reason
 0x91E0		0x28	                   0x30	Change MissingSIM to FactoryActivated
 
 0x9258		0x01	                   0x00	Change enable brick mode to disable.
+
+
+
+
+
 
 
 
@@ -308,6 +318,11 @@ Offset		Original Byte		New	Byte	Reason
 
 
 
+
+
+
+
+
 Lockdownd 1.0.2	Modifications
 	
 Offset		Original Byte		New	Byte	Reason
@@ -327,6 +342,10 @@ Offset		Original Byte		New	Byte	Reason
 0x962C		0x28			0x30	Change MissingSIM to FactoryActivated
 
 0x96A4		0x01			0x00	Change enable brick mode to disable.
+
+
+
+
 
 
 
@@ -356,6 +375,11 @@ Offset 	        Original Byte		New	Byte	Reason
 0xB9E0		0x58			0x88	Change Unactivated to FactoryActivated
 
 0xBA58		0x01			0x00	Change enable brick mode to disable.
+
+
+
+
+
 
 
 
