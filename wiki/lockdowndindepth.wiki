@@ -407,6 +407,8 @@ Offset		Original Byte		New	Byte	Reason
 
 
 
+
+
 Issues with the	Current	Work
 
 If brick mode has been enabled on the iPhone, usually lockdownd	stores a record	
