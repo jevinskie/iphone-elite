@@ -1,4 +1,5 @@
 #summary Compiled binaries of bricktool and iPatcher
+#labels Featured,Phase-Requirements,Phase-Implementation
 
 = Details =
 
@@ -8,6 +9,7 @@ This is a collection of iphone-compiled tools that allow an individual to easily
 install the iPhone-elite patch and ensure that brick mode is disabled.  The 
 following components are included in the current release:
 		-bricktool
+
 		-iPatcher
 
 More information regarding individual tools may be found at the iPhone-elite 
@@ -16,21 +18,23 @@ wiki.
 How to use the iPhone-elite lockdownd tools:
 
   Prerequisites:
-		1.)	The BSD Subsystem (patricularly tar and gzip)
-		2.) A way to copy files to your phone
-		3.) A way to run commands in a terminal on your phone
+		#	The BSD Subsystem (patricularly tar and gzip)
+		# A way to copy files to your phone
+		# A way to run commands in a terminal on your phone
 	
 Steps:
-		1.) Copy ipe-lockdownd-tools.tgz to the root directory ( / ) on your                                                             
+		# Copy ipe-lockdownd-tools.tgz to the root directory ( / ) on your                                                             
 iPhone.                   
-		2.) In a terminal, type the following lines:
+		* In a terminal, type the following lines:
+{{{
 				cd /
 				cp /usr/libexec/lockdownd /usr/libexec/lockdownd.bak
 				tar -xvzf ipe-lockdownd-tools.tgz
 				cd /ipetools
 				./ipatcher -a
-		3.)	Reboot your iPhone.
-		4.)	In a terminal, type the following lines:
+}}}
+		*	Reboot your iPhone.
+		*	In a terminal, type the following lines:
 				cd /ipetools
 				./bricktool
 
