@@ -7,24 +7,31 @@
  */
 
 #define USART0_BASE		0xF1000000
-#define USART1_BASE		0xF7500000
+#define USART1_BASE		0xF1800000
 
-#define USART0_CLC		USART0_BASE
-#define USART0_PISEL		USART0_BASE + 0x04
-#define USART0_ID		USART0_BASE + 0x08
-#define USART0_CON		USART0_BASE + 0x10
-#define USART0_BG		USART0_BASE + 0x14
-#define USART0_FDV		USART0_BASE + 0x18
-#define USART0_PMW		USART0_BASE + 0x1C
-#define USART0_TXB		USART0_BASE + 0x20
-#define USART0_RXB		USART0_BASE + 0x24
-#define USART0_ABCON		USART0_BASE + 0x30
-#define USART0_ABSTAT		USART0_BASE + 0x34
-#define USART0_RXFCON		USART0_BASE + 0x40
-#define USART0_TXFCON		USART0_BASE + 0x44
-#define USART0_FSTAT		USART0_BASE + 0x48
-#define USART0_FCSTAT		USART0_BASE + 0x68
-#define	USART0_ICR		USART0_BASE + 0x70
+#define USART0_CLC		USART0_BASE		/* Clock Control Register */
+#define USART0_ID		USART0_BASE + 0x08	/* Module Identification Register */
+#define USART0_CON		USART0_BASE + 0x10	/* Control Register */
+#define USART0_BG		USART0_BASE + 0x14	/* Baudrate Timer Reload Register */
+#define USART0_FDV		USART0_BASE + 0x18	/* Fractional Divider Register */
+#define USART0_TXB		USART0_BASE + 0x20	/* Transmit Buffer */
+#define USART0_RXB		USART0_BASE + 0x24	/* Receive Buffer */
+#define USART0_ABCON		USART0_BASE + 0x30	/* Autobaud control register */
+#define USART0_ABSTAT		USART0_BASE + 0x34	/* Autobaud status register */
+#define USART0_RXFCON		USART0_BASE + 0x40	/* Receive FIFO control register */
+#define USART0_TXFCON		USART0_BASE + 0x44	/* Transmit FIFO control register */
+#define USART0_FSTAT		USART0_BASE + 0x48	/* FIFO status register */
+#define USART0_WHBCON		USART0_BASE + 0x50	/* Write hardware modified control register */
+#define USART0_WHBABCON		USART0_BASE + 0x54	/* Write hardware modified autobaud control register */
+#define USART0_WHBABSTAT	USART0_BASE + 0x58	/* Write hardware modified autobaud status register */
+#define USART0_FCCON		USART0_BASE + 0x5C	/* Flowcontrol control register */
+#define USART0_FCSTAT		USART0_BASE + 0x60	/* Flowcontrol status register */
+#define USART0_IMSC		USART0_BASE + 0x64	/* Interrupt mask control register */
+#define USART0_RIS		USART0_BASE + 0x68	/* Raw interrupt status register */
+#define USART0_MIS		USART0_BASE + 0x6C	/* Masked interrupt status register */
+#define	USART0_ICR		USART0_BASE + 0x70	/* Interrupt clear register */
+#define USART0_ISR		USART0_BASE + 0x74	/* Interrupt set register */
+#define USART0_TMO		USART0_BASE + 0x7C	/* Timeout detection control register */
 
 #define USART1_CLC		USART1_BASE
 #define USART1_PISEL		USART1_BASE + 0x04
@@ -40,8 +47,17 @@
 #define USART1_RXFCON		USART1_BASE + 0x40
 #define USART1_TXFCON		USART1_BASE + 0x44
 #define USART1_FSTAT		USART1_BASE + 0x48
-#define USART1_FCSTAT		USART1_BASE + 0x68
+#define USART1_WHBCON		USART1_BASE + 0x50
+#define USART1_WHBABCON		USART1_BASE + 0x54
+#define USART1_WHBABSTAT	USART1_BASE + 0x58
+#define USART1_FCCON		USART1_BASE + 0x5C
+#define USART1_FCSTAT		USART1_BASE + 0x60
+#define USART1_IMSC		USART1_BASE + 0x64
+#define USART1_RIS		USART1_BASE + 0x68
+#define USART1_MIS		USART1_BASE + 0x6C
 #define	USART1_ICR		USART1_BASE + 0x70
+#define USART1_ISR		USART1_BASE + 0x74
+#define USART1_TMO		USART1_BASE + 0x7C
 
 #define USART_57600		0x001901D8	/* 57600 / 0x1D8 = 122.033898 * 0x1a = 3172.881348 */
 #define USART_115200		0x000C01D8	/* 115200 / 0x1D8 = 244.067797 * 13 = 3172.881361 */
@@ -52,6 +68,15 @@
 #define USART_1228800		0x0000018A	/* 1228800 / 0x18A = 3118.781726 */
 #define USART_1600000		0x00000000	/* 1600000 / 0x200 = 3125 */
 #define USART_1500000		0x000001D0	/* 1500000 / 0x1D0 = 3232.758621 */
+
+#define CLC_SMC_CLK_DIV(x)	((x << 16) & 0xFF0000)
+#define CLC_RMC_CLK_DIV(x)	((x <<  8) & 0x00FF00)
+#define CLC_FSOE		(1 << 5)	/* Fast shut off enable (1: enable; 0: disable) */
+#define CLC_SBWE		(1 << 4)	/* Suspend bit write enable (1: enable; 0: disable) */
+#define CLC_EDIS		(1 << 3)	/* External request disable (1: disable; 0: enable) */
+#define CLC_SPEN		(1 << 2)	/* Suspend bit enable (1: enable; 0: disable) */
+#define CLC_DISS		(1 << 1)	/* Disable status bit (1: disable; 0: enable) */
+#define CLC_DISR		(1 << 0)	/* Disable request bit (1: enable; 0: disable) */
 
 #define	CON_R			(1 << 15)	/* Baud rate generator run control (0: disable; 1: enable) */
 #define CON_LB			(1 << 14)	/* Loopback mode (0: disable; 1: enable) */
@@ -68,17 +93,42 @@
 #define CON_STP			(1 <<  3)	/* Number of stop bits (0: 1 stop bit; 1: two stop bits) */
 #define CON_MODE_MASK		(7)		/* Mask for mode control */
 
-#define CON_8BIT_SYNC		(0)		/* 8 bit sync operation */
-#define CON_8BIT_ASYNC		(1)		/* 8 bit async operation */
-#define CON_8BIT_IRDA		(2)		/* 8 bit IrDA async operation */
-#define CON_7BIT_PARITY_ASYNC	(3)		/* 7 bit w/ parity async operation */
-#define CON_9BIT_ASYNC		(4)		/* 9 bit async operation */
-#define CON_8BIT_WAKEUP		(5)		/* 8 bit w/ wake up async */
-#define CON_RESERVED		(6)		/* Reserved do not use */
-#define CON_8BIT_PARITY_ASYNC	(7)		/* 8 bit data w/ parity async */
+#define WHBCON_SETOE		(1 << 13)	/* Set overrun error flag */
+#define WHBCON_SETFE		(1 << 12)	/* Set framing error flag */
+#define WHBCON_SETPE		(1 << 11)	/* Set parity error flag */
+#define WHBCON_CLROE		(1 << 10)	/* Clear overrun error flag */
+#define WHBCON_CLRFE		(1 <<  9)	/* Clear framing error flag */
+#define WHBCON_CLRPE		(1 <<  8)	/* Clear parity error flag */
+#define WHBCON_SETREN		(1 <<  5)	/* Set receiver enable bit */
+#define WHBCON_CLRREN		(1 <<  4)	/* Clear receiver enable bit */
 
-#define PWM_IRPW		(1 <<  8)	/* IrDA pulse width (0: 3/16 bit time; 1: PW_VALUE) */
-#define PWM_PW_VALUE_MASK	0xFF
+#define RX_DMA_ENABLE		(1 <<  1)	/* Receive DMA enable (0: disable, 1: enable) */
+#define TX_DMA_ENABLE		(1 <<  0)	/* Transmit DMA enable (0: disable, 1: enable) */
+
+#define ISR_TMO			(1 <<  7)	/* RX timeout interrupt mask */
+#define ISR_CTS			(1 <<  6)	/* CTS interrupt mask */
+#define ISR_ABDET		(1 <<  5)	/* Autobaud detected interrupt mask */
+#define ISR_ABSTART		(1 <<  4)	/* Autobaud start interrupt mask */
+#define ISR_ERR			(1 <<  3)	/* Error interrupt mask */
+#define ISR_RX			(1 <<  2)	/* Receive interrupt mask */
+#define ISR_TB			(1 <<  1)	/* Transmit buffer interrupt mask */
+#define ISR_TX			(1 <<  0)	/* Transmit interrupt mask */
+
+#define ICR_TMO			(1 <<  7)	/* RX timeout interrupt mask */
+#define ICR_CTS			(1 <<  6)	/* CTS interrupt mask */
+#define ICR_ABDET		(1 <<  5)	/* Autobaud detected interrupt mask */
+#define ICR_ABSTART		(1 <<  4)	/* Autobaud start interrupt mask */
+#define ICR_ERR			(1 <<  3)	/* Error interrupt mask */
+#define ICR_RX			(1 <<  2)	/* Receive interrupt mask */
+#define ICR_TB			(1 <<  1)	/* Transmit buffer interrupt mask */
+#define ICR_TX			(1 <<  0)	/* Transmit interrupt mask */
+
+#define FCSTAT_RTS		(1 <<  1)	/* RTS Status (0: inactive; 1: active) */
+#define FCSTAT_CTS		(1 <<  0)	/* CTS Status (0: inactive; 1: active) */
+#define FCCON_RTS_TRIGGER(x)	((x << 8) & 0x3F00) /* RTS receive FIFO trigger level */
+#define FCCON_RTS		(1 <<  4)	/* RTS control bit */
+#define FCCON_CTSEN		(1 <<  1)	/* CTS enable (0: disable; 1: enable) */
+#define FCCON_RTSEN		(1 <<  0)	/* RTS enbled (0: disable; 1: enable) */
 
 #define ABCON_RXINV		(1 << 11)	/* Receive invert enable (0: disable; 1: enable) */
 #define ABCON_TXINV		(1 << 10)	/* Transmit invert enable (0: disable; 1: enable) */
