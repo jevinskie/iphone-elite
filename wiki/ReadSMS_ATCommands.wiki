@@ -19,6 +19,6 @@ Issue these commands in minicom  to read SMSs stored on the SIM card. If PDU mod
 *AT+CMGF=1*
 
 
-//read all SMSs stored SIM card
+//read all SMSs stored on SIM card
 
 *AT+CMGL*
