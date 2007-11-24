@@ -104,5 +104,8 @@ Have you ever wondered how to make iTunes display your phone number if it is not
   # sendmodem "AT+CPBS?"
   }}}
   * Now reboot your phone and after it is done rebooting, start up iTunes.
+  {{{
+  # reboot
+  }}}
 
 And voila, iTunes should be displaying your phone number under the summary tab and also if you scroll to the top of your contact list on the phone, you should now see your phonenumber.
