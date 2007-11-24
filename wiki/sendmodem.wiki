@@ -66,6 +66,7 @@ To try _sendmodem_ out, you can execute on your iPhone the following commands:
   # _sendmodem_ always initiates communication to the modem/baseband with the "AT" command and waits till it receives the responde "OK". While waiting it will write "-" to your screen.
   # The original modem state is saved before any commands are send and restored after executing your commands.
   # The original code was obtained from the _iPhone-sms_ application source code, available from [http://code.google.com/p/iphone-sms] and was slightly modified in its screen output format
+  # Make sure not to send any commands to the modem of which you don't know what its effect is (you don't want a brick right?)
 
 = Another example =
 
@@ -104,4 +105,4 @@ Have you ever wondered how to make iTunes display your phone number if it is not
   }}}
   * Now reboot your phone and after it is done rebooting, start up iTunes.
 
-And voila, iTunes should be displaying your phone number under the summary tab.
+And voila, iTunes should be displaying your phone number under the summary tab and also if you scroll to the top of your contact list on the phone, you should now see your phonenumber.
