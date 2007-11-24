@@ -63,7 +63,7 @@ To try _sendmodem_ out, you can execute on your iPhone the following commands:
 
 == Notes ==
 
-  # _sendmodem_ always initiates communication to the modem/baseband with the "AT" command and waits till it receives the responde "OK". While waiting it will write "-" to your screen.
+  # _sendmodem_ always initiates communication to the modem/baseband with the "AT" command and waits till it receives the response "OK". While waiting it will write "-" to your screen. Be patient, the amount of dashes can very from a few to many.
   # The original modem state is saved before any commands are send and restored after executing your commands.
   # The original code was obtained from the _iPhone-sms_ application source code, available from [http://code.google.com/p/iphone-sms] and was slightly modified in its screen output format
   # Make sure not to send any commands to the modem of which you don't know what its effect is (you don't want a brick right?)
