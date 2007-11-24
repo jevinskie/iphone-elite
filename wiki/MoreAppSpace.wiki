@@ -21,6 +21,14 @@ if your /dev/disk0s2 line looks like the following
 /dev/disk0s1 / hfs rw 0 1
 /dev/disk0s2 /private/var hfs r 0 2
 }}}
+or like the following
+{{{
+# cat /etc/fstab
+/dev/disk0s1 / hfs rw 0 1
+/dev/disk0s2 /private/var hfs rw,noexec 0 2
+}}}
+
+
 then you will have to download /etc/fstab via SCP and change it to look like the following:
 {{{
 /dev/disk0s1 / hfs rw 0 1
