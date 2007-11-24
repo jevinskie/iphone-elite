@@ -83,7 +83,7 @@ Have you ever wondered how to make iTunes display your phone number if it is not
   {{{
   # sendmodem "AT+CPBR=1"
   }}}
-  * If you are fine with overwriting the current content (it is probably empty), you can (re)write the first entry with your own phone number (indicated by _xxx_ below, e.g. "+18885559999") and a description (indicated by _yyy_ below, e.g. "your name here"). Btw, note the double _,,_ (this is not a mistake_) and that the "+" sign in the number will disappear upon query.
+  * If you are fine with overwriting the current content (it is probably empty), you can (re)write the first entry with your own phone number (indicated by _xxx_ below, e.g. "+18885559999") and a description (indicated by _yyy_ below, e.g. "your name here"). Btw, note the double _,,_ (this is not a mistake) and that the "+" sign in the number will disappear upon query.
   {{{
   # sendmodem "AT+CPBW=1,\"xxx\",,\"yyy\""
   }}}
