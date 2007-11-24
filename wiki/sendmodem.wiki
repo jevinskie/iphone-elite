@@ -1,4 +1,5 @@
 #summary A tool to access the modem directly.
+#labels Featured
 
 
 = Introduction =
@@ -69,3 +70,38 @@ To try _sendmodem_ out, you can execute on your iPhone the following commands:
 = Another example =
 
 Have you ever wondered how to make iTunes display your phone number if it is not showing? Here are the commands to enter:
+  * We first check what addressbook-mode the SIM card is in:
+  {{{
+  # sendmodem "AT+CPBS?"
+  }}}
+  Usually it will respond with "SM" (general addressbook). If the response is not "ON", we change the addressbook to "ON" (SIM card owner specific numbers):
+  {{{
+  # sendmodem "AT+CPBS=\"ON\""
+  }}}
+  * Next we check what is currently in the addressbook item 1 (this is the location for your own phone number)
+  {{{
+  # sendmodem "AT+CPBR=1"
+  }}}
+  * If you are fine with overwriting the current content (it is probably empty), you can (re)write the first entry with your own phone number (indicated by _xxx_ below, e.g. "+18885559999") and a description (indicated by _yyy below, e.g. "your name here"). Btw, note the double _,,_ (this is not a mistake_) and that the "+" sign in the number will disappear upon query.
+  {{{
+  # sendmodem "AT+CPBW=1,\"xxx\",,\"yyy\""
+  }}}
+  * Next you can query the results with the command below. It will respond back with what you entered plus the entry type, either 129 or 145. (129 fits a phone number with a national pattern, and 145 one with an international pattern):
+  {{{
+  # sendmodem "AT+CPBR=1"
+  }}}
+  * And if you are happy with what you see, you can issue the following command (this is how iTunes queries the "Owner Number"):
+  {{{
+  # sendmodem "AT+CNUM"
+  }}}
+  * Now put the SIM back to its original addressbook with the response answer from the first step (AT+CPBS?). In this example we assume it responded with "SM":
+  {{{
+  # sendmodem "AT+CPBS=\"SM\""
+  }}}
+  * And verify that it worked (it should respond with "SM"):
+  {{{
+  # sendmodem "AT+CPBS?"
+  }}}
+  * Now reboot your phone and after it is done rebooting, start up iTunes.
+
+And voila, iTunes should be displaying your phone number under the summary tab.
