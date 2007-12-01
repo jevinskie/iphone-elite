@@ -1,4 +1,5 @@
 #summary How the secpack is decrypted and what it contains
+#labels Featured
 
 = Overview =
 
