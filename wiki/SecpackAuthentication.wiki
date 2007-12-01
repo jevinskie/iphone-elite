@@ -12,7 +12,7 @@ This is a description of how the secpack header can be decrypted and what it con
 
 == II.  RSA-encrypted header ==
 The 0x80-byte header is encrypted by Apple's private RSA key and can be decrypted using
-Apple's public RSA key (modulus and exponent, discussed later). It contains the SHA-1 sums
+one of Apple's two unique public RSA keys (modulus and exponent, discussed later). It contains the SHA-1 sums
 of the secpack payload and also of the firmware image it is authorized
 to upload to iPhone.
 
@@ -31,7 +31,7 @@ It can be broken down into sections H,I,0,J,K,L:
 {{{
  * H: Length  2 (0x02)  PKCS1v1.5 values. Always 00 01
  * I: Length 45 (0x2D)  Filler.  In 4.02.13 it's all FF's, but in other releases it isn't
- * 0: Length  1 (0x01)  ASN.1 sequence start.  Always 00.
+ * 0: Length  1 (0x01)  ASN.1 sequence start.  Always 00
  * J: Length 20 (0x14)  SHA-1 sum of secpack from 0x200-0x800 of secpack.bin
  * K: Length 20 (0x14)  SHA-1 sum of firmware this secpack is authorized for
  * L: Length 40 (0x28)  Extra bytes that aren't checked by either the 3.9 or 4.6 Apple bootloader (thanks, geohot!)
@@ -55,7 +55,8 @@ The SHA-1 fields need to be byte-swapped at each dword to reveal:
     K = SHA-1 sum of firmware = b3ca3a6fdcf465133befbd77a3d80633bddfb38d
 }}}
 
-The SHA-1 sums of all secpacks to date are:
+== III. Explicitly computing the SHA-1 sums of secpacks and firmware payloads ==
+If we were to manually and explicitly compute the SHA-1 sums of the various payloads, we'd find the secpack SHA-1 sums  to date are:
 {{{
 bash% for i in 31206 31408 40113 40213 ; do echo -n "  $i: "; \
                       dd if=secpack$i.bin skip=1 2>/dev/null |\
@@ -90,7 +91,7 @@ bash% for i in 31206 31408 40113 40213 ; do echo -n "  $i: ";   \
   40213: b3ca3a6fdcf465133befbd77a3d80633bddfb38d
 }}}
 
-=== III.  Apple's public keys ===
+=== IV.  Apple's public keys ===
 
  * 4 RSA public modulus values are contained in the 4.6 BL.
  * The 128 bytes of each modulus must be completely reversed to be useful (is this obfuscation or just some endianness artifact?).
@@ -116,7 +117,7 @@ mod4=c7b74b61376c083fc949a2653fe1339ffbc02b8081b45ece23b6388efd26534d264f33571b7
 === IV.  Putting it all together ===
 -----------------------------------------------------------------------------
 
-If we combine the information from the above 3 sections, we get:
+If we combine the information from the above sections, we get:
 {{{
 bash% for i in 31206 31408 40113 40213 ; do echo "secpack$i decrypted header:"; \
                                dd if=secpack$i.bin bs=128 count=1 2>/dev/null  |\
