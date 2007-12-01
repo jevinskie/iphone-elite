@@ -11,7 +11,7 @@ This is a description of how the secpack header can be decrypted and what it con
  * 0x200 - 0x7FF secpack payload
 
 == II.  RSA-encrypted header ==
-The 0x80-byte header is encrypted by Apple and can be decrypted using
+The 0x80-byte header is encrypted by Apple's private RSA key and can be decrypted using
 Apple's public RSA modulus and exponent discussed later. It contains the SHA-1 sums
 of the secpack payload and also of the firmware image it is authorized
 to upload to iPhone.
