@@ -51,8 +51,8 @@ For example, secpack40213.bin's header decrypts into this:
 
 The SHA-1 fields need to be byte-swapped at each dword to reveal:
 {{{
-    J = SHA-1 sum of secpack  = f0b2050aefb8f31f4c115346bbfbd42ddf0def1a
-    K = SHA-1 sum of firmware = b3ca3a6fdcf465133befbd77a3d80633bddfb38d
+    J = SHA-1 sum of secpack  = b3ca3a6fdcf465133befbd77a3d80633bddfb38d
+    K = SHA-1 sum of firmware = f0b2050aefb8f31f4c115346bbfbd42ddf0def1a
 }}}
 
 == III. Explicitly computing the SHA-1 sums of secpacks and firmware payloads ==
