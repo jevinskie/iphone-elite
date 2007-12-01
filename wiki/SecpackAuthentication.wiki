@@ -3,7 +3,7 @@
 
 = Overview =
 
-This is a description of what the secpack file contains and how it's encrypted.
+This is a description of how the secpack header can be decrypted and what it contains.
 
 == I.  secpack .bin file structure ==
  * 0x000 - 0x080 RSA-encrypted header
