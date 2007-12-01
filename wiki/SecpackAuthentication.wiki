@@ -1,6 +1,6 @@
 #How the secpack is decrypted and what it contains
 
-= Secpack Authentication =
+= Introduction =
 
 This is a description of what the secpack file contains and how it's encrypted.
 
