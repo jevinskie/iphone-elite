@@ -6,9 +6,9 @@
 This is a description of how the secpack header can be decrypted and what it contains.
 
 == I.  secpack .bin file structure ==
- * 0x000 - 0x080 RSA-encrypted header
- * 0x080 - 0x200 zeros
- * 0x200 - 0x800 secpack payload
+ * 0x000 - 0x07F RSA-encrypted header
+ * 0x080 - 0x1FF zeros
+ * 0x200 - 0x7FF secpack payload
 
 == II.  RSA-encrypted header ==
 The 0x80-byte header is encrypted by Apple and can be decrypted using
