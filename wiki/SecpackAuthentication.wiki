@@ -71,7 +71,7 @@ A firmware ICE.fls file has these fields in its header:
  * +0x1c: File offset of start of firmware image
  *  +0x20: Length of firmware image in bytes
 
-The file offset for the firmware releases so far is 0x9a4 (2468 - "who do we appreciate....APPLE...APPLE....Gooooo PPLE")
+The file offset for the firmware releases so far is 0x9a4 (2468 - "who do we appreciate....APPLE...APPLE....Gooooo APPLE")
 
 The lengths of the firmware releases to date are:
 {{{
