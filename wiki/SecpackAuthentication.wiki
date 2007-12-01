@@ -78,12 +78,6 @@ The lengths of the firmware releases to date are:
 bash% len[31206]=0x302218; len[31408]=0x303cb4; len[40113]=0x304468; len[40213]=0x302400  # OS X "dd"
 bash% len[31206]=3154456 ; len[31408]=3161268 ; len[40113]=3163240 ; len[40213]=3154944   # Not OS X "dd"
 }}}
-
-The SHA-1 sums of all firmwares to date are:
-{{{
-bash% len[31206]=0x302218; len[31408]=0x303cb4; len[40113]=0x304468; len[40213]=0x302400  # OS X "dd"
-bash% len[31206]=3154456 ; len[31408]=3161268 ; len[40113]=3163240 ; len[40213]=3154944   # Not OS X "dd"
-}}}
 So, let's go ahead and manually compute the SHA-1 sums of the firmware images.
 {{{
 bash% for i in 31206 31408 40113 40213 ; do echo -n "  $i: ";   \
