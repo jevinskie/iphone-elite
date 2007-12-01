@@ -110,6 +110,8 @@ mod3=ea663021b3eaedb5fd495fbccb1dad65c7575360accfe296f710d6007157d5d1aa150cbd3c2
 mod4=c7b74b61376c083fc949a2653fe1339ffbc02b8081b45ece23b6388efd26534d264f33571b7a16cfe2167c4bd8bab9af4dc3da78212fdef92eebd0cb84d86b41a35d0fc2a8e3062473c11cb22694dffb95d61727a0cee9c0064c513931fdcf126ecb827a4e91f4686ca037645706f973b0cc53cf8c5844ce9d7b75e3baae230b
 }}}
 
+These same modulus values are contained in the 3.9 bootloader, but they're at other locations.
+
 === IV.  Putting it all together ===
 -----------------------------------------------------------------------------
 
