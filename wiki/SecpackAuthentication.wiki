@@ -92,9 +92,9 @@ bash% for i in 31206 31408 40113 40213 ; do echo -n "  $i: ";   \
 
 === III.  Apple's public keys ===
 
-4 RSA public modulus values are contained in the 4.6 BL.  The 128 bytes of
-each modulus must be completely reversed to be useful.  Directly before these
-modules values are Apple's public exponent value (0x3).
+ * 4 RSA public modulus values are contained in the 4.6 BL.
+ * The 128 bytes of each modulus must be completely reversed to be useful (is this obfuscation or just some endianness artifact?).
+ * Directly before these modulus values are Apple's public exponent value (0x3) and key length (0x400, 1024)
 {{{
 bash% modloc[1]=0xc898; modloc[2]=0xcaa4; modloc[3]=0x249c; modloc[4]=0x26a8  # OS X "dd"
 bash% modloc[1]=51352 ; modloc[2]=51876 ; modloc[3]=9372  ; modloc[4]=9896    # Not OS X "dd"
