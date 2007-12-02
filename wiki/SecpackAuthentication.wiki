@@ -168,6 +168,8 @@ If you refer back to section II to determine the SHA-1 keys in the above dumps,
 and refer back to section III to see the computed SHA-1 keys on the actual
 secpack and firmware files, you'll see they match.
 
- * Notice that offset 0x2f is always 0.  That marks the end of the padding and so the bootloader expects two SHA-1 sums follow.  The 4.6 BL requires at least 10 FFs to have been seen before the 00 marker.
- * The filler between offset 0x2 and 0x2f does matter to both 3.9 and 4.6 bootloaders
+ * Notice that offset 0x2f is always 0.  That marks the end of the padding.
+  * The bootloader expects two SHA-1 sums follow the 00 marker.
+  * The 4.6 BL requires at least 10 FFs to have been seen before the 00 marker.
+ * The padding does matter to both 3.9 and 4.6 bootloaders
  * As geohot points out, those last 0x28 may be the key (no pun intended) to software unlocking 4.6 bootloader iPhones
