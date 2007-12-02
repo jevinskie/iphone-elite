@@ -31,7 +31,7 @@ It can be broken down into sections H,I,0,J,K,L:
 {{{
  * H: Length  2 (0x02)  PKCS1v1.5 values. Always 00 01
  * I: Length 45 (0x2D)  Filler.  In 4.02.13 it's all FF's, but in other releases it isn't
- * 0: Length  1 (0x01)  ASN.1 sequence start.  Always 00
+ * 0: Length  1 (0x01)  End of padding marker.  Always 00
  * J: Length 20 (0x14)  SHA-1 sum of firmware this secpack is authorized for
  * K: Length 20 (0x14)  SHA-1 sum of secpack from 0x200-0x800 of secpack.bin
  * L: Length 40 (0x28)  Extra bytes that aren't checked by either the 3.9 or 4.6 Apple bootloader (thanks, geohot!)
