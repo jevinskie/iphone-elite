@@ -93,7 +93,9 @@ bash% for i in 31206 31408 40113 40213 ; do echo -n "  $i: ";   \
 
  * 4 RSA public modulus values are contained in the 4.6 BL.
  * The same modulus values are contained in the 3.9 bootloader, but they're at other locations.
- * The 128 bytes of each modulus must be completely reversed (as discovered by ghost_000) to be useful.  (Q: Is this obfuscation or just some endianness artifact?).
+ * The 128 bytes of each modulus must be completely reversed (as discovered by ghost_000) to be useful. 
+  * Q: Is this obfuscation or just some endianness artifact?
+  * A: Fred__ said this modulus reversal is common in embedded devices because the specific algorithms that use it are more efficient (faster) when it's ordered that way. 
  * Directly before the modulus values are Apple's public exponent value (0x3) and key length (0x400, 1024 bits)
  * Notice that mod1==mod3, and mod2==mod4
 {{{
