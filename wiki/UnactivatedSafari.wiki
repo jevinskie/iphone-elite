@@ -7,7 +7,7 @@
 
   # enter ` *#307# ` press call, now use the back button on the top of your screen to remove ` *#307# `, now enter ` 0 ` , press call, press answer, press hold, press decline. And you get to the contact list. And thereafter every time you push the homebutton you just slide the "emergency call" slide, then enter ` 0 `, press call, press hold, press decline 
   # Push contacts, end call and you get called again, this time hit decline and you will be at the main phone app. From there, you can play with any of the phone-app features.
-  # Create a contact, and add the following URL to it: prefs://D1
+  # Create a contact, and add the following URL to it: prefs://F1
   # Click on that URL. It will take you to system preferences. Setup the wifi so you have a working connection
   # Press the home button. Slide for emergency call, call 0, accept. Hold. Call 0. Decline.
   # Now edit a new contact and type in a web-address (such as http://jailbreakme.com)
