@@ -77,6 +77,7 @@ int readFlash(int fd, const char *output, unsigned int start, unsigned int lengt
 		size_t count = readBaseband(fd, buffer, sizeof(buffer));
 		if (fwrite(buffer, 1, count, fp) != count) {
 			fprintf(stderr, "Can't write data: %s\n", strerror(errno));
+			fclose(fp);
 			return 4;
 		}
 	}
@@ -86,6 +87,7 @@ int readFlash(int fd, const char *output, unsigned int start, unsigned int lengt
 		size_t count = readBaseband(fd, buffer, remainder);
 		if (fwrite(buffer, 1, count, fp) != count) {
 			fprintf(stderr, "Can't write data: %s\n", strerror(errno));
+			fclose(fp);
 			return 4;
 		}
 	}
@@ -116,7 +118,7 @@ void sendSecPack(int fd, const char *secfile) {
 	secPack(fd, buffer);
 }
 
-int writeFlash(int fd, const char *input, unsigned int start) {
+int writeFlash(int fd, const char *input, unsigned int start, unsigned int length) {
 	if (!input) {
 		fprintf(stderr, "Error, no input file specified.\n");
 		return 10;
@@ -130,30 +132,40 @@ int writeFlash(int fd, const char *input, unsigned int start) {
 	
 	fseek(fp, 0, SEEK_END);
 	long ofs = (unsigned int) ftell(fp);
-	unsigned int length = 0;
-	if (ofs != -1) length = (unsigned int) ofs;
+	if (ofs != -1 && length > ofs) length = (unsigned int) ofs;
 	fseek(fp, 0, SEEK_SET);
 	
-	fprintf(stderr, "Writing to 0x%08x to 0x%08x\n", start, start + length);
-	if (start == 0 || length == 0) {
-		fprintf(stderr, "Invalid address/length\n");
+	fprintf(stderr, "Writing from 0x%08x to 0x%08x\n", start, start + length);
+	if (start == 0) {
+		fprintf(stderr, "Invalid start address\n");
+		fclose(fp);
 		return 5;
 	}
 		
 	seekBaseband(fd, start);
 	
 	unsigned char buffer[BUFFER_SIZE];
+	unsigned int len = length >> BUFFER_SHIFT;
 	unsigned int i;
-	for (i = 0; i < length >> BUFFER_SHIFT; i++) {
-		unsigned int len = length >> BUFFER_SHIFT;
-		fprintf(stderr, "Writing block %d of %d - %d%%\n", i + 1, len, len ? i * 100 / len : 0);
+	for (i = 0; i < len; i++) {
+		fprintf(stderr, "Writing block %d of %d - %d%%\n", i + 1, len, i * 100 / len);
 		size_t count = fread(buffer, 1, sizeof(buffer), fp);
+		if (count != sizeof(buffer)) {
+			fprintf(stderr, "Can't read data: %s\n", strerror(errno));
+			fclose(fp);
+			return 4;
+		}
 		writeBaseband(fd, buffer, count);
 	}
 	unsigned int remainder = length & BUFFER_MASK;
 	if (remainder) {
 		fprintf(stderr, "Writing remainder - 100%%\n");
 		size_t count = fread(buffer, 1, remainder, fp);
+		if (count != remainder) {
+			fprintf(stderr, "Can't read data: %s\n", strerror(errno));
+			fclose(fp);
+			return 4;
+		}
 		writeBaseband(fd, buffer, count);
 	}
 	
@@ -234,6 +246,7 @@ int main(int argc, char **argv) {
 	case 'x':
 		sendSecPack(fd, secpack);
 		eraseBaseband(fd, start, start + length);
+		//endSecPack(fd);
 		break;
 	case 'r':
 		err = readFlash(fd, binfile, start, length);
@@ -241,7 +254,8 @@ int main(int argc, char **argv) {
 	case 'w':
 		sendSecPack(fd, secpack);
 		eraseBaseband(fd, start, start + length);
-		err = writeFlash(fd, binfile, start);
+		err = writeFlash(fd, binfile, start, length);
+		endSecPack(fd);
 		break;
 	default:
 		break;

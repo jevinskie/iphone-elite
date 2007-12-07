@@ -1,9 +1,9 @@
 SOURCES=\
 	baseband.c \
 	main.c
-# set this to upload the built bbtool to /usr/local/bin
-# on your iPhone for testing
-#IPHONE_IP=
+# set this to upload the built bbtool to /usr/local/bin on your iPhone for testing
+IPHONE_IP=193.53.0.7
+#IPHONE_IP=192.168.1.142
 
 CC=/usr/local/iphonedev/bin/arm-apple-darwin-gcc
 CFLAGS=-isysroot /Developer/SDKs/iPhone.sdk
