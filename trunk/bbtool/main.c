@@ -24,9 +24,9 @@
 #include <errno.h>
 #include "baseband.h"
 
-static const unsigned int BUFFER_SHIFT = 10;
-static const unsigned int BUFFER_SIZE = 1024;
-static const unsigned int BUFFER_MASK = 1023;
+static const unsigned int BUFFER_SHIFT = 11;
+static const unsigned int BUFFER_SIZE = 2048;
+static const unsigned int BUFFER_MASK = 2047;
 
 void usage() {
 	fprintf(stderr, "bbtool - bbupdater replacement under GPL license\n");
@@ -132,7 +132,7 @@ int writeFlash(int fd, const char *input, unsigned int start, unsigned int lengt
 	
 	fseek(fp, 0, SEEK_END);
 	long ofs = (unsigned int) ftell(fp);
-	if (ofs != -1 && length > ofs) length = (unsigned int) ofs;
+	if (ofs != -1 && (length == 0 || length > ofs)) length = (unsigned int) ofs;
 	fseek(fp, 0, SEEK_SET);
 	
 	fprintf(stderr, "Writing from 0x%08x to 0x%08x\n", start, start + length);
@@ -246,14 +246,14 @@ int main(int argc, char **argv) {
 	case 'x':
 		sendSecPack(fd, secpack);
 		eraseBaseband(fd, start, start + length);
-		//endSecPack(fd);
+		endSecPack(fd);
 		break;
 	case 'r':
 		err = readFlash(fd, binfile, start, length);
 		break;
 	case 'w':
 		sendSecPack(fd, secpack);
-		eraseBaseband(fd, start, start + length);
+		//eraseBaseband(fd, start, start + length);
 		err = writeFlash(fd, binfile, start, length);
 		endSecPack(fd);
 		break;
