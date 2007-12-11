@@ -79,12 +79,6 @@ typedef struct {
 } SecpackReplyPacket;
 static const int SECPACK_REPLY_PACKET_SIZE = 6;
 
-typedef struct {
-	unsigned short status;
-	unsigned short error;
-} WriteReplyPacket;
-static const int WRITE_REPLY_PACKET_SIZE = 4;
-
 #pragma pack()
 
 static int _logLevel = LOGLEVEL_WARN;
@@ -316,7 +310,7 @@ VersionPacket getBootVersion(int fd) {
 }
 
 void prepareFlash(int fd) {
-	LOG(LOGLEVEL_INFO, "Preparing for flashing...\n");
+	LOG(LOGLEVEL_INFO, "Preparing flash access...\n");
 	
 	short param = 0;
 	writePacket(fd, 0x84, &param, sizeof(param));
@@ -346,7 +340,6 @@ size_t readBaseband(int fd, void *buffer, unsigned short size) {
 	LOG(LOGLEVEL_STATUS, "Reading %u bytes from flash...\n", size);
 	
 	writePacket(fd, 0x803, &size, sizeof(size));
-	usleep(500000);
 	void *temp = malloc(PACKET_SIZE(size));
 	size_t length = readPacket(fd, DEFAULT_TIMEOUT, temp, PACKET_SIZE(size));
 	
@@ -425,13 +418,11 @@ void writeBaseband(int fd, void *data, size_t length) {
 	LOG(LOGLEVEL_STATUS, "Writing %lu bytes to flash...\n", length);
 	
 	writePacket(fd, 0x804, data, length);
-	char buffer[PACKET_SIZE(WRITE_REPLY_PACKET_SIZE)];
+	char buffer[PACKET_SIZE(sizeof(unsigned short))];
 	size_t rlength = readPacket(fd, WRITE_TIMEOUT, buffer, sizeof(buffer));
-	WriteReplyPacket *ret = verifyPacket(buffer, rlength);
-	if (ret && ret->status == 0) {
-		LOG(LOGLEVEL_DEBUG, "Write returns: %d/%d\n", ret->status, ret->error);
-	} else {
-		LOG(LOGLEVEL_ERROR, "Error flashing %lu bytes: %d\n", length, ret->error);
+	unsigned short *ret = verifyPacket(buffer, rlength);
+	if (ret && *ret) {
+		LOG(LOGLEVEL_ERROR, "Write returns error: %d\n", *ret);
 	}
 }
 
@@ -440,7 +431,7 @@ void secPack(int fd, void *secpack) {
 	
 	writePacket(fd, 0x204, secpack, 0x800);
 	char buffer[PACKET_SIZE(SECPACK_REPLY_PACKET_SIZE)];
-	size_t rlength = readPacket(fd, DEFAULT_TIMEOUT, buffer, sizeof(buffer));
+	size_t rlength = readPacket(fd, WRITE_TIMEOUT, buffer, sizeof(buffer));
 	SecpackReplyPacket *reply = verifyPacket(buffer, rlength);
 	LOG(LOGLEVEL_DEBUG, "Secpack returns: unknown1=%d unknown2=0x%x\n", reply ? reply->unknown1 : 0, reply ? reply->unknown2 : 0);
 }

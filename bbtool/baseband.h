@@ -42,6 +42,9 @@
 
 #include <unistd.h>
 
+/*!
+Error levels for <tt>setLogLevel()</tt> and <tt>getLogLevel()</tt>.
+*/
 enum {
 	LOGLEVEL_ERROR = 1,
 	LOGLEVEL_WARN,
@@ -50,7 +53,15 @@ enum {
 	LOGLEVEL_DEBUG,
 	LOGLEVEL_TRACE,
 };
+/*!
+Set the log level for the baseband routines.
+
+All messages go to <tt>stderr</tt>.
+*/
 void setLogLevel(int level);
+/*!
+Get the current log level
+*/
 int getLogLevel();
 
 /*!
@@ -75,6 +86,11 @@ Change the baud rate
 */
 void setBaudRate(int fd, unsigned int speed);
 
+/*!
+A data structure that holds information about the bootloader version
+
+Note that the <tt>text</tt> field doesn't have a \0 terminator.
+*/
 typedef struct {
 	unsigned int unknown1;
 	unsigned short unknown2;
@@ -103,16 +119,18 @@ void seekBaseband(int fd, unsigned int offset);
 /*!
 Read a block of data from the current address.
 
-Maximum block size is 2048 (or 1024?) bytes (use multiple calls to get more data).
+Maximum block size is 2048 bytes (use multiple calls to get more data).
 
 Interesting locations:
 <ul>
-<li>0xa0020000 start of main firmware</li>
-<li>0xa002c000 (original?) firmware version string (SGOLD2 something)</li>
-<li>0xa0030000 firmware version string</li>
-<li>0xa0310000 last block of main firmware (one block is 0x10000=65536 bytes)</li>
-<li>0xa03a0000 seczone (0x800=2048 bytes) or</li>
-<li>0xa03e0000 seczone (which one is it?)</li>
+<li><tt style="color: #7f007f;">0xa0000000</tt> bootloader (0x20000=128K bytes)</li>
+<li><tt style="color: #7f007f;">0xa000448d</tt> bootloader version string</li>
+<li><tt style="color: #7f007f;">0xa0020000</tt> start of main firmware</li>
+<li><tt style="color: #7f007f;">0xa002c000</tt> (original?) firmware version string (SGOLD2 something)</li>
+<li><tt style="color: #7f007f;">0xa0030000</tt> firmware version string</li>
+<li><tt style="color: #7f007f;">0xa0320000</tt> end of main firmware
+<li><tt style="color: #7f007f;">0xa03a0000</tt> seczone (0x800=2048 bytes) or</li>
+<li><tt style="color: #7f007f;">0xa03e0000</tt> seczone (which one is it?)</li>
 </ul>
 */
 size_t readBaseband(int fd, void *buffer, unsigned short size);
@@ -133,6 +151,12 @@ like 0xa0020000 to 0xa0310000 (length 0x2F0000).
 */
 void eraseBaseband(int fd, unsigned int begin, unsigned int end);
 
+/*!
+The secpack size
+
+Use a definition like <pre>char secpack[SECPACK_SIZE];</pre> to define
+a buffer for the secpack.
+*/
 #define SECPACK_SIZE 2048
 /*!
 Send the secpack
