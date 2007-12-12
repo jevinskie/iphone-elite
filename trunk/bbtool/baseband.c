@@ -1,8 +1,11 @@
 /*
-  Copyright (c) 2007 onitake
-  Thanks & kudos to:
-  - geohot for norz
-  - gray and the dev team for reverse engineering and iUnlock/anySIM
+  Copyright (c) 2007 onitake / ifone elite team
+  Credits go to:
+  - gray for reverse engineering the bootloader flashing interface
+  - Lots of other people, for the many tools and bits they contributed
+  - All iPhone users who didn't like Apple's attitude of locking their
+    shiny new iPhone down (pun intended)! If it wasn't for you, progress
+	on unlocks would have been much, much slower.
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -55,10 +58,9 @@ static const int VERSION_PACKET_SIZE = 20;
 static const int CFI1_PACKET_SIZE = 0x100;
 
 typedef struct {
-	unsigned short unknown;
-	unsigned char w01, w02, w03, w00;
+	unsigned short unknown1;
 } SeekReplyPacket;
-static const int SEEK_REPLY_PACKET_SIZE = 6;
+static const int SEEK_REPLY_PACKET_SIZE = 2;
 
 typedef struct {
 	unsigned int begin;
@@ -79,6 +81,22 @@ typedef struct {
 } SecpackReplyPacket;
 static const int SECPACK_REPLY_PACKET_SIZE = 6;
 
+typedef struct {
+	unsigned int w01a;
+	unsigned int manufacturerId; // 0x89 for Intel
+	unsigned int deviceId; // 0x8862 for 32Mbit TPD
+	unsigned int w03;
+	unsigned int w00;
+	unsigned int w01b;
+	unsigned int w02;
+	unsigned int flashSize; // in bytes, 0x400000 = 4MB
+	unsigned int mask; // = 0x3f (63), no idea what for
+	unsigned int blockSize; // = 0x10000 (64K), maybe?
+	unsigned int w08;
+	unsigned int blocks; // = 0x2000 (8K), maybe?
+	char lockTable[208]; // maybe?
+} CFI1ReplyPacket;
+static const int CF1_REPLY_PACKET_SIZE = 256;
 #pragma pack()
 
 static int _logLevel = LOGLEVEL_WARN;
@@ -194,6 +212,7 @@ static void *verifyPacket(void *buffer, size_t length) {
 
 static void writePacket(int fd, short cmd, void *data, size_t length) {
 	char *buffer = malloc(PACKET_SIZE(length));
+	//memset(buffer, 0, PACKET_SIZE(length));
 	CmdPacket *packet = (CmdPacket *) buffer;
 	packet->w02 = 2;
 	packet->cmd = cmd;
@@ -204,7 +223,7 @@ static void writePacket(int fd, short cmd, void *data, size_t length) {
 	end->w03 = 3;
 	
 	LOG(LOGLEVEL_TRACE, "Writing packet:\n");
-	LOGDO(LOGLEVEL_TRACE, printBuffer(&buffer, PACKET_SIZE(length)));
+	LOGDO(LOGLEVEL_TRACE, printBuffer(buffer, PACKET_SIZE(length)));
 
 	write(fd, buffer, PACKET_SIZE(length));
 	
@@ -368,7 +387,9 @@ size_t readBaseband(int fd, void *buffer, unsigned short size) {
 }
 
 void eraseBaseband(int fd, unsigned int begin, unsigned int end) {
-	// correct the end address as the boot loader does
+	// correct the end address as the boot loader does, but still give it the
+	// 'wrong' value
+	unsigned int end2 = end;
 	if (begin == 0xa0020000) end = 0xa0310000;
 	
 	LOG(LOGLEVEL_INFO, "Erasing flash range 0x%08x-0x%08x...\n", begin, end);
@@ -378,7 +399,7 @@ void eraseBaseband(int fd, unsigned int begin, unsigned int end) {
 	
 	ErasePacket packet = {
 		.begin = begin,
-		.end = end
+		.end = end2
 	};
 	writePacket(fd, 0x805, &packet, ERASE_PACKET_SIZE);
 	char buffer[PACKET_SIZE(sizeof(unsigned short))];
