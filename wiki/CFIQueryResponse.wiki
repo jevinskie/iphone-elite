@@ -35,3 +35,31 @@ Anyway, the bytes at 0x48 through 0x4e are the "Protection Field 1"
 is writeable.
 
 Then the 8 bytes of factory OTP follow. That's the "norID"
+
+Other interesting parts of the query response:
+
+
+||  Off ||  Val || Meaning || 
+||  2C  ||  02  || Device has two regions with different size erase blocks in each || 
+|| || || || 
+||  2D  ||  3E   || Region 1 has 0x003F erase blocks || 
+||  2E  ||  00 ||  || 
+||  2F  ||  00   || Region 1 erase block size is 0x0100 x 256-byte (0x10000, 64KByte) || 
+||  30  ||  01 || || 
+|| || || 
+||  31  ||  07   || Region 2 has 0x0008 erase blocks || 
+||  32  ||  00 || || 
+||  33  ||  20 ||   Region 2 erase block size is 0x0020 x 256-byte (0x02000, 8KByte) || 
+||  34  ||  00 || || 
+ 
+
+
+All of this is consistent with the W18 baseband NOR being:
+
+ * 4MBytes (32MBits) 
+ * 71 erase "blocks" (first 63 are 64KB, last 8 are 8KB) 
+ * 8   x 4MBit   "partitions" with independent erase/program state machines 
+ * iPhone uses a "Top" -T parameter device 
+ * See memory map in Table 2 of W18 datasheet 
+ * 88-ball QUAD+ SCSP package 
+
