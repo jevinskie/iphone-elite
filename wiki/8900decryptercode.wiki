@@ -1,5 +1,5 @@
+#summary This program will decode any 8900 Apple file.
 #labels Featured
-#This program will decode any 8900 Apple file.
 
 = Introduction =
 
