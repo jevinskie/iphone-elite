@@ -23,6 +23,12 @@ ZIP-file contains the windows executable compiled under cygwin, but can be easil
 # ./8900decryptor 022-3629-9.dmg 022-3629-9.dmg-decrypted.img2
 }}}
 
+= Credits =
+
+This code was extended and modified by PmgR from the original 8900decrypter.c file by aljen.
+
+And of course not to forget the dev & elite teams who found the key!!
+
 = C code =
 
 {{{
