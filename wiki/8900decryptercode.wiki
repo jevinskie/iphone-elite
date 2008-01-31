@@ -9,6 +9,8 @@ This program will decode any 8900 Apple file.
 
 This is the code that decrypts any 8900 Apple file. The code was tested on the 1.1.1 ramdisk as well as on the 1.1.1 applelogo.img2 file. The header and footers are stripped from the outpute file.
 
+ZIP-file contains the windows executable compiled under cygwin, but can be easily re-compiled on any platform.
+
 = Usage =
 
 {{{
