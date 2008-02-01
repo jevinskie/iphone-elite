@@ -7,16 +7,23 @@ This program will decode any 8900 Apple file.
 
 = Details =
 
-This is the code that decrypts any 8900 Apple file. The code was tested on the 1.1.1 ramdisk as well as on the 1.1.1 applelogo.img2 file. The header and footers are stripped from the outpute file. 
+This is the code that decrypts any 8900 Apple file. The code was tested on the 1.1.1 ramdisk as well as on the 1.1.1 _applelogo.img2_ file. The header and footers are stripped from the outpute file. 
 
-Update: code has also been confirmed to work with 1.1.2 and 1.1.3 ramdisk.
+*Update 1:* code has also been confirmed to work with 1.1.2 and 1.1.3 ramdisk.
 
-.fls and .eep images can be found in /usr/local/standalone/firmware/ 
+*Update 2:* ZIP-file now contains the windows executable compiled under cygwin including the openssl file cygcrypto-0.9.8.dll as well as the iPhone executable. I have no Mac available so you will have to re-compile the source file on your Mac yourself.
+
+*Update 3:* code will now also handle correctly un-encrypted 8900 files by only stripping the header and footer. An example of this is the _applelogo.img2_ file in the early firmwares.
+
+.fls and .eep images can be found in _/usr/local/standalone/firmware/_
 
 
-ZIP-file contains the windows executable compiled under cygwin, but can be easily re-compiled on any platform.
 
 = Usage =
+
+For usage on the iPhone, upload the file _8900decrypter_ to _/usr/bin/_ or to _/var/root_ and make this file executable with the _chmod +x_ command. Also upload the 8900 file that you wish to decrypt to the iPhone. Make sure you have enough space available (most ramdisks will need about 30-35MB). Then execute commands similar to the ones listed a little below.
+
+For usage on Windows, make sure to put the _cygcrypto-0.9.8.dll_ from the ZIP-file in your working directory as well as the _8900decrypter.exe_ file (not the _8900decrypter_ file without the _.exe_). Then execute commands similar to the ones below. 
 
 {{{
 # ./8900decryptor applelogo.img2 applelogo-decrypted.img2
@@ -148,7 +155,7 @@ int main( int argc, char** argv )
 	    ( header8900.magic[ 2 ] != 0x30 ) && // 0
 	    ( header8900.magic[ 3 ] != 0x30 ) )  // 0
 	{
-		fprintf( stderr, "Bad magic\n" );
+		fprintf( stderr, "Bad magic. This file is not an 8900 Apple file\n" );
 		return 1;
 	}
 
@@ -189,8 +196,12 @@ int main( int argc, char** argv )
 	while( fread( &inbuf, 1, AES_BLOCK_SIZE, infile ) > 0 & data_current<data_len)
 	{
 
-	  AES_cbc_encrypt( inbuf, outbuf, AES_BLOCK_SIZE, &aes_decrypt_key, iv, AES_DECRYPT );
-	  fwrite( outbuf, 1, AES_BLOCK_SIZE, outfile );
+	  if ( encrypted ) {
+	    AES_cbc_encrypt( inbuf, outbuf, AES_BLOCK_SIZE, &aes_decrypt_key, iv, AES_DECRYPT );
+	    fwrite( outbuf, 1, AES_BLOCK_SIZE, outfile );
+	  } else {
+	    fwrite( inbuf, 1, AES_BLOCK_SIZE, outfile );
+	  }	    
 	  data_current = data_current + AES_BLOCK_SIZE;
 	}
 
@@ -200,4 +211,5 @@ int main( int argc, char** argv )
 		fclose( outfile );
 	return 0;
 }
+
 }}}
