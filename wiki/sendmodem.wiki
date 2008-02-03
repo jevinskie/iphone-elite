@@ -1,5 +1,4 @@
 #summary A tool to access the modem/baseband directly.
-#labels Featured
 
 
 = Introduction =
