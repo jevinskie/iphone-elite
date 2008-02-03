@@ -1,5 +1,4 @@
 #summary Intepreting the CFI Query Reponse from the Intel NOR chip
-#labels Featured
 
 = Overview =
 
@@ -62,4 +61,3 @@ All of this is consistent with the W18 baseband NOR being:
  * iPhone uses a "Top" -T parameter device 
  * See memory map in Table 2 of W18 datasheet 
  * 88-ball QUAD+ SCSP package 
-
