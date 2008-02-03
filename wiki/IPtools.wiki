@@ -1,5 +1,5 @@
 #summary Compiled binaries of bricktool and iPatcher
-#labels Featured,Phase-Requirements,Phase-Implementation
+#labels Phase-Requirements,Phase-Implementation
 
 = Details =
 
