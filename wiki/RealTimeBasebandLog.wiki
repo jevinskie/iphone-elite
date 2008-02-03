@@ -1,5 +1,5 @@
 #summary How to log the baseband in realtime.
-#labels Featured,Phase-Implementation,Phase-Design
+#labels Phase-Implementation,Phase-Design
 
 = How to log the baseband in realtime. =
 
