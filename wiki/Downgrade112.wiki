@@ -1,5 +1,5 @@
 #summary How to downgrade from 1.1.2 to 1.0.2.
-#labels Featured,Phase-Requirements,Phase-Design
+#labels Phase-Requirements,Phase-Design
 
 = Instructions =
 
