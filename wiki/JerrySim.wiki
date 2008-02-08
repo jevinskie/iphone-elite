@@ -50,7 +50,6 @@ u8 PROGMEM ef_sms_path[] = { 0x3f, 0x00, 0x7f, 0x10, 0x6f, 0x3c };
  
 u8 PROGMEM ABOUT_1[] = "JerrySIM version ";
 u8 PROGMEM ABOUT_2[] = "\r\niPhone Dev Team/Elite Team internal release\r\nDO NOT LEAK";
-u8 PROGMEM ABOUT_3[] = "\r\nWe still have to find a way to make money out of this!";
 
 u8 PROGMEM DEFAULT_REGS[] = { 0x00, 0x04, 0x00, 0x00,
                               0x00, 0x05, 0x00, 0x00,
