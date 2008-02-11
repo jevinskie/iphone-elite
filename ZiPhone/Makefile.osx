@@ -1,0 +1,26 @@
+CPP = /usr/bin/c++
+CPP_FLAGS = -g
+FRAMEWORKS = -F/Library/Frameworks -framework CoreFoundation -F/System/Library/PrivateFrameworks -framework MobileDevice
+
+PPC_FLAGS = -arch ppc -D__POWERPC__ -D__APPLE__
+I386_FLAGS = -arch i386 -D__APPLE__
+
+
+all:			ziphone
+
+ppc:			ziphone.ppc
+
+i386:			ziphone.i386
+
+ziphone:		ziphone.i386 ziphone.ppc
+			lipo -create -arch i386 ziphone.i386 -arch ppc ziphone.ppc -output $@
+
+ziphone.i386:	ziphone.cpp privateFunctions.cpp GetPID.c
+			$(CPP) $(FRAMEWORKS) $(CPP_FLAGS) $(I386_FLAGS) -o $@ ziphone.cpp privateFunctions.cpp GetPID.c
+
+ziphone.ppc:		ziphone.cpp privateFunctions.cpp GetPID.c
+			$(CPP) $(FRAMEWORKS) $(CPP_FLAGS) $(PPC_FLAGS) -o $@ ziphone.cpp privateFunctions.cpp GetPID.c
+
+clean:
+			rm -f ziphone ziphone.i386 ziphone.ppc
+
