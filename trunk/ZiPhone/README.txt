@@ -22,7 +22,8 @@ This program is based on the work of everyone who
 believed in free software. (Thanks for the toolchain!)
 
 Thanks to geohot for his latest work.
-Thanks to milk for the windows GUI.
+Thanks to pendor for osx version.
+Thanks to mlk for the windows GUI.
 Thanks to Tissy for moral support.
 Thanks to iphone-elite.org for support.
 Thanks to Viper and Tifel and ortner for being so nice always.
