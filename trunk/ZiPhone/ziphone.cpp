@@ -33,6 +33,7 @@ bool activate=false;
 bool jailbreak=false;
 bool chimei=false;
 bool verbose=false;
+bool ierase=false;
 char imei[127]="setenv imei ";
 
 char ramdisk[128]="zibri.dat";
@@ -107,6 +108,13 @@ void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
 			
 		rdev->callback = &RestoreNotificationCallback;
 		rdev->user_info = NULL;
+		
+		if (ierase) {
+           unlock=false;
+           jailbreak=false;
+           activate=false;
+           chimei=false;
+        }
 
 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv auto-boot true", kCFStringEncodingUTF8));
 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setpicture 0", kCFStringEncodingUTF8));
@@ -115,6 +123,7 @@ void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
 if (unlock)		    sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv unlock 1", kCFStringEncodingUTF8));
 if (jailbreak)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv jailbreak 1", kCFStringEncodingUTF8));
 if (activate)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv activate 1", kCFStringEncodingUTF8));
+if (ierase) 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv ierase 1", kCFStringEncodingUTF8));
 if (chimei) 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, imei, kCFStringEncodingUTF8));
 if (verbose)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv boot-args rd=md0 -s -x pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
 if (!verbose)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv boot-args rd=md0 pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
@@ -202,6 +211,7 @@ bool parse_args(int argc,char *argv[]) {
 	for(int i=1;i<argc;i++) {
 		if(argv[i][0]=='-') {
 			if(argv[i][1]=='u') unlock=true;
+			else if(argv[i][1]=='e') ierase=true ;
 			else if(argv[i][1]=='a') activate=true ;
 			else if(argv[i][1]=='j') jailbreak=true ;
 			else if(argv[i][1]=='v') verbose=true ;
@@ -229,6 +239,7 @@ void Usage() {
      cout << "                -j: Jailbreak" << endl;
      cout << "                -i: Change imei (Only for 4.6 BL)" << endl;
      cout << "                -v: Verbose boot (debug)" << endl;
+     cout << "                -e: iErase BL 3.9 baseband" << endl;
      }
 
 int main(int argc,char *argv[]) {
