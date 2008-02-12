@@ -154,8 +154,11 @@ void DeviceNotificationCallback(am_device_notification_callback_info *info) {
 
 	if(info->msg==ADNCI_MSG_CONNECTED) {
         if (Stage!=9) {
-      		cout << "Please power off the iPhone, then hold the home button" << endl;
-       		cout << "and connect to dock to enter recovery mode." << endl;
+      		cout << "Entering recovery mode." << endl;
+
+         PairIPhone(info->dev);
+         AMDeviceEnterRecovery(info->dev);
+
            }
          else ReportDone(); 
 		}
@@ -233,7 +236,7 @@ bool parse_args(int argc,char *argv[]) {
 }
 
 void Usage() {
-     cout << endl << "ZiPhone v1.0 by Zibri. http://zibree.blogspot.com" << endl;
+     cout << endl << "ZiPhone v1.1 by Zibri. http://zibree.blogspot.com" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
      cout << endl << "Usage: ziphone [-u] [-a] [-j] [-i imei]" << endl;
      cout << "                -u: Unlock (Only for 4.6 BL)" << endl;
