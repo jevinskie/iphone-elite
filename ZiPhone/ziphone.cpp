@@ -132,8 +132,10 @@ if (!verbose)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDe
 
 if (!unlock&&(activate||jailbreak)) ProgressStep("Please wait 45\".");
 if (unlock) ProgressStep("Please wait 2\'30\".");
-		if(ExitAfterStage) exit(0);
+
         Stage=9;
+
+		if(ExitAfterStage) exit(0);
 
 	} catch(const char*error) {
 		ReportError(error);
