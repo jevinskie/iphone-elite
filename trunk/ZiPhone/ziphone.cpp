@@ -236,13 +236,13 @@ bool parse_args(int argc,char *argv[]) {
 }
 
 void Usage() {
-     cout << endl << "ZiPhone v1.1 by Zibri. http://zibree.blogspot.com" << endl;
+     cout << endl << "ZiPhone v1.2 by Zibri. http://zibree.blogspot.com" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
      cout << endl << "Usage: ziphone [-u] [-a] [-j] [-i imei]" << endl;
-     cout << "                -u: Unlock (Only for 4.6 BL)" << endl;
+     cout << "                -u: Unlock (4.6 AND 3.9 BL !)" << endl;
      cout << "                -a: Activate" << endl;
      cout << "                -j: Jailbreak" << endl;
-     cout << "                -i: Change imei (Only for 4.6 BL)" << endl;
+     cout << "                -i: Change imei (4.6 AND 3.9 BL !)" << endl;
      cout << "                -v: Verbose boot (debug)" << endl;
      cout << "                -e: iErase BL 3.9 baseband" << endl;
      }
@@ -255,7 +255,7 @@ int main(int argc,char *argv[]) {
     }
 
 	if(!ExitAfterStage) {
-     cout << endl << "ZiPhone v1.1 by Zibri. http://zibree.blogspot.com" << endl;
+     cout << endl << "ZiPhone v1.2 by Zibri. http://zibree.blogspot.com" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
 	}
 
