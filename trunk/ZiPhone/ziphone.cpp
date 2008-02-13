@@ -34,6 +34,7 @@ bool jailbreak=false;
 bool chimei=false;
 bool verbose=false;
 bool ierase=false;
+bool bl39=false;
 char imei[127]="setenv imei ";
 
 char ramdisk[128]="zibri.dat";
@@ -116,10 +117,19 @@ void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
            chimei=false;
         }
 
+		if (bl39) {
+           unlock=true;
+           jailbreak=false;
+           activate=false;
+           chimei=false;
+           ierase=false;
+        }
+
 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv auto-boot true", kCFStringEncodingUTF8));
 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setpicture 0", kCFStringEncodingUTF8));
 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "bgcolor 0 0 64", kCFStringEncodingUTF8));
 		sendFileToDevice(rdev, StringtoCFString(ramdisk));
+if (bl39)		    sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv bl39 1", kCFStringEncodingUTF8));
 if (unlock)		    sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv unlock 1", kCFStringEncodingUTF8));
 if (jailbreak)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv jailbreak 1", kCFStringEncodingUTF8));
 if (activate)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv activate 1", kCFStringEncodingUTF8));
@@ -217,6 +227,7 @@ bool parse_args(int argc,char *argv[]) {
 		if(argv[i][0]=='-') {
 			if(argv[i][1]=='u') unlock=true;
 			else if(argv[i][1]=='e') ierase=true ;
+			else if(argv[i][1]=='b') bl39=true ;
 			else if(argv[i][1]=='a') activate=true ;
 			else if(argv[i][1]=='j') jailbreak=true ;
 			else if(argv[i][1]=='v') verbose=true ;
@@ -236,9 +247,10 @@ bool parse_args(int argc,char *argv[]) {
 }
 
 void Usage() {
-     cout << endl << "ZiPhone v1.2 by Zibri. http://zibree.blogspot.com" << endl;
+     cout << endl << "ZiPhone v2.0 by Zibri. http://zibree.blogspot.com" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
      cout << endl << "Usage: ziphone [-u] [-a] [-j] [-i imei]" << endl;
+     cout << "                -b: Downgrade bootloader to 3.9 !" << endl;
      cout << "                -u: Unlock (4.6 AND 3.9 BL !)" << endl;
      cout << "                -a: Activate" << endl;
      cout << "                -j: Jailbreak" << endl;
@@ -255,7 +267,7 @@ int main(int argc,char *argv[]) {
     }
 
 	if(!ExitAfterStage) {
-     cout << endl << "ZiPhone v1.2 by Zibri. http://zibree.blogspot.com" << endl;
+     cout << endl << "ZiPhone v2.0 by Zibri. http://zibree.blogspot.com" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
 	}
 
