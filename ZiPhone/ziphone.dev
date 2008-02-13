@@ -71,7 +71,7 @@ BuildCmd=$(CPP) -c privateFunctions.cpp -o privateFunctions.o $(CXXFLAGS)
 
 [VersionInfo]
 Major=1
-Minor=0
+Minor=1
 Release=0
 Build=0
 LanguageID=1033
