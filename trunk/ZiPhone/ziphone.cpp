@@ -255,7 +255,7 @@ int main(int argc,char *argv[]) {
     }
 
 	if(!ExitAfterStage) {
-     cout << endl << "ZiPhone v1.0 by Zibri. http://zibree.blogspot.com" << endl;
+     cout << endl << "ZiPhone v1.1 by Zibri. http://zibree.blogspot.com" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
 	}
 
