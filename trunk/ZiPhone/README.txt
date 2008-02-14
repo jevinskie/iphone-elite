@@ -1,42 +1,54 @@
-ZiPhone v1.0 by Zibri (http://zibree.blogspot.com)
+     :::::::::   ::::::::::: :::::::::  :::    :::  ::::::::  ::::    ::: :::::::::: 
+           :+:      :+:     :+:    :+: :+:    :+: :+:    :+: :+:+:   :+: :+:         
+         +:+       +:+     +:+    +:+ +:+    +:+ +:+    +:+ :+:+:+  +:+ +:+          
+       +#+        +#+     +#++:++#+  +#++:++#++ +#+    +:+ +#+ +:+ +#+ +#++:++#      
+     +#+         +#+     +#+        +#+    +#+ +#+    +#+ +#+  +#+#+# +#+            
+   #+#          #+#     #+#        #+#    #+# #+#    #+# #+#   #+#+# #+#             
+ ######### ########### ###        ###    ###  ########  ###    #### ##########       
 
-Instructions:
+Ziphone version 2.1
 
-Connect a brand new phone to the dock.
-Run the program :)
+Updated:
 
-Well, you can also use a restored phone...
-Or a normal in use phone...
-Well... whatever !
+No need to set Verbose mode (its default)
 
-Unlock and Imei changer will work ONLY on 4.6 BL (112 and 113 ootb).
+To use installer you must firstly install the "BSD Subsystem" package
+
+Usage
+
+Ziphone -j  = Jailbreak
+Ziphone -a = Activate
+Ziphone -u = Unlock (Works on both BL3.9 and BL4.6)
+Ziphone -e = Erase Baseband (BL 3.9 only)
+Ziphone -b = Downgrade Bootloader from 4.6 to 3.9, update baseband to 4.03.13 and patch the unlock.
+
+*** only use -b if your iphone is 1.1.2/1.1.3 OOB ***
+
+It is also possible to combine the functions e.g ziphone -a -j -u
+
+*Added Windows batch files for n00bs*
+
+ClickHereX3.9.bat Will call Ziphone -u -j -a (use with iphones that were < 1.1.1 OOB)
+
+ClickHereX4.6.bat will call Ziphone -b -j -a (Downgrades bootloader be warned, use for iphone > 1.1.2)
 
 Jailbreak will work on any OS version.
 
-Activation will work on any OS version, except for youtube on 1.0.X (I am lazy i know).
+Activation will work on any OS version, except for youtube on 1.0.X (I am lazy i know)
 
-Details on how it works and WHY it works, will be soon available on http://www.iphone-elite.org
+Details on how it works and WHY it works are available on http://www.iphone-elite.org
 
 No 'dev-team' was directly involved with this work.
 This program is based on the work of everyone who
 believed in free software. (Thanks for the toolchain!)
 
 Thanks to geohot for his latest work.
-Thanks to pendor for osx version.
-Thanks to mlk for the windows GUI.
 Thanks to Tissy for moral support.
 Thanks to iphone-elite.org for support.
 Thanks to Viper and Tifel and ortner for being so nice always.
-Thanks to iRev for the picture above and to Mel Brooks for
-producing and directing such a funny movie.
-
-And thanks to iphoneelite.com for giving me so many laughs too :)
+Thanks to PENDOR for the osx gui
+Thanks to mzaouara for the ascii art (he used some generator online)
+Thanks to PsxGunDown to review this readme.
 
 Namaste,
 Zibri.
-
-P.S.
-As a side-effect, using this tool will revive many 'dead' basebands.
-Just use the unlock option.
-
-Thanks again to iRev for osx version.

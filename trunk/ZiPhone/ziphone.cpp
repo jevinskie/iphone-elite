@@ -17,6 +17,7 @@
 #include <iostream>
 #include "MobileDevice.h"
 #include "privateFunctions.h"
+#include "md5.h"
 
 using namespace std;
 
@@ -26,18 +27,20 @@ int RecoverCount=0;
 int progress=-1;
 char progressStr[64]="";
 char errorStr[64]="";
+unsigned char result[16]="";
 int lasterr;
 bool ExitAfterStage=false;
 bool unlock=false;
 bool activate=false;
 bool jailbreak=false;
 bool chimei=false;
-bool verbose=false;
 bool ierase=false;
 bool bl39=false;
 char imei[127]="setenv imei ";
 
 char ramdisk[128]="zibri.dat";
+
+unsigned char rdmd5[16]={0x47,0x6f,0x64,0x7a,0x96,0x35,0x5e,0xeb,0xfa,0x8b,0xfe,0xa3,0x95,0x06,0x16,0x3c};
 
 CFStringRef StringtoCFString(string input) {
    return CFStringCreateWithCString(NULL, input.c_str(), CFSTRINGENCODING);
@@ -135,13 +138,13 @@ if (jailbreak)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorD
 if (activate)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv activate 1", kCFStringEncodingUTF8));
 if (ierase) 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv ierase 1", kCFStringEncodingUTF8));
 if (chimei) 		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, imei, kCFStringEncodingUTF8));
-if (verbose)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv boot-args rd=md0 -s -x pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
-if (!verbose)		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv boot-args rd=md0 pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
-		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "saveenv", kCFStringEncodingUTF8));
-		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "fsboot", kCFStringEncodingUTF8));
+              		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "setenv boot-args rd=md0 -s -x pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
+              		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "saveenv", kCFStringEncodingUTF8));
+              		sendCommandToDevice(rdev,CFStringCreateWithCString(kCFAllocatorDefault, "fsboot", kCFStringEncodingUTF8));
 
 if (!unlock&&(activate||jailbreak)) ProgressStep("Please wait 45\".");
-if (unlock) ProgressStep("Please wait 2\'30\".");
+if (unlock && (!bl39)) ProgressStep("Please wait 2\'30\".");
+if (bl39) ProgressStep("Please wait 4'00\".");
 
         Stage=9;
 
@@ -210,11 +213,28 @@ void KillStupidHelper() {
 /* * * ( Main ) * * */
 
 bool temp_file_exists(const char *filename) {
+int count=0;
 	FILE *pFile=fopen(filename,"rb");
 	if(pFile) {
 		fclose(pFile);
-		return true;
-	}
+		md5_file(ramdisk, result);
+    for (count = 0; count < 16; count++) 
+   {
+     if (result[count] != rdmd5[count])
+     {
+
+     cout << "Wrong zibri.dat version !" << endl;
+     cout << "Go get the full archive at http://www.ziphone.org" << endl;
+
+//      printf("md5: 0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x\n",result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]);
+//      printf("rdmd5: 0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x\n",rdmd5[0], rdmd5[1], rdmd5[2], rdmd5[3], rdmd5[4], rdmd5[5], rdmd5[6], rdmd5[7], rdmd5[8], rdmd5[9], rdmd5[10], rdmd5[11], rdmd5[12], rdmd5[13], rdmd5[14], rdmd5[15]);
+
+       return false;
+       break;
+     } else return true;
+    }
+   }
+
 	cout << filename << " could not be opened for reading." << endl;
 	ReportDone();
 	return false;
@@ -227,10 +247,10 @@ bool parse_args(int argc,char *argv[]) {
 		if(argv[i][0]=='-') {
 			if(argv[i][1]=='u') unlock=true;
 			else if(argv[i][1]=='e') ierase=true ;
+			else if(argv[i][1]=='t') ;
 			else if(argv[i][1]=='b') bl39=true ;
 			else if(argv[i][1]=='a') activate=true ;
 			else if(argv[i][1]=='j') jailbreak=true ;
-			else if(argv[i][1]=='v') verbose=true ;
 			else if(argv[i][1]=='i') {
                  if (argc<(i+2)) return false;
                  if (strlen(argv[i+1])!=16) return false;
@@ -246,16 +266,21 @@ bool parse_args(int argc,char *argv[]) {
 	return true;
 }
 
-void Usage() {
-     cout << endl << "ZiPhone v2.0 by Zibri. http://zibree.blogspot.com" << endl;
+void Banner() {
+     cout << endl << "ZiPhone v2.1 by Zibri. http://www.ziphone.org" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
-     cout << endl << "Usage: ziphone [-u] [-a] [-j] [-i imei]" << endl;
-     cout << "                -b: Downgrade bootloader to 3.9 !" << endl;
+}
+
+void Usage() {
+//     cout << endl << "ZiPhone v2.1 by Zibri. http://www.ziphone.org" << endl;
+//     cout << "Source code available at: http://www.iphone-elite.org" << endl;
+     Banner();
+     cout << endl << "Usage: ziphone [-b] [-e] [-u] [-a] [-j] [-i imei]" << endl;
+     cout << "                -b: Downgrade bootloader and flash/unlock 4.03" << endl;
      cout << "                -u: Unlock (4.6 AND 3.9 BL !)" << endl;
      cout << "                -a: Activate" << endl;
      cout << "                -j: Jailbreak" << endl;
      cout << "                -i: Change imei (4.6 AND 3.9 BL !)" << endl;
-     cout << "                -v: Verbose boot (debug)" << endl;
      cout << "                -e: iErase BL 3.9 baseband" << endl;
      }
 
@@ -267,8 +292,9 @@ int main(int argc,char *argv[]) {
     }
 
 	if(!ExitAfterStage) {
-     cout << endl << "ZiPhone v2.0 by Zibri. http://zibree.blogspot.com" << endl;
-     cout << "Source code available at: http://www.iphone-elite.org" << endl;
+//     cout << endl << "ZiPhone v2.1 by Zibri. http://www.ziphone.org" << endl;
+//     cout << "Source code available at: http://www.iphone-elite.org" << endl;
+    Banner();
 	}
 
 	if(Stage==0) {
