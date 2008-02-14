@@ -1,0 +1,274 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 684}}";
+			sepNavSelRange = "{111, 0}";
+			sepNavVisRange = "{0, 113}";
+			sepNavWindowFrame = "{{15, 61}, {750, 812}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeArchitecture = i386;
+		activeBuildConfigurationName = Release;
+		activeExecutable = F8A04FD20D6227DC00F92F28 /* ZiPhoneOSX */;
+		activeTarget = 8D1107260486CEB800E47090 /* ZiPhoneOSX */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* ZiPhoneOSX */,
+		);
+		breakpoints = (
+			F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:303 */,
+		);
+		codeSenseManager = F8A04FDB0D6227E500F92F28 /* Code sense */;
+		executables = (
+			F8A04FD20D6227DC00F92F28 /* ZiPhoneOSX */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 224637707;
+			PBXWorkspaceStateSaveDate = 224637707;
+		};
+		perUserProjectItems = {
+			F8351EBA0D6376A7005B2F9E = F8351EBA0D6376A7005B2F9E /* PBXTextBookmark */;
+			F8351EBB0D6376A7005B2F9E = F8351EBB0D6376A7005B2F9E /* PBXTextBookmark */;
+			F8351EBC0D6376A7005B2F9E = F8351EBC0D6376A7005B2F9E /* PBXTextBookmark */;
+			F8351ED00D639450005B2F9E = F8351ED00D639450005B2F9E /* PBXTextBookmark */;
+			F87D952F0D63B31400163385 /* PBXBookmark */ = F87D952F0D63B31400163385 /* PBXBookmark */;
+			F87D95360D63B36600163385 /* PBXTextBookmark */ = F87D95360D63B36600163385 /* PBXTextBookmark */;
+			F87D953E0D63B44400163385 /* PBXTextBookmark */ = F87D953E0D63B44400163385 /* PBXTextBookmark */;
+			F87D95460D63B87200163385 /* PBXTextBookmark */ = F87D95460D63B87200163385 /* PBXTextBookmark */;
+			F87D95530D63BB4600163385 /* PBXTextBookmark */ = F87D95530D63BB4600163385 /* PBXTextBookmark */;
+		};
+		sourceControlManager = F8A04FDA0D6227E500F92F28 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 684}}";
+			sepNavSelRange = "{154, 0}";
+			sepNavVisRange = "{0, 154}";
+			sepNavWindowFrame = "{{15, 61}, {750, 812}}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* ZiPhoneOSX_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 684}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 151}";
+			sepNavWindowFrame = "{{15, 61}, {750, 812}}";
+		};
+	};
+	8D1107260486CEB800E47090 /* ZiPhoneOSX */ = {
+		activeExec = 0;
+		executables = (
+			F8A04FD20D6227DC00F92F28 /* ZiPhoneOSX */,
+		);
+	};
+	8D1107310486CEB800E47090 /* Info.plist */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {765, 702}}";
+			sepNavSelRange = "{347, 0}";
+			sepNavVisRange = "{0, 858}";
+			sepNavWindowFrame = "{{15, 48}, {824, 830}}";
+		};
+	};
+	F8351EBA0D6376A7005B2F9E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */;
+		name = "ZiPhoneWindowController.h: 9";
+		rLen = 14;
+		rLoc = 154;
+		rType = 0;
+		vrLen = 1115;
+		vrLoc = 0;
+	};
+	F8351EBB0D6376A7005B2F9E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		rLen = 0;
+		rLoc = 11961;
+		rType = 0;
+	};
+	F8351EBC0D6376A7005B2F9E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */;
+		name = "ZiPhoneWindowController.h: 9";
+		rLen = 14;
+		rLoc = 154;
+		rType = 0;
+		vrLen = 1115;
+		vrLoc = 0;
+	};
+	F8351ED00D639450005B2F9E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 368";
+		rLen = 0;
+		rLoc = 11302;
+		rType = 0;
+		vrLen = 1455;
+		vrLoc = 10066;
+	};
+	F87D952F0D63B31400163385 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+	};
+	F87D95360D63B36600163385 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 360";
+		rLen = 0;
+		rLoc = 11052;
+		rType = 0;
+		vrLen = 1483;
+		vrLoc = 9817;
+	};
+	F87D953E0D63B44400163385 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 366";
+		rLen = 0;
+		rLoc = 11041;
+		rType = 0;
+		vrLen = 1545;
+		vrLoc = 9817;
+	};
+	F87D95460D63B87200163385 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 372";
+		rLen = 0;
+		rLoc = 11209;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 10333;
+	};
+	F87D95530D63BB4600163385 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 4";
+		rLen = 0;
+		rLoc = 50;
+		rType = 0;
+		vrLen = 951;
+		vrLoc = 0;
+	};
+	F8A04FD20D6227DC00F92F28 /* ZiPhoneOSX */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ZiPhoneOSX;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	F8A04FDA0D6227E500F92F28 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	F8A04FDB0D6227E500F92F28 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {691, 684}}";
+			sepNavSelRange = "{154, 14}";
+			sepNavVisRange = "{0, 1115}";
+			sepNavWindowFrame = "{{15, 61}, {750, 812}}";
+		};
+	};
+	F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {914, 6020}}";
+			sepNavSelRange = "{50, 0}";
+			sepNavVisRange = "{0, 951}";
+			sepNavWindowFrame = "{{103, 103}, {741, 752}}";
+		};
+	};
+	F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:303 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		functionName = "-quitApplication:";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 303;
+		location = ZiPhoneOSX;
+		modificationTime = 224557249.682061;
+		state = 1;
+	};
+}
