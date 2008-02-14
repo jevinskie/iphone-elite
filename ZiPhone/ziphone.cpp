@@ -248,6 +248,7 @@ bool parse_args(int argc,char *argv[]) {
 			if(argv[i][1]=='u') unlock=true;
 			else if(argv[i][1]=='e') ierase=true ;
 			else if(argv[i][1]=='t') ;
+			else if(argv[i][1]=='v') return false;
 			else if(argv[i][1]=='b') bl39=true ;
 			else if(argv[i][1]=='a') activate=true ;
 			else if(argv[i][1]=='j') jailbreak=true ;
@@ -272,15 +273,13 @@ void Banner() {
 }
 
 void Usage() {
-//     cout << endl << "ZiPhone v2.1 by Zibri. http://www.ziphone.org" << endl;
-//     cout << "Source code available at: http://www.iphone-elite.org" << endl;
      Banner();
      cout << endl << "Usage: ziphone [-b] [-e] [-u] [-a] [-j] [-i imei]" << endl;
      cout << "                -b: Downgrade bootloader and flash/unlock 4.03" << endl;
-     cout << "                -u: Unlock (4.6 AND 3.9 BL !)" << endl;
+     cout << "                -u: Unlock (any version)" << endl;
      cout << "                -a: Activate" << endl;
      cout << "                -j: Jailbreak" << endl;
-     cout << "                -i: Change imei (4.6 AND 3.9 BL !)" << endl;
+     cout << "                -i: Change imei (any version)" << endl;
      cout << "                -e: iErase BL 3.9 baseband" << endl;
      }
 
@@ -292,8 +291,6 @@ int main(int argc,char *argv[]) {
     }
 
 	if(!ExitAfterStage) {
-//     cout << endl << "ZiPhone v2.1 by Zibri. http://www.ziphone.org" << endl;
-//     cout << "Source code available at: http://www.iphone-elite.org" << endl;
     Banner();
 	}
 
@@ -309,10 +306,10 @@ int main(int argc,char *argv[]) {
 #else
      while(!done) {
         Sleep(1);
-        if (Stage==9) {
+//        if (Stage==9) {
 //           Sleep(1000);
 //           cout << ".";
-        }
+//        }
      }
      cout << "Done!" << endl;
      sleep(2);
