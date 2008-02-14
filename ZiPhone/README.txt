@@ -28,6 +28,12 @@ It is also possible to combine the functions e.g ziphone -a -j -u
 
 *Added Windows batch files for n00bs*
 
+NOTE to IPSF (or geohot freeipsf) USERS:
+
+ipsf "method" corrupts the seczone. And baseband 4.03 KNOWS that :)
+So.. thank ipsf team for this you iphone, for now is "tied" to baseband 4.02.
+Then don't use -b option but -u option in ziphone after a full DFU mode restore to 1.1.3.
+
 ClickHereX3.9.bat Will call Ziphone -u -j -a (use with iphones that were < 1.1.1 OOB)
 
 ClickHereX4.6.bat will call Ziphone -b -j -a (Downgrades bootloader be warned, use for iphone > 1.1.2)
