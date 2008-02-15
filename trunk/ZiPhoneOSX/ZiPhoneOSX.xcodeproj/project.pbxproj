@@ -138,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ZiPhoneOSX" */;
 			buildPhases = (
+				F88A08400D64C87E007DF3E2 /* ShellScript */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				F88A08740D64CE05007DF3E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -185,6 +187,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F88A08400D64C87E007DF3E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\n\nDEST=`pwd`\n\necho \"Will copy files into $DEST\"\n\ncd ../ZiPhone\n\necho \"Building command line tools in `pwd`\"\n\nmake -f Makefile.osx clean all\n\nif [ \"$?\" != \"0\" ] ; then\n  echo \"Error building command line tool\" >&2\n  exit 1\nfi\n\nfor f in zibri.dat ziphone libMobileDevice742.dylib README.txt ; do\n  echo \"Copying $f...\"\n  cp \"$f\" \"$DEST\"\n  if [ \"$?\" != \"0\" ] ; then\n    echo \"Error copying file $f\" >&2\n    exit 2\n  fi\n  \ndone\n";
+		};
+		F88A08740D64CE05007DF3E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\n\ntar -cjvf ZiPhoneOSX.tbz -C build/Release ZiPhoneOSX.app";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
