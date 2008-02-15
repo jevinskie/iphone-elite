@@ -6,7 +6,9 @@
    #+#          #+#     #+#        #+#    #+# #+#    #+# #+#   #+#+# #+#             
  ######### ########### ###        ###    ###  ########  ###    #### ##########       
 
-Ziphone version 2.1
+Ziphone version 2.2
+
+Debugged: icon bug removed. (a typo in 2.1 sorry)
 
 Updated:
 
