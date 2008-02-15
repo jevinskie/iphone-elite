@@ -11,8 +11,9 @@
   IBOutlet NSButton *m_btnActivate;
   IBOutlet NSButton *m_btnJailbreak;
   IBOutlet NSButton *m_btnChangeImei;
-  IBOutlet NSButton *m_btnVerbose;
   IBOutlet NSButton *m_btnErase;
+  
+  IBOutlet NSMenuItem *m_mnuTestMode;
   
   IBOutlet NSButton *m_btnStart;
   IBOutlet NSButton *m_btnStop;
@@ -38,5 +39,7 @@
 - (IBAction)quitApplication:(id)sender;
 - (IBAction)showAbout:(id)sender;
 - (IBAction)checkboxClicked:(id)sender;
+
+-(IBAction)mnuTestSelected:(id)sender;
 
 @end

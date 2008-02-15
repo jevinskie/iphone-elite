@@ -17,7 +17,7 @@
 			8D1107260486CEB800E47090 /* ZiPhoneOSX */,
 		);
 		breakpoints = (
-			F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:303 */,
+			F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:301 */,
 		);
 		codeSenseManager = F8A04FDB0D6227E500F92F28 /* Code sense */;
 		executables = (
@@ -48,6 +48,34 @@
 					PBXBreakpointsDataSource_ContinueID,
 				);
 			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					133,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					131,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
 				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
@@ -70,19 +98,30 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 224637707;
-			PBXWorkspaceStateSaveDate = 224637707;
-		};
-		perUserProjectItems = {
-			F8351EBA0D6376A7005B2F9E = F8351EBA0D6376A7005B2F9E /* PBXTextBookmark */;
-			F8351EBB0D6376A7005B2F9E = F8351EBB0D6376A7005B2F9E /* PBXTextBookmark */;
-			F8351EBC0D6376A7005B2F9E = F8351EBC0D6376A7005B2F9E /* PBXTextBookmark */;
-			F8351ED00D639450005B2F9E = F8351ED00D639450005B2F9E /* PBXTextBookmark */;
-			F87D952F0D63B31400163385 /* PBXBookmark */ = F87D952F0D63B31400163385 /* PBXBookmark */;
-			F87D95360D63B36600163385 /* PBXTextBookmark */ = F87D95360D63B36600163385 /* PBXTextBookmark */;
-			F87D953E0D63B44400163385 /* PBXTextBookmark */ = F87D953E0D63B44400163385 /* PBXTextBookmark */;
-			F87D95460D63B87200163385 /* PBXTextBookmark */ = F87D95460D63B87200163385 /* PBXTextBookmark */;
-			F87D95530D63BB4600163385 /* PBXTextBookmark */ = F87D95530D63BB4600163385 /* PBXTextBookmark */;
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					203,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 224711276;
+			PBXWorkspaceStateSaveDate = 224711276;
 		};
 		sourceControlManager = F8A04FDA0D6227E500F92F28 /* Source Control */;
 		userBuildSettings = {
@@ -117,87 +156,6 @@
 			sepNavVisRange = "{0, 858}";
 			sepNavWindowFrame = "{{15, 48}, {824, 830}}";
 		};
-	};
-	F8351EBA0D6376A7005B2F9E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */;
-		name = "ZiPhoneWindowController.h: 9";
-		rLen = 14;
-		rLoc = 154;
-		rType = 0;
-		vrLen = 1115;
-		vrLoc = 0;
-	};
-	F8351EBB0D6376A7005B2F9E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		rLen = 0;
-		rLoc = 11961;
-		rType = 0;
-	};
-	F8351EBC0D6376A7005B2F9E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */;
-		name = "ZiPhoneWindowController.h: 9";
-		rLen = 14;
-		rLoc = 154;
-		rType = 0;
-		vrLen = 1115;
-		vrLoc = 0;
-	};
-	F8351ED00D639450005B2F9E /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		name = "ZiPhoneWindowController.m: 368";
-		rLen = 0;
-		rLoc = 11302;
-		rType = 0;
-		vrLen = 1455;
-		vrLoc = 10066;
-	};
-	F87D952F0D63B31400163385 /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-	};
-	F87D95360D63B36600163385 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		name = "ZiPhoneWindowController.m: 360";
-		rLen = 0;
-		rLoc = 11052;
-		rType = 0;
-		vrLen = 1483;
-		vrLoc = 9817;
-	};
-	F87D953E0D63B44400163385 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		name = "ZiPhoneWindowController.m: 366";
-		rLen = 0;
-		rLoc = 11041;
-		rType = 0;
-		vrLen = 1545;
-		vrLoc = 9817;
-	};
-	F87D95460D63B87200163385 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		name = "ZiPhoneWindowController.m: 372";
-		rLen = 0;
-		rLoc = 11209;
-		rType = 0;
-		vrLen = 1566;
-		vrLoc = 10333;
-	};
-	F87D95530D63BB4600163385 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		name = "ZiPhoneWindowController.m: 4";
-		rLen = 0;
-		rLoc = 50;
-		rType = 0;
-		vrLen = 951;
-		vrLoc = 0;
 	};
 	F8A04FD20D6227DC00F92F28 /* ZiPhoneOSX */ = {
 		isa = PBXExecutable;
@@ -241,20 +199,20 @@
 	F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {691, 684}}";
-			sepNavSelRange = "{154, 14}";
-			sepNavVisRange = "{0, 1115}";
-			sepNavWindowFrame = "{{15, 61}, {750, 812}}";
+			sepNavSelRange = "{1116, 38}";
+			sepNavVisRange = "{0, 1161}";
+			sepNavWindowFrame = "{{290, 66}, {750, 812}}";
 		};
 	};
 	F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {914, 6020}}";
-			sepNavSelRange = "{50, 0}";
-			sepNavVisRange = "{0, 951}";
-			sepNavWindowFrame = "{{103, 103}, {741, 752}}";
+			sepNavIntBoundsRect = "{{0, 0}, {914, 5726}}";
+			sepNavSelRange = "{9651, 0}";
+			sepNavVisRange = "{9221, 1499}";
+			sepNavWindowFrame = "{{479, 66}, {750, 812}}";
 		};
 	};
-	F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:303 */ = {
+	F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:301 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -266,7 +224,7 @@
 		functionName = "-quitApplication:";
 		hitCount = 0;
 		ignoreCount = 0;
-		lineNumber = 303;
+		lineNumber = 301;
 		location = ZiPhoneOSX;
 		modificationTime = 224557249.682061;
 		state = 1;

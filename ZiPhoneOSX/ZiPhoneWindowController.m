@@ -130,19 +130,19 @@
     }
     
     // Activate?
-    if([m_btnActivate state]) {
+    if([m_btnActivate state] == NSOnState) {
       [opts addObject:@"-a"];
     }
     
     // Jailbreak?
-    if([m_btnJailbreak state]) {
+    if([m_btnJailbreak state] == NSOnState) {
       [opts addObject:@"-j"];
     }
   }
   
   // Verbose?
-  if([m_btnVerbose state]) {
-    [opts addObject:@"-v"];
+  if([m_mnuTestMode state] == NSOnState) {
+    [opts addObject:@"-t"];
   }
   
   if([opts count] == 0) {
@@ -160,7 +160,6 @@
   [m_btnActivate setEnabled:NO];
   [m_btnJailbreak setEnabled:NO];
   [m_btnChangeImei setEnabled:NO];
-  [m_btnVerbose setEnabled:NO];
   [m_btnErase setEnabled:NO];
   [m_txtImei setEnabled:NO];
   [m_lblImei setEnabled:NO];
@@ -282,7 +281,6 @@
     [m_btnActivate setEnabled:YES];
     [m_btnJailbreak setEnabled:YES];
     [m_btnChangeImei setEnabled:YES];
-    [m_btnVerbose setEnabled:YES];
     [m_btnErase setEnabled:YES];    
     [m_btnDowngrade setEnabled:YES];
     [self checkboxClicked:self];
@@ -315,9 +313,14 @@
   if(!bLoaded) {
     NSString *strReadMe = [[NSBundle mainBundle] pathForResource:@"README.txt" ofType:nil];
     NSString *strReadMeContents = [NSString stringWithContentsOfFile:strReadMe];
+
+    NSFont *font = [NSFont fontWithName:@"Courier" size:12.0];
+    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
+    NSAttributedString *attText = [[NSAttributedString alloc] initWithString:strReadMeContents attributes:att];
     
-    
-    [m_txtAbout insertText:strReadMeContents];
+    [[m_txtAbout textStorage] appendAttributedString:attText];
+    [attText release];
+
     
     bLoaded = YES;
   }
@@ -396,6 +399,15 @@
   [m_txtImei validateEditing];
 }
 
-
+/**
+ * Toggle the menu state.
+ */
+-(IBAction)mnuTestSelected:(id)sender {
+  if([m_mnuTestMode state] == NSOnState) {
+    [m_mnuTestMode setState:NSOffState];
+  } else {
+    [m_mnuTestMode setState:NSOnState];
+  }
+}
 
 @end
