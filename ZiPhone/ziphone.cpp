@@ -40,7 +40,7 @@ char imei[127]="setenv imei ";
 
 char ramdisk[128]="zibri.dat";
 
-unsigned char rdmd5[16]={0x47,0x6f,0x64,0x7a,0x96,0x35,0x5e,0xeb,0xfa,0x8b,0xfe,0xa3,0x95,0x06,0x16,0x3c};
+unsigned char rdmd5[16]={0xd8,0x55,0x41,0xb1,0x8d,0xbb,0x5a,0x9f,0xae,0x04,0xb6,0xcd,0xe2,0x49,0xba,0x6c};
 
 CFStringRef StringtoCFString(string input) {
    return CFStringCreateWithCString(NULL, input.c_str(), CFSTRINGENCODING);
@@ -226,7 +226,7 @@ int count=0;
      cout << "Wrong zibri.dat version !" << endl;
      cout << "Go get the full archive at http://www.ziphone.org" << endl;
 
-//      printf("md5: 0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x\n",result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]);
+//      printf("0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x\n",result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]);
 //      printf("rdmd5: 0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x,0x%2.2x\n",rdmd5[0], rdmd5[1], rdmd5[2], rdmd5[3], rdmd5[4], rdmd5[5], rdmd5[6], rdmd5[7], rdmd5[8], rdmd5[9], rdmd5[10], rdmd5[11], rdmd5[12], rdmd5[13], rdmd5[14], rdmd5[15]);
 
        return false;
@@ -268,7 +268,7 @@ bool parse_args(int argc,char *argv[]) {
 }
 
 void Banner() {
-     cout << endl << "ZiPhone v2.1 by Zibri. http://www.ziphone.org" << endl;
+     cout << endl << "ZiPhone v2.2 by Zibri. http://www.ziphone.org" << endl;
      cout << "Source code available at: http://www.iphone-elite.org" << endl;
 }
 
