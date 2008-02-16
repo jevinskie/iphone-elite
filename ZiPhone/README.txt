@@ -6,9 +6,26 @@
    #+#          #+#     #+#        #+#    #+# #+#    #+# #+#   #+#+# #+#             
  ######### ########### ###        ###    ###  ########  ###    #### ##########       
 
-Ziphone version 2.2
+Ziphone version 2.3 (16th Feb 2008)
 
-Debugged: icon bug removed. (a typo in 2.1 sorry)
+For a full restore do:
+
+ziphone -D
+
+then run itunes and restore to 1.1.3 (or 1.1.2 if you like)
+
+then at the end of restore run ziphone again:
+
+ziphone -b -a -j
+
+if you already used ziphone on your phone, you can skip the above command and issue only:
+
+ziphone -a -j  (after the restore)
+
+If you find any missing icons.. or the iphone is "strange" it's because of a WRONG backup in iTunes.
+So, do not RESTORE a backup and set the iPhone as a NEW PHONE.
+
+(This problem happens if you backed up things from a 'soft updated' iphone with 'dev team method'.)
 
 Updated:
 
@@ -24,17 +41,16 @@ Ziphone -u = Unlock (Works on both BL3.9 and BL4.6)
 Ziphone -e = Erase Baseband (BL 3.9 only)
 Ziphone -b = Downgrade Bootloader from 4.6 to 3.9, update baseband to 4.03.13 and patch the unlock.
 
+Ziphone  -D: Enter DFU Mode.
+Ziphone  -R: Enter Recovery Mode.
+Ziphone  -N: Exit Recovery Mode (normal boot).
+Ziphone  -C: Make coffee.
+
 *** only use -b if your iphone is 1.1.2/1.1.3 OOB ***
 
 It is also possible to combine the functions e.g ziphone -a -j -u
 
 *Added Windows batch files for n00bs*
-
-NOTE to IPSF (or geohot freeipsf) USERS:
-
-ipsf "method" corrupts the seczone. And baseband 4.03 KNOWS that :)
-So.. thank ipsf team for this you iphone, for now is "tied" to baseband 4.02.
-Then don't use -b option but -u option in ziphone after a full DFU mode restore to 1.1.3.
 
 ClickHereX3.9.bat Will call Ziphone -u -j -a (use with iphones that were < 1.1.1 OOB)
 
@@ -55,7 +71,7 @@ Thanks to Tissy for moral support.
 Thanks to iphone-elite.org for support.
 Thanks to Viper and Tifel and ortner for being so nice always.
 Thanks to PENDOR for the osx gui
-Thanks to mzaouara for the ascii art (he used some generator online)
+Thanks to mzaouara for the ascii art (he didn't use some generator he's an ascii artist !)
 Thanks to PsxGunDown to review this readme.
 
 Namaste,

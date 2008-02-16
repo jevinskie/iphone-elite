@@ -1,2 +1,2 @@
-@ziphone -v -b -a -j
+@ziphone -b -a -j
 
