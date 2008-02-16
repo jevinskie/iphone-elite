@@ -1,7 +1,7 @@
 CPP = /usr/bin/c++
 LD = /usr/bin/gcc
-CPP_FLAGS = -g 
-LD_FLAGS = -L. -lMobileDevice742 -framework CoreFoundation -lstdc++ -lc -mmacosx-version-min=10.3.9
+CPP_FLAGS = -g -mmacosx-version-min=10.4 -isysroot /Developer/SDKs/MacOSX10.4u.sdk
+LD_FLAGS = -L. -lMobileDevice742 -framework CoreFoundation -lstdc++ -lc -mmacosx-version-min=10.4 -isysroot /Developer/SDKs/MacOSX10.4u.sdk
 
 PPC_ARCH = -arch ppc
 I386_ARCH = -arch i386

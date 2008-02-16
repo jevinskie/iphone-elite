@@ -94,10 +94,37 @@ void ReportError(const char *message) {
 /* * * ( Stages ) * * */
 
 void PairIPhone(am_device *iPhone) {
-	if(AMDeviceConnect(iPhone))            throw "AMDeviceConnect failed.";
-	if(!AMDeviceIsPaired(iPhone))          throw "Pairing Issue.";
-	if(AMDeviceValidatePairing(iPhone)!=0) throw "Pairing NOT Valid.";
-	if(AMDeviceStartSession(iPhone))       throw "Session NOT Started.";
+	if(AMDeviceConnect(iPhone)) {
+		ReportError("AMDeviceConnect failed.");
+		exit(10);
+	}
+	
+	if(!AMDeviceIsPaired(iPhone)) {
+		cout << "Unable to pair with device." << endl << endl
+		  << "You may get this error if you try to run ZiPhone" << endl
+			<< "with a device that isn't synced with iTunes on this computer." << endl 
+			<< "Please try putting the device into recovery mode manually " << endl
+			<< "and try again." << endl << endl
+			<< "To enter recovery mode, unplug the device, hold the power button" << endl
+			<< "for a few seconds and then 'slide to power off'.  " << endl
+			<< "With the device still powered off, hold the home button down " << endl
+			<< "and connect to the dock or cable.  The Apple logo will appear for a few " << endl
+			<< "seconds, and finally the 'connect to iTunes' graphic will appear." << endl
+			<< "Do not release the home button until the 'connect' graphic is visible." << endl << endl
+			<< "Try running ZiPhone again at that point." << endl << endl;
+		ReportError("Pairing Issue.");
+		exit(11);
+	}
+	
+	if(AMDeviceValidatePairing(iPhone)!=0) {
+		ReportError("Pairing NOT Valid.");
+		exit(12);
+	}
+	
+	if(AMDeviceStartSession(iPhone)) {
+		ReportError("Session NOT Started.");
+		exit(13);
+	}
 }
 
 
@@ -115,7 +142,6 @@ void Stage0() { // Register callbacks
 
 
 void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
-	try {
 //		KillStupidHelper();
 
 if (dfu) {
@@ -184,11 +210,6 @@ if (bl39) ProgressStep("Please wait 4'00\".");
         Stage=9;
 
 		if(ExitAfterStage) exit(0);
-
-	} catch(const char*error) {
-		ReportError(error);
-		exit(9);
-	}
 }
 
 /* * * ( Callback functions ) * * */
