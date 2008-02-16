@@ -12,6 +12,9 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		F83FA81E0D627A9B005A1AF6 /* iPhone.icns in Resources */ = {isa = PBXBuildFile; fileRef = F83FA81D0D627A9B005A1AF6 /* iPhone.icns */; };
+		F863083D0D674C9E002750D9 /* dfu.dat in Resources */ = {isa = PBXBuildFile; fileRef = F863083C0D674C9E002750D9 /* dfu.dat */; };
+		F86308430D6758F4002750D9 /* paypal.gif in Resources */ = {isa = PBXBuildFile; fileRef = F86308420D6758F4002750D9 /* paypal.gif */; };
+		F863085A0D675B99002750D9 /* donate.html in Resources */ = {isa = PBXBuildFile; fileRef = F86308590D675B99002750D9 /* donate.html */; };
 		F892AE220D626F7D00199F72 /* libMobileDevice742.dylib in Resources */ = {isa = PBXBuildFile; fileRef = F8A04FE80D622F7900F92F28 /* libMobileDevice742.dylib */; };
 		F8A04FE70D622F6400F92F28 /* zibri.dat in Resources */ = {isa = PBXBuildFile; fileRef = F8A04FE60D622F6400F92F28 /* zibri.dat */; };
 		F8A04FED0D6233CC00F92F28 /* ZiPhoneWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */; };
@@ -31,6 +34,9 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ZiPhoneOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZiPhoneOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83FA81D0D627A9B005A1AF6 /* iPhone.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = iPhone.icns; sourceTree = "<group>"; };
+		F863083C0D674C9E002750D9 /* dfu.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = dfu.dat; sourceTree = "<group>"; };
+		F86308420D6758F4002750D9 /* paypal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paypal.gif; sourceTree = "<group>"; };
+		F86308590D675B99002750D9 /* donate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = donate.html; sourceTree = "<group>"; };
 		F8A04FE60D622F6400F92F28 /* zibri.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = zibri.dat; sourceTree = "<group>"; };
 		F8A04FE80D622F7900F92F28 /* libMobileDevice742.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libMobileDevice742.dylib; sourceTree = "<group>"; };
 		F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiPhoneWindowController.h; sourceTree = "<group>"; };
@@ -110,6 +116,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F86308420D6758F4002750D9 /* paypal.gif */,
+				F863083C0D674C9E002750D9 /* dfu.dat */,
 				F83FA81D0D627A9B005A1AF6 /* iPhone.icns */,
 				F8A0507F0D624F2B00F92F28 /* README.txt */,
 				F8A04FEE0D62399400F92F28 /* ziphone */,
@@ -118,6 +126,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				F86308590D675B99002750D9 /* donate.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -183,6 +192,9 @@
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				F83FA81E0D627A9B005A1AF6 /* iPhone.icns in Resources */,
+				F863083D0D674C9E002750D9 /* dfu.dat in Resources */,
+				F86308430D6758F4002750D9 /* paypal.gif in Resources */,
+				F863085A0D675B99002750D9 /* donate.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +212,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\n\nDEST=`pwd`\n\necho \"Will copy files into $DEST\"\n\ncd ../ZiPhone\n\necho \"Building command line tools in `pwd`\"\n\nmake -f Makefile.osx clean all\n\nif [ \"$?\" != \"0\" ] ; then\n  echo \"Error building command line tool\" >&2\n  exit 1\nfi\n\nfor f in zibri.dat ziphone libMobileDevice742.dylib README.txt ; do\n  echo \"Copying $f...\"\n  cp \"$f\" \"$DEST\"\n  if [ \"$?\" != \"0\" ] ; then\n    echo \"Error copying file $f\" >&2\n    exit 2\n  fi\n  \ndone\n";
+			shellScript = "#!/bin/bash\n\nDEST=`pwd`\n\necho \"Will copy files into $DEST\"\n\ncd ../ZiPhone\n\necho \"Building command line tools in `pwd`\"\n\nmake -f Makefile.osx clean all\n\nif [ \"$?\" != \"0\" ] ; then\n  echo \"Error building command line tool\" >&2\n  exit 1\nfi\n\nfor f in zibri.dat dfu.dat ziphone libMobileDevice742.dylib README.txt ; do\n  echo \"Copying $f...\"\n  cp \"$f\" \"$DEST\"\n  if [ \"$?\" != \"0\" ] ; then\n    echo \"Error copying file $f\" >&2\n    exit 2\n  fi\n  \ndone\n";
 		};
 		F88A08740D64CE05007DF3E2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

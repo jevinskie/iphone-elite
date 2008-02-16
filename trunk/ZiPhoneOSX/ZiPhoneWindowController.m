@@ -11,6 +11,9 @@
 #define PMT_ERROR 2
 #define PMT_SUCCESS 3
 
+#define NOSHOWIF_KEY @"NOSHOWIF"
+#define ONLYSHOWIF_KEY @"ONLYSHOWIF"
+
 @implementation ZiPhoneWindowController
 
 /**
@@ -19,12 +22,104 @@
 - (void)awakeFromNib {
   [self checkboxClicked:self];
   [m_btnStop setEnabled:NO];
-}
+  
+  m_dctButtonStates = [[NSDictionary dictionaryWithObjectsAndKeys: 
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnJailbreak tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnActivate tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, m_btnDowngrade, m_btnErase, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnUnlock tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnJailbreak, m_btnActivate, m_btnUnlock, m_btnExitRecovery, m_btnEnterDFU, m_btnChangeImei, m_btnErase, m_btnDowngrade, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnEnterRecovery tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnJailbreak, m_btnActivate, m_btnUnlock, m_btnEnterRecovery, m_btnEnterDFU, m_btnChangeImei, m_btnErase, m_btnDowngrade, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnExitRecovery tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnJailbreak, m_btnActivate, m_btnUnlock, m_btnEnterRecovery, m_btnExitRecovery, m_btnChangeImei, m_btnErase, m_btnDowngrade, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnEnterDFU tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, m_btnDowngrade, m_btnErase, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: m_btnUnlock, nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnChangeImei tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         //[NSArray arrayWithObjects: nil], NOSHOWIF_KEY,
+                         [NSArray arrayWithObjects: m_btnChangeImei, nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_txtImei tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, m_btnDowngrade, m_btnUnlock, m_btnChangeImei, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnErase tag]],
+                        
+                        [NSDictionary dictionaryWithObjectsAndKeys:
+                         [NSArray arrayWithObjects: m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, m_btnErase, m_btnUnlock, m_btnChangeImei, nil], NOSHOWIF_KEY,
+                         //[NSArray arrayWithObjects: nil], ONLYSHOWIF_KEY,
+                         nil], [NSNumber numberWithInt:[m_btnDowngrade tag]],                        
+                        
+                        nil
+                       ] retain];
+  
+  
+    m_arControls = [[NSArray arrayWithObjects:m_btnDowngrade, m_btnUnlock, m_btnActivate, 
+                  m_btnJailbreak, m_btnEnterRecovery, m_btnExitRecovery, m_btnEnterDFU, 
+                  m_btnChangeImei, m_btnErase, m_txtImei, nil] retain];
+  }
 
 - (void)dealloc {
-  [m_processTask dealloc];
+  [m_processTask release];
   m_processTask = nil;
+
+  [m_dctButtonStates release];
+  m_dctButtonStates = nil;
+  
+  [m_arControls release];
+  m_arControls = nil;
+
   [super dealloc];
+}
+
+/**
+ * Loops over all check box controls setting enabled status.
+ *
+ * @param p_enabled YES to enable, NO to disable
+ * @param p_except if not nil, the object that matches this will set to the opposite of p_enabled
+ * @param p_clearState if YES and p_enabled is NO, all boxes that are diabled will also
+ *  have their states cleared to NSOffState.
+ */
+- (void)setCheckBoxesEnabled:(BOOL)p_enabled except:(NSButton*)p_except clearState:(BOOL)p_clearState {
+  int count = [m_arControls count];
+  int i;
+  for(i=0; i<count; i++) {
+    NSButton *btn = (NSButton*)[m_arControls objectAtIndex:i];
+    
+    if(btn != p_except) {
+      [btn setEnabled:p_enabled];
+      if(!p_enabled && p_clearState) {
+        [btn setState:NSOffState];
+      }
+    } else {
+      [btn setEnabled:!p_enabled];
+    }
+  }
 }
 
 /**
@@ -49,10 +144,10 @@
 }
 
 /**
- * Check that a string is a valid IMEI - 15 digits.
+ * Check that a string is a valid IMEI - 15-16 digits.
  */
 - (BOOL)checkImei:(NSString*)p_imei {
-  if([p_imei length] != 15) {
+  if([p_imei length] != 15 && [p_imei length] != 16) {
     return NO;
   } else {
     const char *ch = [p_imei cString];
@@ -100,23 +195,43 @@
   }
   
   // Figure out the options:
-  NSMutableArray *opts = [NSMutableArray arrayWithCapacity:7];
+  NSMutableArray *opts = [NSMutableArray arrayWithCapacity:15];
   
-  // First get the unlock stuff taken care of
-  if([m_btnDowngrade state] == NSOnState) {
+  // First get the singleton's taken care of
+  if([m_btnDowngrade state]) {
     [opts addObject:@"-b"];
+  } else if([m_btnEnterRecovery state]) {
+    [opts addObject:@"-R"];
+  } else if([m_btnExitRecovery state]) {
+    [opts addObject:@"-N"];
+  } else if([m_btnEnterDFU state]) {
+    [opts addObject:@"-D"];
+  } else if([m_mnuTestMode state]) {
+    [opts addObject:@"-t"];
+  } else if([m_mnuCoffee state]) {
+    [opts addObject:@"-C"];
   } else {
-    if([m_btnUnlock state] == NSOnState) {
+    // Activate?
+    if([m_btnActivate state]) {
+      [opts addObject:@"-a"];
+    }
+    
+    // Jailbreak?
+    if([m_btnJailbreak state]) {
+      [opts addObject:@"-j"];
+    }
+    
+    if([m_btnUnlock state]) {
       [opts addObject:@"-u"];
       
-      if([m_btnChangeImei state] == NSOnState) {
+      if([m_btnChangeImei state]) {
         NSString *strImei = [m_txtImei stringValue];
         if(![self checkImei:strImei]) {
           NSAlert *lert = [NSAlert alertWithMessageText:@"Invalid IMEI" 
                                           defaultButton:@"OK" 
                                         alternateButton:nil 
                                             otherButton:nil 
-                              informativeTextWithFormat:@"The new IMEI number must be exactly 15 digits"];
+                              informativeTextWithFormat:@"The new IMEI number must be 15 or 16 digits"];
           [lert runModal];
           return;
         }
@@ -124,25 +239,10 @@
         [opts addObject:strImei];
       }
     } else {
-      if([m_btnErase state] == NSOnState) {
+      if([m_btnErase state]) {
         [opts addObject:@"-e"];
       }
     }
-    
-    // Activate?
-    if([m_btnActivate state] == NSOnState) {
-      [opts addObject:@"-a"];
-    }
-    
-    // Jailbreak?
-    if([m_btnJailbreak state] == NSOnState) {
-      [opts addObject:@"-j"];
-    }
-  }
-  
-  // Verbose?
-  if([m_mnuTestMode state] == NSOnState) {
-    [opts addObject:@"-t"];
   }
   
   if([opts count] == 0) {
@@ -155,16 +255,10 @@
     return;
   }
   
-  // Prevent any changes while we run.
-  [m_btnUnlock setEnabled:NO];
-  [m_btnActivate setEnabled:NO];
-  [m_btnJailbreak setEnabled:NO];
-  [m_btnChangeImei setEnabled:NO];
-  [m_btnErase setEnabled:NO];
-  [m_txtImei setEnabled:NO];
-  [m_lblImei setEnabled:NO];
-  [m_btnDowngrade setEnabled:NO];
+  //NSLog(@"Running ziphone with options: %@", opts);
   
+  // Prevent any changes while we run.
+  [self setCheckBoxesEnabled:NO except:nil clearState:NO];
   
   // Toggle buttons
   [m_btnStart setEnabled:NO];
@@ -277,12 +371,7 @@
     [m_btnStop setEnabled:NO];
     
     // Fix the checkboxes
-    [m_btnUnlock setEnabled:YES];
-    [m_btnActivate setEnabled:YES];
-    [m_btnJailbreak setEnabled:YES];
-    [m_btnChangeImei setEnabled:YES];
-    [m_btnErase setEnabled:YES];    
-    [m_btnDowngrade setEnabled:YES];
+    [self setCheckBoxesEnabled:YES except:nil clearState:NO];
     [self checkboxClicked:self];
     
     // Let NSApp know it's time to go
@@ -338,76 +427,80 @@
  * Unlock disables iErase since they're for different firmwares.
  */
 - (IBAction)checkboxClicked:(id)sender {
-  if([m_btnDowngrade state] == NSOnState) {
-    [m_btnErase setState:NSOffState];
-    [m_btnErase setEnabled:NO];
-    [m_btnChangeImei setState:NSOffState];
-    [m_btnChangeImei setEnabled:NO];
-    [m_txtImei setEnabled:NO];
-    [m_lblImei setEnabled:NO];
-    [m_btnUnlock setEnabled:NO];
-    [m_btnUnlock setState:NSOffState];
-    [m_btnJailbreak setEnabled:NO];
-    [m_btnJailbreak setState:NSOffState];
-    [m_btnActivate setEnabled:NO];
-    [m_btnActivate setState:NSOffState];
-  } else {
-    [m_btnErase setEnabled:YES];
-    [m_btnChangeImei setEnabled:YES];
-    [m_btnUnlock setEnabled:YES];
-    [m_btnJailbreak setEnabled:YES];
-    [m_btnActivate setEnabled:YES];
+  int count = [m_arControls count];
+  int i;
+  for(i=0; i<count; i++) {
+    NSControl *btn = (NSControl*)[m_arControls objectAtIndex:i];
+    
+    // Grab the requirements for this object
+    NSDictionary *statesDict = [m_dctButtonStates objectForKey:[NSNumber numberWithInt:[btn tag]]];
+    NSArray *reqList = [statesDict objectForKey:ONLYSHOWIF_KEY];
+    NSArray *dqList = [statesDict objectForKey:NOSHOWIF_KEY];
+    
+    // Start assuming we can show it
+    BOOL bCanShow = YES;
+    
+    // Make sure that all pre-requisites are in place
+    int j;
+    int listCt = [reqList count];
+    for(j=0; j<listCt; j++) {
+      NSButton *req = (NSButton*)[reqList objectAtIndex:j];
+      if(![req state]) {
+        // We're missing a required item for this button.  Disable it.
+        bCanShow = NO;
+        break;        
+      }
+    }
+    
+    // If all the requirements are here, see if anything disqualifies it.
+    if(bCanShow) {
+      listCt = [dqList count];
+      for(j=0; j<listCt; j++) {
+        NSButton *dq = (NSButton*)[dqList objectAtIndex:j];
+        if([dq state]) {
+          // We have an item which disqualifies this button.  Disable it.
+          bCanShow = NO;
+          break;
+        }
+      }
+    }
+    
+    [btn setEnabled:bCanShow];
+    if(!bCanShow && [btn respondsToSelector:@selector(setState:)]) {
+      NSButton *tmp = (NSButton*)btn;
+      [tmp setState:NSOffState];
+    }
+  }  
   
-    if([m_btnUnlock state] == NSOnState || [m_btnActivate state] == NSOnState ||
-       [m_btnJailbreak state] == NSOnState || [m_btnErase state] == NSOnState) {
-      [m_btnDowngrade setState:NSOffState];
-      [m_btnDowngrade setEnabled:NO];
-    } else {
-      [m_btnDowngrade setEnabled:YES];
-    }
-    
-    if([m_btnUnlock state] == NSOnState) {
-      [m_btnErase setState:NSOffState];
-      [m_btnErase setEnabled:NO];
-      [m_btnChangeImei setEnabled:YES];
-    } else {
-      [m_btnErase setEnabled:YES];
-      [m_btnChangeImei setState:NSOffState];
-      [m_btnChangeImei setEnabled:NO];
-    }
-    
-    if([m_btnChangeImei state] == NSOnState) {
-      [m_txtImei setEnabled:YES];
-      [m_txtImei setEditable:YES];
-      [m_lblImei setEnabled:YES];
-    } else {
-      [m_txtImei setEnabled:NO];
-      [m_lblImei setEnabled:NO];
-    }
-    
-    if([m_btnErase state] == NSOnState) {
-      [m_btnChangeImei setEnabled:NO];
-      [m_btnChangeImei setState:NSOffState];
-      [m_btnUnlock setEnabled:NO];
-      [m_btnUnlock setState:NSOffState];
-      [m_txtImei setEnabled:NO];
-      [m_lblImei setEnabled:NO];
-    } else {
-      [m_btnUnlock setEnabled:YES];
-    }
-  }
   [m_txtImei validateEditing];
+  
+  // It takes two passes to get some of these right...
+  if(sender != (id)2) {
+    [self checkboxClicked:(id)2];
+  }
 }
 
 /**
  * Toggle the menu state.
  */
 -(IBAction)mnuTestSelected:(id)sender {
-  if([m_mnuTestMode state] == NSOnState) {
-    [m_mnuTestMode setState:NSOffState];
-  } else {
-    [m_mnuTestMode setState:NSOnState];
-  }
+  [m_mnuTestMode setState:![m_mnuTestMode state]];
+}
+
+/**
+ * Toggle test MD5.
+ */
+- (IBAction)mnuCoffeeSelected:(id)sender {
+  [m_mnuCoffee setState:![m_mnuCoffee state]];
+}
+
+/**
+ * Open the default browser for paypal donations.
+ */
+- (IBAction)btnDonateClicked:(id)sender {
+  NSString *strPath = [[NSBundle mainBundle] pathForResource:@"donate.html" ofType:nil];
+  NSURL *url = [NSURL fileURLWithPath:strPath];
+  [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 @end
