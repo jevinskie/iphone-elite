@@ -345,7 +345,7 @@ bool parse_args(int argc,char *argv[]) {
                  }
 			else if(argv[i][1]=='i') {
                  if (argc<(i+2)) return false;
-                 if ((strlen(argv[i+1])!=16)||(strlen(argv[i+1])!=15)) return false;
+                 if ((strlen(argv[i+1])!=16)&&(strlen(argv[i+1])!=15)) return false;
                  chimei=true;
                  if (strlen(argv[i+1])==16) strcat(imei,argv[i+1]);
                  else if (strlen(argv[i+1])==15) {
