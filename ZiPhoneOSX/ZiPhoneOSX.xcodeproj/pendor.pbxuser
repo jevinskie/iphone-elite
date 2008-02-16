@@ -17,7 +17,6 @@
 			8D1107260486CEB800E47090 /* ZiPhoneOSX */,
 		);
 		breakpoints = (
-			F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:301 */,
 		);
 		codeSenseManager = F8A04FDB0D6227E500F92F28 /* Code sense */;
 		executables = (
@@ -120,8 +119,15 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 224711276;
-			PBXWorkspaceStateSaveDate = 224711276;
+			PBXPerProjectTemplateStateSaveDate = 224893577;
+			PBXWorkspaceStateSaveDate = 224893577;
+		};
+		perUserProjectItems = {
+			F827B4900D678E8400592B21 /* PBXTextBookmark */ = F827B4900D678E8400592B21 /* PBXTextBookmark */;
+			F863084A0D675ACE002750D9 /* PBXTextBookmark */ = F863084A0D675ACE002750D9 /* PBXTextBookmark */;
+			F863084B0D675ACE002750D9 /* PBXTextBookmark */ = F863084B0D675ACE002750D9 /* PBXTextBookmark */;
+			F86308CD0D6776C9002750D9 /* PBXTextBookmark */ = F86308CD0D6776C9002750D9 /* PBXTextBookmark */;
+			F885F84A0D679C1000614240 /* PBXTextBookmark */ = F885F84A0D679C1000614240 /* PBXTextBookmark */;
 		};
 		sourceControlManager = F8A04FDA0D6227E500F92F28 /* Source Control */;
 		userBuildSettings = {
@@ -156,6 +162,64 @@
 			sepNavVisRange = "{0, 858}";
 			sepNavWindowFrame = "{{15, 48}, {824, 830}}";
 		};
+	};
+	F827B4900D678E8400592B21 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 429";
+		rLen = 0;
+		rLoc = 15724;
+		rType = 0;
+		vrLen = 1346;
+		vrLoc = 14065;
+	};
+	F863084A0D675ACE002750D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */;
+		name = "ZiPhoneWindowController.h: 51";
+		rLen = 0;
+		rLoc = 1423;
+		rType = 0;
+		vrLen = 1318;
+		vrLoc = 49;
+	};
+	F863084B0D675ACE002750D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 317";
+		rLen = 0;
+		rLoc = 15020;
+		rType = 0;
+		vrLen = 1653;
+		vrLoc = 9377;
+	};
+	F86308590D675B99002750D9 /* donate.html */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {15140, 748}}";
+			sepNavSelRange = "{3066, 0}";
+			sepNavVisRange = "{0, 3066}";
+			sepNavWindowFrame = "{{252, 58}, {1104, 867}}";
+		};
+	};
+	F86308CD0D6776C9002750D9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */;
+		name = "ZiPhoneWindowController.h: 35";
+		rLen = 0;
+		rLoc = 854;
+		rType = 0;
+		vrLen = 1356;
+		vrLoc = 49;
+	};
+	F885F84A0D679C1000614240 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
+		name = "ZiPhoneWindowController.m: 429";
+		rLen = 0;
+		rLoc = 15724;
+		rType = 0;
+		vrLen = 1349;
+		vrLoc = 14065;
 	};
 	F8A04FD20D6227DC00F92F28 /* ZiPhoneOSX */ = {
 		isa = PBXExecutable;
@@ -198,35 +262,18 @@
 	};
 	F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {691, 684}}";
-			sepNavSelRange = "{1116, 38}";
-			sepNavVisRange = "{0, 1161}";
+			sepNavIntBoundsRect = "{{0, 0}, {1057, 798}}";
+			sepNavSelRange = "{696, 0}";
+			sepNavVisRange = "{468, 872}";
 			sepNavWindowFrame = "{{290, 66}, {750, 812}}";
 		};
 	};
 	F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {914, 5726}}";
-			sepNavSelRange = "{9651, 0}";
-			sepNavVisRange = "{9221, 1499}";
-			sepNavWindowFrame = "{{479, 66}, {750, 812}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1178, 7056}}";
+			sepNavSelRange = "{15724, 0}";
+			sepNavVisRange = "{14065, 1349}";
+			sepNavWindowFrame = "{{285, 212}, {1322, 816}}";
 		};
-	};
-	F8DEB9F60D6259DF0038A743 /* ZiPhoneWindowController.m:301 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */;
-		functionName = "-quitApplication:";
-		hitCount = 0;
-		ignoreCount = 0;
-		lineNumber = 301;
-		location = ZiPhoneOSX;
-		modificationTime = 224557249.682061;
-		state = 1;
 	};
 }

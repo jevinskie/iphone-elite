@@ -10,10 +10,15 @@
   IBOutlet NSButton *m_btnUnlock;
   IBOutlet NSButton *m_btnActivate;
   IBOutlet NSButton *m_btnJailbreak;
+  
+  IBOutlet NSButton *m_btnEnterRecovery;
+  IBOutlet NSButton *m_btnExitRecovery;
+  IBOutlet NSButton *m_btnEnterDFU;
   IBOutlet NSButton *m_btnChangeImei;
   IBOutlet NSButton *m_btnErase;
   
   IBOutlet NSMenuItem *m_mnuTestMode;
+  IBOutlet NSMenuItem *m_mnuCoffee;
   
   IBOutlet NSButton *m_btnStart;
   IBOutlet NSButton *m_btnStop;
@@ -21,12 +26,14 @@
   IBOutlet NSTextView *m_txtProgress;
   
   IBOutlet NSTextField *m_txtImei;
-  IBOutlet NSTextField *m_lblImei;
     
   IBOutlet NSWindow *m_wndAbout;
   IBOutlet NSTextView *m_txtAbout;
   
   NSTask *m_processTask;
+ 
+  NSDictionary *m_dctButtonStates;
+  NSArray *m_arControls;
 }
 
 - (void)awakeFromNib;
@@ -40,6 +47,10 @@
 - (IBAction)showAbout:(id)sender;
 - (IBAction)checkboxClicked:(id)sender;
 
--(IBAction)mnuTestSelected:(id)sender;
+- (IBAction)mnuTestSelected:(id)sender;
+
+- (IBAction)mnuCoffeeSelected:(id)sender;
+- (IBAction)btnDonateClicked:(id)sender;
+
 
 @end
