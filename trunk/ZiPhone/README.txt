@@ -7,7 +7,7 @@
  ######### ########### ###        ###    ###  ########  ###    #### ##########       
 
 Ziphone version 2.4 (16th Feb 2008)
-================================================================================================
+===================================================================================
 
 Starting with version 2.4, Ziphone provides a simple all-in-one interface or a separate
 advanced interface for experts or for people who needs more control over the jailbreak
@@ -36,7 +36,7 @@ Note that after running a jailbreak on a "fresh" phone, you will need to manuall
 the "BSD Subsystem" package from Installer before many other programs will work.  This package
 is NOT included in Ziphone due to size restrictions of the jailbreaking ramdisk.
 
-================================================================================================
+===================================================================================
 
 Restoring or recovering from problems:
 
@@ -55,7 +55,7 @@ restored to the phone after iTunes finishes installing firmware.  Be sure you ch
 to NOT save settings and to treat the iPhone as a NEW PHONE.  This is especially important if 
 any other jailbreak solution was used on your 1.1.3 phone before Ziphone. 
 
-================================================================================================
+===================================================================================
 
 Full usage summary:
 
@@ -76,7 +76,7 @@ It is also possible to combine most functions e.g. ziphone -a -j -u
 If your phone came with 1.1.1 or earlier when it was purchased, you should NOT attempt to
 downgrade your baseband bootloader with -b.
 
-================================================================================================
+===================================================================================
 
 For Windows users not accustomed to using the command line, several double-clickable batch files
 are included:
@@ -89,7 +89,7 @@ Jailbreak works on any iPhone version.
 
 Activation works on any iPhone version, except for YouTube on 1.0.X (I am lazy i know)
 
-================================================================================================
+===================================================================================
 
 No 'dev-team' was directly involved with this work.  
 This program is based on the work of everyone who
