@@ -76,3 +76,25 @@ Thanks to PsxGunDown to review this readme.
 
 Namaste,
 Zibri.
+
+Legal notice:
+ZiPhone does NOT change the iphone internal IMEI.
+It changes the baseband to THINK the imei is another one.
+No changes are made inside the SECZONE.
+
+To restore the original IMEI, just issue:
+
+ziphone -u (to keep it unlocked)
+
+or the full restore procedure below.
+
+
+And ANY phone can be restored to a BRAND NEW state, by using this procedure:
+
+ziphone -e
+
+then
+
+ziphone -D
+
+then restore to ANY (1.1.2 or 1.1.3 suggested) version.
