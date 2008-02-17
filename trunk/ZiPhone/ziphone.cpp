@@ -148,8 +148,8 @@ void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
     ProgressStep("Working...");
   }
 
-  rdev->callback = &RestoreNotificationCallback;
-  rdev->user_info = NULL;
+//  rdev->callback = &RestoreNotificationCallback;
+//  rdev->user_info = NULL;
 
   if (Z==1) {
     unlock=true;
@@ -494,12 +494,17 @@ bool parse_args(int argc, char *argv[]) {
         } else {
           if (argv[i+1][0]=='Y') {
             Z=1;
+            return true;
           } else if (argv[i+1][0]=='N') {
             Z=2;
+            return true;
           } else if (argv[i+1][0]=='A') {
             UsageAdvanced();
             exit(0);
           }
+          else {
+            return false;
+               }
         }
       } else {
         return false;
