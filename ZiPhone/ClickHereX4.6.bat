@@ -1,2 +1,0 @@
-@ziphone -b -a -j
-
