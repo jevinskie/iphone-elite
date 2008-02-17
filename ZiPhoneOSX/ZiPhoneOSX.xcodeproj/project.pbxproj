@@ -12,7 +12,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		F83EE4910D68D14A006DA1BC /* dfu.dat in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48B0D68D14A006DA1BC /* dfu.dat */; };
-		F83EE4920D68D14A006DA1BC /* libMobileDevice742.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EE48C0D68D14A006DA1BC /* libMobileDevice742.dylib */; };
+		F83EE4920D68D14A006DA1BC /* libMobileDevice742.dylib in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48C0D68D14A006DA1BC /* libMobileDevice742.dylib */; };
 		F83EE4930D68D14A006DA1BC /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48D0D68D14A006DA1BC /* README.txt */; };
 		F83EE4940D68D14A006DA1BC /* TROUBLESHOOTING.txt in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48E0D68D14A006DA1BC /* TROUBLESHOOTING.txt */; };
 		F83EE4950D68D14A006DA1BC /* zibri.dat in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48F0D68D14A006DA1BC /* zibri.dat */; };
@@ -53,7 +53,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				F83EE4920D68D14A006DA1BC /* libMobileDevice742.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F83EE4920D68D14A006DA1BC /* libMobileDevice742.dylib in Resources */,
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				F83FA81E0D627A9B005A1AF6 /* iPhone.icns in Resources */,
