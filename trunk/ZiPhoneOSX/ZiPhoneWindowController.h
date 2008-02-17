@@ -29,6 +29,7 @@
     
   IBOutlet NSWindow *m_wndAbout;
   IBOutlet NSTextView *m_txtAbout;
+  IBOutlet NSTextView *m_txtTrouble;
   
   NSTask *m_processTask;
  
@@ -40,6 +41,8 @@
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender;
 - (void)killAlertDidEnd:(NSAlert*) p_lert returnCode:(int) p_ret contextInfo:(void*)p_ctx;
 - (void)windowWillClose:(NSNotification *)notification;
+
+- (void)loadFile:(NSString*)p_file toTextView:(NSTextView*)p_tv;
 
 - (IBAction)startProcess:(id)sender;
 - (IBAction)stopProcess:(id)sender;

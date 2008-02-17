@@ -11,15 +11,16 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		F83EE4910D68D14A006DA1BC /* dfu.dat in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48B0D68D14A006DA1BC /* dfu.dat */; };
+		F83EE4920D68D14A006DA1BC /* libMobileDevice742.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F83EE48C0D68D14A006DA1BC /* libMobileDevice742.dylib */; };
+		F83EE4930D68D14A006DA1BC /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48D0D68D14A006DA1BC /* README.txt */; };
+		F83EE4940D68D14A006DA1BC /* TROUBLESHOOTING.txt in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48E0D68D14A006DA1BC /* TROUBLESHOOTING.txt */; };
+		F83EE4950D68D14A006DA1BC /* zibri.dat in Resources */ = {isa = PBXBuildFile; fileRef = F83EE48F0D68D14A006DA1BC /* zibri.dat */; };
+		F83EE4960D68D14A006DA1BC /* ziphone in Resources */ = {isa = PBXBuildFile; fileRef = F83EE4900D68D14A006DA1BC /* ziphone */; };
 		F83FA81E0D627A9B005A1AF6 /* iPhone.icns in Resources */ = {isa = PBXBuildFile; fileRef = F83FA81D0D627A9B005A1AF6 /* iPhone.icns */; };
-		F863083D0D674C9E002750D9 /* dfu.dat in Resources */ = {isa = PBXBuildFile; fileRef = F863083C0D674C9E002750D9 /* dfu.dat */; };
 		F86308430D6758F4002750D9 /* paypal.gif in Resources */ = {isa = PBXBuildFile; fileRef = F86308420D6758F4002750D9 /* paypal.gif */; };
 		F863085A0D675B99002750D9 /* donate.html in Resources */ = {isa = PBXBuildFile; fileRef = F86308590D675B99002750D9 /* donate.html */; };
-		F892AE220D626F7D00199F72 /* libMobileDevice742.dylib in Resources */ = {isa = PBXBuildFile; fileRef = F8A04FE80D622F7900F92F28 /* libMobileDevice742.dylib */; };
-		F8A04FE70D622F6400F92F28 /* zibri.dat in Resources */ = {isa = PBXBuildFile; fileRef = F8A04FE60D622F6400F92F28 /* zibri.dat */; };
 		F8A04FED0D6233CC00F92F28 /* ZiPhoneWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */; };
-		F8A04FEF0D62399400F92F28 /* ziphone in Resources */ = {isa = PBXBuildFile; fileRef = F8A04FEE0D62399400F92F28 /* ziphone */; };
-		F8A050800D624F2B00F92F28 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F8A0507F0D624F2B00F92F28 /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,16 +34,17 @@
 		32CA4F630368D1EE00C91783 /* ZiPhoneOSX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiPhoneOSX_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ZiPhoneOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZiPhoneOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F83EE48B0D68D14A006DA1BC /* dfu.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = dfu.dat; path = ConsoleResources/dfu.dat; sourceTree = "<group>"; };
+		F83EE48C0D68D14A006DA1BC /* libMobileDevice742.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMobileDevice742.dylib; path = ConsoleResources/libMobileDevice742.dylib; sourceTree = "<group>"; };
+		F83EE48D0D68D14A006DA1BC /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = ConsoleResources/README.txt; sourceTree = "<group>"; };
+		F83EE48E0D68D14A006DA1BC /* TROUBLESHOOTING.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TROUBLESHOOTING.txt; path = ConsoleResources/TROUBLESHOOTING.txt; sourceTree = "<group>"; };
+		F83EE48F0D68D14A006DA1BC /* zibri.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = zibri.dat; path = ConsoleResources/zibri.dat; sourceTree = "<group>"; };
+		F83EE4900D68D14A006DA1BC /* ziphone */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ziphone; path = ConsoleResources/ziphone; sourceTree = "<group>"; };
 		F83FA81D0D627A9B005A1AF6 /* iPhone.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = iPhone.icns; sourceTree = "<group>"; };
-		F863083C0D674C9E002750D9 /* dfu.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = dfu.dat; sourceTree = "<group>"; };
 		F86308420D6758F4002750D9 /* paypal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paypal.gif; sourceTree = "<group>"; };
 		F86308590D675B99002750D9 /* donate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = donate.html; sourceTree = "<group>"; };
-		F8A04FE60D622F6400F92F28 /* zibri.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = zibri.dat; sourceTree = "<group>"; };
-		F8A04FE80D622F7900F92F28 /* libMobileDevice742.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libMobileDevice742.dylib; sourceTree = "<group>"; };
 		F8A04FEB0D6233CC00F92F28 /* ZiPhoneWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZiPhoneWindowController.h; sourceTree = "<group>"; };
 		F8A04FEC0D6233CC00F92F28 /* ZiPhoneWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZiPhoneWindowController.m; sourceTree = "<group>"; };
-		F8A04FEE0D62399400F92F28 /* ziphone */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ziphone; sourceTree = "<group>"; };
-		F8A0507F0D624F2B00F92F28 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				F83EE4920D68D14A006DA1BC /* libMobileDevice742.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,13 +119,14 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F83EE48B0D68D14A006DA1BC /* dfu.dat */,
+				F83EE48C0D68D14A006DA1BC /* libMobileDevice742.dylib */,
+				F83EE48D0D68D14A006DA1BC /* README.txt */,
+				F83EE48E0D68D14A006DA1BC /* TROUBLESHOOTING.txt */,
+				F83EE48F0D68D14A006DA1BC /* zibri.dat */,
+				F83EE4900D68D14A006DA1BC /* ziphone */,
 				F86308420D6758F4002750D9 /* paypal.gif */,
-				F863083C0D674C9E002750D9 /* dfu.dat */,
 				F83FA81D0D627A9B005A1AF6 /* iPhone.icns */,
-				F8A0507F0D624F2B00F92F28 /* README.txt */,
-				F8A04FEE0D62399400F92F28 /* ziphone */,
-				F8A04FE80D622F7900F92F28 /* libMobileDevice742.dylib */,
-				F8A04FE60D622F6400F92F28 /* zibri.dat */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
@@ -185,16 +189,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8A04FEF0D62399400F92F28 /* ziphone in Resources */,
-				F8A04FE70D622F6400F92F28 /* zibri.dat in Resources */,
-				F892AE220D626F7D00199F72 /* libMobileDevice742.dylib in Resources */,
-				F8A050800D624F2B00F92F28 /* README.txt in Resources */,
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				F83FA81E0D627A9B005A1AF6 /* iPhone.icns in Resources */,
-				F863083D0D674C9E002750D9 /* dfu.dat in Resources */,
 				F86308430D6758F4002750D9 /* paypal.gif in Resources */,
 				F863085A0D675B99002750D9 /* donate.html in Resources */,
+				F83EE4910D68D14A006DA1BC /* dfu.dat in Resources */,
+				F83EE4930D68D14A006DA1BC /* README.txt in Resources */,
+				F83EE4940D68D14A006DA1BC /* TROUBLESHOOTING.txt in Resources */,
+				F83EE4950D68D14A006DA1BC /* zibri.dat in Resources */,
+				F83EE4960D68D14A006DA1BC /* ziphone in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\n\nDEST=`pwd`\n\necho \"Will copy files into $DEST\"\n\ncd ../ZiPhone\n\necho \"Building command line tools in `pwd`\"\n\nmake -f Makefile.osx clean all\n\nif [ \"$?\" != \"0\" ] ; then\n  echo \"Error building command line tool\" >&2\n  exit 1\nfi\n\nfor f in zibri.dat dfu.dat ziphone libMobileDevice742.dylib README.txt ; do\n  echo \"Copying $f...\"\n  cp \"$f\" \"$DEST\"\n  if [ \"$?\" != \"0\" ] ; then\n    echo \"Error copying file $f\" >&2\n    exit 2\n  fi\n  \ndone\n";
+			shellScript = "#!/bin/bash\n\nDEST=`pwd`/ConsoleResources\n\necho \"Will copy files into $DEST\"\n\ncd ../ZiPhone\n\necho \"Building command line tools in `pwd`\"\n\nmake -f Makefile.osx clean all\n\nif [ \"$?\" != \"0\" ] ; then\n  echo \"Error building command line tool\" >&2\n  exit 1\nfi\n\nmkdir -p \"$DEST\"\n\nfor f in zibri.dat dfu.dat ziphone libMobileDevice742.dylib README.txt TROUBLESHOOTING.txt ; do\n  echo \"Copying $f...\"\n  cp \"$f\" \"$DEST\"\n  if [ \"$?\" != \"0\" ] ; then\n    echo \"Error copying file $f\" >&2\n    exit 2\n  fi\n  \ndone\n";
 		};
 		F88A08740D64CE05007DF3E2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -225,7 +229,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "#!/bin/bash\n\ntar -cjvf ZiPhoneOSX.tbz -C build/Release ZiPhoneOSX.app";
+			shellScript = "#!/bin/bash\n\nVERSION=`./getversion.sh`\n\ntar -cjvf ZiPhoneOSX-${VERSION}.tbz -C build/Release ZiPhoneOSX.app";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -276,6 +280,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/ConsoleResources\"",
 				);
 				PRODUCT_NAME = ZiPhoneOSX;
 				WRAPPER_EXTENSION = app;
@@ -295,6 +300,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/ConsoleResources\"",
 				);
 				PRODUCT_NAME = ZiPhoneOSX;
 				WRAPPER_EXTENSION = app;

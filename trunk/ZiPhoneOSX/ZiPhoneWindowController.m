@@ -400,21 +400,28 @@
   static BOOL bLoaded = NO;
   
   if(!bLoaded) {
-    NSString *strReadMe = [[NSBundle mainBundle] pathForResource:@"README.txt" ofType:nil];
-    NSString *strReadMeContents = [NSString stringWithContentsOfFile:strReadMe];
-
-    NSFont *font = [NSFont fontWithName:@"Courier" size:12.0];
-    NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
-    NSAttributedString *attText = [[NSAttributedString alloc] initWithString:strReadMeContents attributes:att];
-    
-    [[m_txtAbout textStorage] appendAttributedString:attText];
-    [attText release];
-
-    
+    [self loadFile:@"README.txt" toTextView:m_txtAbout];
+    [self loadFile:@"TROUBLESHOOTING.txt" toTextView:m_txtTrouble];    
     bLoaded = YES;
   }
   
   [m_wndAbout makeKeyAndOrderFront:self];
+}
+
+/**
+ * Load the given text file from the resource directory and display it in
+ * the given text view.
+ */
+- (void)loadFile:(NSString*)p_file toTextView:(NSTextView*)p_tv {
+  NSString *strReadMe = [[NSBundle mainBundle] pathForResource:p_file ofType:nil];
+  NSString *strReadMeContents = [NSString stringWithContentsOfFile:strReadMe];
+  
+  NSFont *font = [NSFont fontWithName:@"Courier" size:12.0];
+  NSDictionary *att = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
+  NSAttributedString *attText = [[NSAttributedString alloc] initWithString:strReadMeContents attributes:att];
+  
+  [[p_tv textStorage] appendAttributedString:attText];
+  [attText release];
 }
 
 /**
