@@ -6,7 +6,7 @@
    #+#          #+#     #+#        #+#    #+# #+#    #+# #+#   #+#+# #+#             
  ######### ########### ###        ###    ###  ########  ###    #### ##########       
 
-Ziphone version 2.4 (16th Feb 2008)
+Ziphone version 2.4 (17th Feb 2008) 23:28 CET
 ===================================================================================
 
 Starting with version 2.4, Ziphone provides a simple all-in-one interface or a separate
