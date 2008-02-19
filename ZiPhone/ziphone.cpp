@@ -545,5 +545,5 @@ int main(int argc, char *argv[]) {
 #endif
   ReportDone();
   sleep(1);
-  return true;
+  return 0;
 }
