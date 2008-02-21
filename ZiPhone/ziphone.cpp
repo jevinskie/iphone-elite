@@ -42,6 +42,7 @@ bool debug=false;
 bool dfu=false;
 bool recover=false;
 bool normalmode=false;
+bool badtouch=false;
 
 char imei[127]="setenv imei ";
 
@@ -207,50 +208,53 @@ void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
     dfu=false;
   }
 
+  
   sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv auto-boot true", kCFStringEncodingUTF8));
-
+  
   sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setpicture 0", kCFStringEncodingUTF8));
-  sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "bgcolor 0 0 64", kCFStringEncodingUTF8));
-  if (!dfu) {
-    sendFileToDevice(rdev, StringtoCFString(ramdisk));
-  } else {
-    sendFileToDevice(rdev, StringtoCFString(dfudat));
+  sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "bgcolor 0 64 0", kCFStringEncodingUTF8));
+  
+  if(!badtouch) {    
+    if (!dfu) {
+      sendFileToDevice(rdev, StringtoCFString(ramdisk));
+    } else {
+      sendFileToDevice(rdev, StringtoCFString(dfudat));
+    }
+  
+    if (bl39) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv bl39 1", kCFStringEncodingUTF8));
+    }
+  
+    if (unlock) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv unlock 1", kCFStringEncodingUTF8));
+    }
+  
+    if (jailbreak) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv jailbreak 1", kCFStringEncodingUTF8));
+    }
+  
+    if (activate) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv activate 1", kCFStringEncodingUTF8));
+    }
+  
+    if (ierase) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv ierase 1", kCFStringEncodingUTF8));
+    }
+  
+    if (chimei) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, imei, kCFStringEncodingUTF8));
+    }
+  
+    if (!dfu && !normalmode) {
+      sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault,
+          "setenv boot-args rd=md0 -s pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
+    }
+  } else { // badtouch!
+    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv boot-args", kCFStringEncodingUTF8));
   }
-
-  if (bl39) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv bl39 1", kCFStringEncodingUTF8));
-  }
-
-  if (unlock) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv unlock 1", kCFStringEncodingUTF8));
-  }
-
-  if (jailbreak) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv jailbreak 1", kCFStringEncodingUTF8));
-  }
-
-  if (activate) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv activate 1", kCFStringEncodingUTF8));
-  }
-
-  if (ierase) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv ierase 1", kCFStringEncodingUTF8));
-  }
-
-  if (chimei) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, imei, kCFStringEncodingUTF8));
-  }
-
-  if (!dfu && !normalmode) {
-    sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault,
-        "setenv boot-args rd=md0 -s -x pmd0=0x09CC2000.0x0133D000", kCFStringEncodingUTF8));
-  }
-
+  
   if (!dfu) {
     sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "saveenv", kCFStringEncodingUTF8));
-  }
-
-  if (!dfu) {
     sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "fsboot", kCFStringEncodingUTF8));
   } else {
     sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "go", kCFStringEncodingUTF8));
@@ -434,6 +438,7 @@ void UsageAdvanced() {
   cout << "       -R: Enter Recovery Mode. (no real need now)" << endl;
   cout << "       -N: Exit Recovery Mode (normal boot)." << endl;
   cout << "       -C: Make coffee. (and relax!)" << endl;
+  cout << "       -k: Kick iTouch (after \"BSD root...\")" << endl; 
   cout << endl;
 }
 
@@ -469,6 +474,8 @@ bool parse_args(int argc, char *argv[]) {
         activate=true;
       } else if (argv[i][1]=='j') {
         jailbreak=true;
+      } else if (argv[i][1]=='k') {
+        badtouch=true;
       } else if (argv[i][1]=='C') {
         MakeCoffee();
       } else if (argv[i][1]=='i') {
