@@ -212,7 +212,7 @@ void Stage2(struct am_recovery_device *rdev) { // Booting in recovery mode
   sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setenv auto-boot true", kCFStringEncodingUTF8));
   
   sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "setpicture 0", kCFStringEncodingUTF8));
-  sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "bgcolor 0 64 0", kCFStringEncodingUTF8));
+  sendCommandToDevice(rdev, CFStringCreateWithCString(kCFAllocatorDefault, "bgcolor 0 0 64", kCFStringEncodingUTF8));
   
   if(!badtouch) {    
     if (!dfu) {
