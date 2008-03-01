@@ -1,4 +1,0 @@
-# Run this to make this file work: svn propset svn:ignore -F .svnignore .
-ConsoleResources
-build
-ZiPhoneOSX-*.tbz
