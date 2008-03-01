@@ -1,7 +1,0 @@
-# Run this to make this file work: svn propset svn:ignore -F .cvsignore .
-.project
-.cproject
-ziphone.ppc
-ziphone.i386
-Debug
-obj
